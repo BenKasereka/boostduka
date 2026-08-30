@@ -216,8 +216,39 @@ SUMX(
 - Les colonnes de type texte enum (`statut`, `devise`, `profil_prix`…) sont
   exportées telles quelles (valeurs Postgres) — créez des tables de traduction
   Power Query si vous voulez des libellés différents à l'affichage.
-- `evaluations_comparatives` / `evaluation_lignes` (feuilles de synthèse
-  comparative, module CBA) ne sont **pas** incluses dans cet export : elles
-  vivent en `localStorage` côté navigateur tant que Supabase n'est pas branché
-  en écriture (voir `.env.example`). Une fois Supabase actif, elles deviennent
-  exportables de la même façon que les autres tables.
+- `evaluations_comparatives` / `evaluation_articles` / `evaluation_lignes`
+  (feuilles de synthèse comparative, module CBA) ne sont **pas** incluses
+  dans cet export : elles vivent en `localStorage` côté navigateur tant que
+  Supabase n'est pas branché en écriture (voir `.env.example`). Une fois
+  Supabase actif, elles deviennent exportables de la même façon que les
+  autres tables.
+
+## 7. Publier sur Power BI Service
+
+Cette étape se fait entièrement dans Power BI Desktop, avec votre propre
+compte Microsoft/Power BI — c'est une action manuelle qui vous revient
+(ni un outil en ligne de commande, ni un identifiant que je dois manipuler).
+
+1. **Installer Power BI Desktop** (gratuit) depuis [powerbi.microsoft.com/desktop](https://www.microsoft.com/fr-fr/power-platform/products/power-bi/desktop) si ce n'est pas déjà fait.
+
+2. **Récupérer les données** — deux options :
+   - *Dataset fictif / démo* : ouvrez le module **Export Power BI** de l'application, cliquez « Télécharger toutes les tables », puis dans Power BI Desktop : `Accueil > Obtenir les données > Classeur Excel` et sélectionnez le fichier téléchargé (un onglet = une table).
+   - *Données réelles (Supabase branché)* : `Accueil > Obtenir les données > Base de données > PostgreSQL`, puis renseignez l'hôte/port/base de votre projet Supabase (Project Settings → Database, dans le tableau de bord Supabase). Cela permet une actualisation automatique plus tard.
+
+3. **Construire le modèle** — dans l'onglet *Modèle* de Power BI Desktop, recréez les relations listées en section 2 de ce document (glisser-déposer entre les colonnes clé/étrangère). Ajoutez la dimension Date (section 3) et la colonne calculée `prix_moyen_marche` (section 4).
+
+4. **Ajouter les mesures DAX** — `Modélisation > Nouvelle mesure`, puis copiez-collez chaque formule de la section 5 de ce document.
+
+5. **Construire les pages du rapport** — un découpage possible, calqué sur le Dashboard KPI de l'application :
+   - Page 1 — Vue d'ensemble (cartes KPI + tendance lead time)
+   - Page 2 — Sourcing & Award (fournisseurs consultés par catégorie, écart prix)
+   - Page 3 — Contrats-cadres & Livraison (jauge utilisation, échéances, taux à temps)
+   - Page 4 — Performance fournisseur & Financier (classement, exposition budgétaire)
+
+6. **Publier** — bouton `Accueil > Publier` (en haut à droite). Power BI Desktop vous demande de vous connecter à votre compte Microsoft/Power BI si ce n'est pas déjà fait, puis de choisir un **espace de travail** (workspace) de destination. Une fois publié, le rapport est disponible sur [app.powerbi.com](https://app.powerbi.com) sous votre compte.
+
+7. **Après publication** (dans Power BI Service, app.powerbi.com) :
+   - Si connecté à Supabase : configurez l'**actualisation planifiée** des données (`Paramètres du dataset > Actualisation planifiée`) — nécessite la passerelle de données locale si Supabase n'est pas dans la liste des connecteurs cloud natifs, ou un simple identifiant/mot de passe PostgreSQL si le connecteur cloud suffit.
+   - **Partager** le rapport via `Partager` (lien direct) ou l'intégrer à un espace de travail d'équipe.
+
+Cette dernière étape (installation, connexion, clic sur Publier) ne peut pas être automatisée depuis cet outil : Power BI Desktop est une application de bureau Windows, et la publication authentifie votre propre compte Microsoft — deux choses hors de portée d'un agent en ligne de commande, par conception.
