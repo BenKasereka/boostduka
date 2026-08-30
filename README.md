@@ -5,6 +5,8 @@
 
 Projet portfolio réalisé par [Ben Kasereka](https://benkasereka.github.io) dans le cadre d'une candidature au poste de **Procurement Manager — Intersection** chez MSF Niger.
 
+**Démo en ligne : [visiba-procurement-hub.vercel.app](https://visiba-procurement-hub.vercel.app/)**
+
 ---
 
 ## Contexte
