@@ -1,0 +1,56 @@
+[
+  {
+    "id": "96f35a01-5136-4441-be13-f2a21147a49e",
+    "nom_base": "Base VISIBA Kinshasa",
+    "province_id": 1,
+    "nom_responsable": "Guelord Kasongo",
+    "email_responsable": "guelord.kasongo@visiba-logistics.org",
+    "telephone_responsable": "+243924558532",
+    "date_ouverture_base": "2022-03-25"
+  },
+  {
+    "id": "b0a22519-635b-4723-b7e2-16906911682f",
+    "nom_base": "Base VISIBA Goma",
+    "province_id": 2,
+    "nom_responsable": "Clarisse Mukendi",
+    "email_responsable": "clarisse.mukendi@visiba-logistics.org",
+    "telephone_responsable": "+243896008248",
+    "date_ouverture_base": "2023-06-18"
+  },
+  {
+    "id": "849b35ab-b6ac-4eb3-8b52-b3b9ff7f3e8e",
+    "nom_base": "Base VISIBA Bukavu",
+    "province_id": 3,
+    "nom_responsable": "Serge Nkulu",
+    "email_responsable": "serge.nkulu@visiba-logistics.org",
+    "telephone_responsable": "+243957562987",
+    "date_ouverture_base": "2022-04-21"
+  },
+  {
+    "id": "771fd5d0-c0c0-450d-bdd1-2260c03031bb",
+    "nom_base": "Base VISIBA Lubumbashi",
+    "province_id": 4,
+    "nom_responsable": "Jean-Pierre Bakajika",
+    "email_responsable": "jean.pierre.bakajika@visiba-logistics.org",
+    "telephone_responsable": "+243959018433",
+    "date_ouverture_base": "2021-09-03"
+  },
+  {
+    "id": "8cba87e2-77e4-4f13-87db-4244b6412ba2",
+    "nom_base": "Base VISIBA Bunia",
+    "province_id": 5,
+    "nom_responsable": "Prisca Bofasa",
+    "email_responsable": "prisca.bofasa@visiba-logistics.org",
+    "telephone_responsable": "+243803677606",
+    "date_ouverture_base": "2023-06-05"
+  },
+  {
+    "id": "9ee41bc3-c21a-4fa1-a3ed-86f62b662e30",
+    "nom_base": "Base VISIBA Kananga",
+    "province_id": 6,
+    "nom_responsable": "Guelord Kazadi",
+    "email_responsable": "guelord.kazadi@visiba-logistics.org",
+    "telephone_responsable": "+243888268918",
+    "date_ouverture_base": "2023-05-05"
+  }
+]

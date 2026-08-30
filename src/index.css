@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased;
+  }
+}
+
+@layer components {
+  .kpi-card {
+    @apply bg-white rounded-lg border border-slate-200 shadow-sm p-4 flex flex-col gap-1;
+  }
+  .btn-primary {
+    @apply bg-marine-600 hover:bg-marine-700 text-white text-sm font-medium px-3 py-2 rounded-md transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-white hover:bg-slate-100 text-slate-700 text-sm font-medium px-3 py-2 rounded-md border border-slate-300 transition-colors;
+  }
+  .input-field {
+    @apply w-full text-sm border border-slate-300 rounded-md px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-marine-400 focus:border-transparent;
+  }
+  .table-th {
+    @apply text-left text-xs font-semibold uppercase tracking-wide text-slate-500 px-3 py-2 whitespace-nowrap;
+  }
+  .table-td {
+    @apply text-sm text-slate-700 px-3 py-2 whitespace-nowrap;
+  }
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+/* Impression "propre" : masque toute la navigation applicative, ne laisse
+   apparaitre que le contenu marque .printable-area (utilise par le CBA). */
+@media print {
+  @page {
+    margin: 15mm;
+  }
+  .no-print {
+    display: none !important;
+  }
+  html, body, #root {
+    height: auto !important;
+    overflow: visible !important;
+    background: white !important;
+  }
+  .app-shell-root, .app-main-scroll {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .app-main-scroll {
+    padding: 0 !important;
+  }
+  .printable-area {
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
+

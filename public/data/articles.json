@@ -1,0 +1,926 @@
+[
+  {
+    "id": 1,
+    "categorie_id": 1,
+    "nom_article": "Gants latex examen (boite 100)",
+    "unite_mesure": "boite"
+  },
+  {
+    "id": 2,
+    "categorie_id": 1,
+    "nom_article": "Seringues 5ml jetables",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 3,
+    "categorie_id": 1,
+    "nom_article": "Paracetamol 500mg (boite 1000cp)",
+    "unite_mesure": "boite"
+  },
+  {
+    "id": 4,
+    "categorie_id": 1,
+    "nom_article": "Kit de premiers secours complet",
+    "unite_mesure": "kit"
+  },
+  {
+    "id": 5,
+    "categorie_id": 1,
+    "nom_article": "Amoxicilline 500mg (boite 100cp)",
+    "unite_mesure": "boite"
+  },
+  {
+    "id": 6,
+    "categorie_id": 1,
+    "nom_article": "Solution de rehydratation orale (SRO)",
+    "unite_mesure": "sachet"
+  },
+  {
+    "id": 7,
+    "categorie_id": 1,
+    "nom_article": "Thermometre digital",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 8,
+    "categorie_id": 1,
+    "nom_article": "Compresses steriles",
+    "unite_mesure": "paquet"
+  },
+  {
+    "id": 9,
+    "categorie_id": 1,
+    "nom_article": "Alcool desinfectant 70% (1L)",
+    "unite_mesure": "litre"
+  },
+  {
+    "id": 10,
+    "categorie_id": 1,
+    "nom_article": "Masques chirurgicaux (boite 50)",
+    "unite_mesure": "boite"
+  },
+  {
+    "id": 11,
+    "categorie_id": 1,
+    "nom_article": "Sonde urinaire",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 12,
+    "categorie_id": 1,
+    "nom_article": "Kit accouchement propre",
+    "unite_mesure": "kit"
+  },
+  {
+    "id": 13,
+    "categorie_id": 1,
+    "nom_article": "Perfuseur IV",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 14,
+    "categorie_id": 1,
+    "nom_article": "Test de diagnostic rapide paludisme",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 15,
+    "categorie_id": 1,
+    "nom_article": "Glucometre + bandelettes",
+    "unite_mesure": "kit"
+  },
+  {
+    "id": 16,
+    "categorie_id": 2,
+    "nom_article": "Pastilles de purification d'eau",
+    "unite_mesure": "boite"
+  },
+  {
+    "id": 17,
+    "categorie_id": 2,
+    "nom_article": "Bidon plastique 20L",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 18,
+    "categorie_id": 2,
+    "nom_article": "Savon de menage (barre 200g)",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 19,
+    "categorie_id": 2,
+    "nom_article": "Filtre a eau ceramique",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 20,
+    "categorie_id": 2,
+    "nom_article": "Chlore liquide (bidon 5L)",
+    "unite_mesure": "bidon"
+  },
+  {
+    "id": 21,
+    "categorie_id": 2,
+    "nom_article": "Kit hygiene familial",
+    "unite_mesure": "kit"
+  },
+  {
+    "id": 22,
+    "categorie_id": 2,
+    "nom_article": "Latrine mobile prefabriquee",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 23,
+    "categorie_id": 2,
+    "nom_article": "Seau plastique 15L avec couvercle",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 24,
+    "categorie_id": 2,
+    "nom_article": "Reservoir souple 5000L",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 25,
+    "categorie_id": 2,
+    "nom_article": "Tuyau PVC 1 pouce (rouleau 50m)",
+    "unite_mesure": "rouleau"
+  },
+  {
+    "id": 26,
+    "categorie_id": 2,
+    "nom_article": "Pompe manuelle a eau",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 27,
+    "categorie_id": 2,
+    "nom_article": "Savon liquide desinfectant (5L)",
+    "unite_mesure": "bidon"
+  },
+  {
+    "id": 28,
+    "categorie_id": 3,
+    "nom_article": "Bache plastique renforcee 4x6m",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 29,
+    "categorie_id": 3,
+    "nom_article": "Couverture en laine",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 30,
+    "categorie_id": 3,
+    "nom_article": "Natte de couchage",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 31,
+    "categorie_id": 3,
+    "nom_article": "Moustiquaire impregnee",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 32,
+    "categorie_id": 3,
+    "nom_article": "Kit de cuisine familial",
+    "unite_mesure": "kit"
+  },
+  {
+    "id": 33,
+    "categorie_id": 3,
+    "nom_article": "Jerrican pliable 10L",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 34,
+    "categorie_id": 3,
+    "nom_article": "Lampe solaire portable",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 35,
+    "categorie_id": 3,
+    "nom_article": "Tente familiale",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 36,
+    "categorie_id": 3,
+    "nom_article": "Kit dignite (hygiene feminine)",
+    "unite_mesure": "kit"
+  },
+  {
+    "id": 37,
+    "categorie_id": 3,
+    "nom_article": "Set de vaisselle plastique",
+    "unite_mesure": "set"
+  },
+  {
+    "id": 38,
+    "categorie_id": 4,
+    "nom_article": "Gasoil (litre)",
+    "unite_mesure": "litre"
+  },
+  {
+    "id": 39,
+    "categorie_id": 4,
+    "nom_article": "Essence sans plomb (litre)",
+    "unite_mesure": "litre"
+  },
+  {
+    "id": 40,
+    "categorie_id": 4,
+    "nom_article": "Petrole lampant (litre)",
+    "unite_mesure": "litre"
+  },
+  {
+    "id": 41,
+    "categorie_id": 4,
+    "nom_article": "Gaz butane (bouteille 12kg)",
+    "unite_mesure": "bouteille"
+  },
+  {
+    "id": 42,
+    "categorie_id": 4,
+    "nom_article": "Bidon carburant 200L",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 43,
+    "categorie_id": 4,
+    "nom_article": "Huile moteur 20W50 (5L)",
+    "unite_mesure": "bidon"
+  },
+  {
+    "id": 44,
+    "categorie_id": 4,
+    "nom_article": "Panneau solaire 150W",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 45,
+    "categorie_id": 4,
+    "nom_article": "Batterie solaire 100Ah",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 46,
+    "categorie_id": 4,
+    "nom_article": "Filtre a carburant",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 47,
+    "categorie_id": 4,
+    "nom_article": "Pompe a carburant manuelle",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 48,
+    "categorie_id": 5,
+    "nom_article": "Batterie vehicule 12V 75Ah",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 49,
+    "categorie_id": 5,
+    "nom_article": "Pneu 4x4 235/85 R16",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 50,
+    "categorie_id": 5,
+    "nom_article": "Plaquettes de frein (jeu)",
+    "unite_mesure": "jeu"
+  },
+  {
+    "id": 51,
+    "categorie_id": 5,
+    "nom_article": "Filtre a huile",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 52,
+    "categorie_id": 5,
+    "nom_article": "Filtre a air",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 53,
+    "categorie_id": 5,
+    "nom_article": "Courroie de distribution",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 54,
+    "categorie_id": 5,
+    "nom_article": "Amortisseur avant",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 55,
+    "categorie_id": 5,
+    "nom_article": "Radiateur moteur",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 56,
+    "categorie_id": 5,
+    "nom_article": "Kit embrayage",
+    "unite_mesure": "kit"
+  },
+  {
+    "id": 57,
+    "categorie_id": 5,
+    "nom_article": "Ampoule phare 12V",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 58,
+    "categorie_id": 6,
+    "nom_article": "Ordinateur portable standard",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 59,
+    "categorie_id": 6,
+    "nom_article": "Routeur Wi-Fi",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 60,
+    "categorie_id": 6,
+    "nom_article": "Modem satellite VSAT",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 61,
+    "categorie_id": 6,
+    "nom_article": "Radio VHF portable",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 62,
+    "categorie_id": 6,
+    "nom_article": "Disque dur externe 1To",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 63,
+    "categorie_id": 6,
+    "nom_article": "Onduleur 650VA",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 64,
+    "categorie_id": 6,
+    "nom_article": "Cable reseau UTP (rouleau 300m)",
+    "unite_mesure": "rouleau"
+  },
+  {
+    "id": 65,
+    "categorie_id": 6,
+    "nom_article": "Imprimante multifonction",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 66,
+    "categorie_id": 6,
+    "nom_article": "Carte SIM data professionnelle",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 67,
+    "categorie_id": 6,
+    "nom_article": "Camera de videosurveillance",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 68,
+    "categorie_id": 7,
+    "nom_article": "Ciment (sac 50kg)",
+    "unite_mesure": "sac"
+  },
+  {
+    "id": 69,
+    "categorie_id": 7,
+    "nom_article": "Fer a beton 12mm (barre 12m)",
+    "unite_mesure": "barre"
+  },
+  {
+    "id": 70,
+    "categorie_id": 7,
+    "nom_article": "Tole ondulee galvanisee",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 71,
+    "categorie_id": 7,
+    "nom_article": "Sable de construction (m3)",
+    "unite_mesure": "m3"
+  },
+  {
+    "id": 72,
+    "categorie_id": 7,
+    "nom_article": "Gravier (m3)",
+    "unite_mesure": "m3"
+  },
+  {
+    "id": 73,
+    "categorie_id": 7,
+    "nom_article": "Brique cuite",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 74,
+    "categorie_id": 7,
+    "nom_article": "Peinture batiment (20L)",
+    "unite_mesure": "bidon"
+  },
+  {
+    "id": 75,
+    "categorie_id": 7,
+    "nom_article": "Contreplaque 18mm",
+    "unite_mesure": "planche"
+  },
+  {
+    "id": 76,
+    "categorie_id": 7,
+    "nom_article": "Clous de construction (kg)",
+    "unite_mesure": "kg"
+  },
+  {
+    "id": 77,
+    "categorie_id": 7,
+    "nom_article": "Tuyau PVC evacuation 100mm",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 78,
+    "categorie_id": 8,
+    "nom_article": "Groupe electrogene 10kVA",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 79,
+    "categorie_id": 8,
+    "nom_article": "Groupe electrogene 25kVA",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 80,
+    "categorie_id": 8,
+    "nom_article": "Groupe electrogene 60kVA",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 81,
+    "categorie_id": 8,
+    "nom_article": "Cable electrique 3x2.5mm (rouleau)",
+    "unite_mesure": "rouleau"
+  },
+  {
+    "id": 82,
+    "categorie_id": 8,
+    "nom_article": "Disjoncteur 63A",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 83,
+    "categorie_id": 8,
+    "nom_article": "Kit maintenance groupe electrogene",
+    "unite_mesure": "kit"
+  },
+  {
+    "id": 84,
+    "categorie_id": 8,
+    "nom_article": "Regulateur de tension AVR",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 85,
+    "categorie_id": 8,
+    "nom_article": "Cable de terre cuivre (rouleau)",
+    "unite_mesure": "rouleau"
+  },
+  {
+    "id": 86,
+    "categorie_id": 8,
+    "nom_article": "Prise industrielle 32A",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 87,
+    "categorie_id": 8,
+    "nom_article": "Compteur horaire groupe electrogene",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 88,
+    "categorie_id": 9,
+    "nom_article": "Farine de mais fortifiee (sac 25kg)",
+    "unite_mesure": "sac"
+  },
+  {
+    "id": 89,
+    "categorie_id": 9,
+    "nom_article": "Huile vegetale (bidon 5L)",
+    "unite_mesure": "bidon"
+  },
+  {
+    "id": 90,
+    "categorie_id": 9,
+    "nom_article": "Haricots secs (sac 50kg)",
+    "unite_mesure": "sac"
+  },
+  {
+    "id": 91,
+    "categorie_id": 9,
+    "nom_article": "Riz blanc (sac 50kg)",
+    "unite_mesure": "sac"
+  },
+  {
+    "id": 92,
+    "categorie_id": 9,
+    "nom_article": "Sel iode (sac 25kg)",
+    "unite_mesure": "sac"
+  },
+  {
+    "id": 93,
+    "categorie_id": 9,
+    "nom_article": "Plumpy'nut (carton 150 sachets)",
+    "unite_mesure": "carton"
+  },
+  {
+    "id": 94,
+    "categorie_id": 9,
+    "nom_article": "Lait therapeutique F-100 (boite)",
+    "unite_mesure": "boite"
+  },
+  {
+    "id": 95,
+    "categorie_id": 9,
+    "nom_article": "Sucre (sac 50kg)",
+    "unite_mesure": "sac"
+  },
+  {
+    "id": 96,
+    "categorie_id": 9,
+    "nom_article": "Sardines en conserve (carton 50)",
+    "unite_mesure": "carton"
+  },
+  {
+    "id": 97,
+    "categorie_id": 10,
+    "nom_article": "Casque de chantier",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 98,
+    "categorie_id": 10,
+    "nom_article": "Gants de manutention cuir",
+    "unite_mesure": "paire"
+  },
+  {
+    "id": 99,
+    "categorie_id": 10,
+    "nom_article": "Chaussures de securite S3",
+    "unite_mesure": "paire"
+  },
+  {
+    "id": 100,
+    "categorie_id": 10,
+    "nom_article": "Gilet reflechissant",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 101,
+    "categorie_id": 10,
+    "nom_article": "Lunettes de protection",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 102,
+    "categorie_id": 10,
+    "nom_article": "Combinaison de protection",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 103,
+    "categorie_id": 10,
+    "nom_article": "Masque anti-poussiere FFP2",
+    "unite_mesure": "boite"
+  },
+  {
+    "id": 104,
+    "categorie_id": 10,
+    "nom_article": "Harnais de securite",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 105,
+    "categorie_id": 10,
+    "nom_article": "Bouchons d'oreille (boite)",
+    "unite_mesure": "boite"
+  },
+  {
+    "id": 106,
+    "categorie_id": 11,
+    "nom_article": "Bureau de travail metallique",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 107,
+    "categorie_id": 11,
+    "nom_article": "Chaise de bureau",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 108,
+    "categorie_id": 11,
+    "nom_article": "Armoire metallique 2 portes",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 109,
+    "categorie_id": 11,
+    "nom_article": "Table de reunion",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 110,
+    "categorie_id": 11,
+    "nom_article": "Ramette papier A4 (80g)",
+    "unite_mesure": "ramette"
+  },
+  {
+    "id": 111,
+    "categorie_id": 11,
+    "nom_article": "Classeur a levier",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 112,
+    "categorie_id": 11,
+    "nom_article": "Cartouche imprimante",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 113,
+    "categorie_id": 11,
+    "nom_article": "Chaise pliante plastique",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 114,
+    "categorie_id": 11,
+    "nom_article": "Container de rangement metallique",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 115,
+    "categorie_id": 12,
+    "nom_article": "Transport routier 1 tonne / 100km",
+    "unite_mesure": "forfait"
+  },
+  {
+    "id": 116,
+    "categorie_id": 12,
+    "nom_article": "Location camion 10 tonnes / jour",
+    "unite_mesure": "jour"
+  },
+  {
+    "id": 117,
+    "categorie_id": 12,
+    "nom_article": "Transit portuaire (conteneur 20 pieds)",
+    "unite_mesure": "conteneur"
+  },
+  {
+    "id": 118,
+    "categorie_id": 12,
+    "nom_article": "Transport aerien humanitaire (kg)",
+    "unite_mesure": "kg"
+  },
+  {
+    "id": 119,
+    "categorie_id": 12,
+    "nom_article": "Location vehicule 4x4 / jour",
+    "unite_mesure": "jour"
+  },
+  {
+    "id": 120,
+    "categorie_id": 12,
+    "nom_article": "Manutention entrepot (tonne)",
+    "unite_mesure": "tonne"
+  },
+  {
+    "id": 121,
+    "categorie_id": 12,
+    "nom_article": "Assurance cargo (par expedition)",
+    "unite_mesure": "expedition"
+  },
+  {
+    "id": 122,
+    "categorie_id": 12,
+    "nom_article": "Palette bois standard",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 123,
+    "categorie_id": 12,
+    "nom_article": "Sangle d'arrimage",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 124,
+    "categorie_id": 12,
+    "nom_article": "Bache de protection cargo",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 125,
+    "categorie_id": 13,
+    "nom_article": "Uniforme agent de terrain (set)",
+    "unite_mesure": "set"
+  },
+  {
+    "id": 126,
+    "categorie_id": 13,
+    "nom_article": "Tissu wax (piece 6 yards)",
+    "unite_mesure": "piece"
+  },
+  {
+    "id": 127,
+    "categorie_id": 13,
+    "nom_article": "Bache de tente (m2)",
+    "unite_mesure": "m2"
+  },
+  {
+    "id": 128,
+    "categorie_id": 13,
+    "nom_article": "Sac de couchage",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 129,
+    "categorie_id": 13,
+    "nom_article": "Chemise professionnelle",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 130,
+    "categorie_id": 13,
+    "nom_article": "Veste de pluie impermeable",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 131,
+    "categorie_id": 13,
+    "nom_article": "Casquette brodee logo",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 132,
+    "categorie_id": 13,
+    "nom_article": "Bottes en caoutchouc",
+    "unite_mesure": "paire"
+  },
+  {
+    "id": 133,
+    "categorie_id": 13,
+    "nom_article": "Chapeau de brousse",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 134,
+    "categorie_id": 13,
+    "nom_article": "Sous-vetements thermiques",
+    "unite_mesure": "set"
+  },
+  {
+    "id": 135,
+    "categorie_id": 14,
+    "nom_article": "Groupe de forage manuel",
+    "unite_mesure": "kit"
+  },
+  {
+    "id": 136,
+    "categorie_id": 14,
+    "nom_article": "Boite a outils complete",
+    "unite_mesure": "kit"
+  },
+  {
+    "id": 137,
+    "categorie_id": 14,
+    "nom_article": "Generateur portable essence 2kVA",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 138,
+    "categorie_id": 14,
+    "nom_article": "Pompe a eau motorisee",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 139,
+    "categorie_id": 14,
+    "nom_article": "Perceuse electrique",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 140,
+    "categorie_id": 14,
+    "nom_article": "Echelle aluminium 6m",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 141,
+    "categorie_id": 14,
+    "nom_article": "Brouette de chantier",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 142,
+    "categorie_id": 14,
+    "nom_article": "Groupe soudure portable",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 143,
+    "categorie_id": 14,
+    "nom_article": "Cle a molette set",
+    "unite_mesure": "set"
+  },
+  {
+    "id": 144,
+    "categorie_id": 14,
+    "nom_article": "Niveau a bulle",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 145,
+    "categorie_id": 15,
+    "nom_article": "Eau de javel (bidon 5L)",
+    "unite_mesure": "bidon"
+  },
+  {
+    "id": 146,
+    "categorie_id": 15,
+    "nom_article": "Detergent en poudre (sac 5kg)",
+    "unite_mesure": "sac"
+  },
+  {
+    "id": 147,
+    "categorie_id": 15,
+    "nom_article": "Papier toilette (carton 48 rouleaux)",
+    "unite_mesure": "carton"
+  },
+  {
+    "id": 148,
+    "categorie_id": 15,
+    "nom_article": "Gel hydroalcoolique (500ml)",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 149,
+    "categorie_id": 15,
+    "nom_article": "Balai + serpillere kit",
+    "unite_mesure": "kit"
+  },
+  {
+    "id": 150,
+    "categorie_id": 15,
+    "nom_article": "Poubelle avec couvercle 60L",
+    "unite_mesure": "unite"
+  },
+  {
+    "id": 151,
+    "categorie_id": 15,
+    "nom_article": "Gants menagers (paire)",
+    "unite_mesure": "paire"
+  },
+  {
+    "id": 152,
+    "categorie_id": 15,
+    "nom_article": "Desinfectant surfaces (5L)",
+    "unite_mesure": "bidon"
+  },
+  {
+    "id": 153,
+    "categorie_id": 15,
+    "nom_article": "Chiffons de nettoyage (paquet)",
+    "unite_mesure": "paquet"
+  },
+  {
+    "id": 154,
+    "categorie_id": 15,
+    "nom_article": "Desodorisant sanitaire",
+    "unite_mesure": "unite"
+  }
+]

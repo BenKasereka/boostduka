@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nom_categorie": "Medical / PharMed"
+  },
+  {
+    "id": 2,
+    "nom_categorie": "WASH (Eau-Hygiene-Assainissement)"
+  },
+  {
+    "id": 3,
+    "nom_categorie": "NFI (Biens non-alimentaires)"
+  },
+  {
+    "id": 4,
+    "nom_categorie": "Carburant / Energie"
+  },
+  {
+    "id": 5,
+    "nom_categorie": "Pieces detachees vehicules"
+  },
+  {
+    "id": 6,
+    "nom_categorie": "IT / Telecommunications"
+  },
+  {
+    "id": 7,
+    "nom_categorie": "Materiaux de construction"
+  },
+  {
+    "id": 8,
+    "nom_categorie": "Groupes electrogenes"
+  },
+  {
+    "id": 9,
+    "nom_categorie": "Alimentaire / Nutrition"
+  },
+  {
+    "id": 10,
+    "nom_categorie": "EPI (Equipement protection individuelle)"
+  },
+  {
+    "id": 11,
+    "nom_categorie": "Mobilier / Bureau"
+  },
+  {
+    "id": 12,
+    "nom_categorie": "Transport / Freight"
+  },
+  {
+    "id": 13,
+    "nom_categorie": "Textile / Uniformes"
+  },
+  {
+    "id": 14,
+    "nom_categorie": "Outillage / Equipement technique"
+  },
+  {
+    "id": 15,
+    "nom_categorie": "Produits d'hygiene / Nettoyage"
+  }
+]

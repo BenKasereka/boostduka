@@ -1,0 +1,121 @@
+id,nom,province_id,province_nom,ville,conditions_paiement,statut,score_fiabilite,date_dernier_evaluation,profil_prix,email_contact,telephone_contact,date_enregistrement
+bcef24c6-df09-4eb1-8411-4e12b1a13656,Esengo Logistics,2,Nord-Kivu,Goma,Net 60,actif,34.59,2026-07-02,economique,contact@esengologistics.cd,+243896869093,2024-01-30
+b9debdd1-8a0d-488e-a2dc-2295ba172d78,Mont Ngaliema Enterprises,4,Haut-Katanga,Lubumbashi,30% avance / 70% a 30 jours,blackliste,78.19,2026-03-22,standard,contact@montngaliemaenterprises.cd,+243836335938,2020-10-24
+02857299-d632-4a25-bd98-5c418a5d0c33,Lokole Multiservices,1,Kinshasa,Kinshasa - Ngaliema,Paiement comptant a la livraison,actif,96.56,2026-03-15,premium,contact@lokolemultiservices.cd,+243908065632,2022-11-30
+0bb9d0a1-104e-4f05-bfe0-ee16ba2e1fd0,Nzuri Distribution,2,Nord-Kivu,Goma,Net 30,actif,32.48,2026-07-22,economique,contact@nzuridistribution.cd,+243827728521,2024-05-14
+1e099a0a-dd20-4ad3-a12d-1a26dc51ee09,Boyoma Logistics,5,Ituri,Bunia,50% avance / 50% a la livraison,actif,64.27,2026-06-21,standard,contact@boyomalogistics.cd,+243838882730,2022-08-07
+9232fc38-2b55-4ee5-801b-a1266de99c9c,Amani Services SARL,4,Haut-Katanga,Kasumbalesa,Net 45,actif,53.29,2025-12-24,economique,contact@amaniservicessarl.cd,+243956172010,2024-05-15
+5f660542-de36-4e88-b441-cc0ebd02ed82,Nzuri General Merchandise,3,Sud-Kivu,Bukavu,Net 60,actif,84.57,2026-01-29,standard,contact@nzurigeneralmerchandise.cd,+243841712438,2021-08-25
+a6c540a3-1186-4b1f-953d-5065e93d8e3f,Zamani Import-Export,5,Ituri,Aru,Net 60,actif,66.27,2026-02-01,standard,contact@zamaniimportexport.cd,+243892151938,2021-08-01
+d481bc52-8eec-49bb-b661-3445c0841280,Congo Group SARL,4,Haut-Katanga,Likasi,50% avance / 50% a la livraison,actif,67.24,2026-01-26,standard,contact@congogroupsarl.cd,+243877266220,2024-01-14
+09783d04-3139-4880-9f77-34f464aaef93,Congo Trading SPRL,3,Sud-Kivu,Kamituga,Net 45,actif,94.03,2025-11-15,premium,contact@congotradingsprl.cd,+243962729348,2025-01-01
+1c378fa2-4385-4567-81c8-ec21a7432ae7,Zamani Business Group,5,Ituri,Mahagi,Net 45,actif,69.75,2025-11-24,economique,contact@zamanibusinessgroup.cd,+243947970252,2023-02-14
+756158e3-d940-488e-8a3b-62b1b787e6a1,Nzuri Import-Export,2,Nord-Kivu,Butembo,Net 45,actif,62.12,2026-05-21,standard,contact@nzuriimportexport.cd,+243911362109,2021-05-08
+0f43061b-39dc-4285-821e-d8c2b92478b7,Zamani Enterprises,2,Nord-Kivu,Goma,30% avance / 70% a 30 jours,actif,87.47,2026-04-09,standard,contact@zamanienterprises.cd,+243854096006,2020-03-23
+379ac46a-298e-4b67-ad9b-631812700de2,Malaika Commercial House,4,Haut-Katanga,Likasi,Net 45,actif,49.83,2025-11-06,economique,contact@malaikacommercialhouse.cd,+243842078995,2024-08-05
+e12e5555-69c9-4d7a-8fb3-b415fc76244b,Mbote Trading SPRL,3,Sud-Kivu,Uvira,Net 60,blackliste,71.32,2026-06-02,standard,contact@mbotetradingsprl.cd,+243863891504,2023-07-09
+e755b612-e00c-45df-b999-81b5a61f1d11,Nzuri Freight & Supply,1,Kinshasa,Kinshasa - Gombe,Net 60,actif,59.75,2026-04-30,standard,contact@nzurifreightsupply.cd,+243842834249,2023-12-10
+c7bfd43b-3944-4771-a27f-9f227b76b0ee,Uzima Commercial House,1,Kinshasa,Kinshasa - Limete,Net 30 apres reception facture,actif,67.04,2026-03-05,economique,contact@uzimacommercialhouse.cd,+243882228522,2022-03-01
+5b2aa3d2-e3a3-42dc-9fc0-5f8653da0fe2,Mbote Freight & Supply,1,Kinshasa,Kinshasa,50% avance / 50% a la livraison,actif,78.05,2026-05-02,premium,contact@mbotefreightsupply.cd,+243834166388,2022-05-18
+593fa40b-f51a-4095-82e1-a72af438c7aa,Bakuba Services SARL,6,Kasai-Central,Tshikapa,Net 60,actif,68.34,2026-04-13,standard,contact@bakubaservicessarl.cd,+243881854042,2023-10-29
+69f9e776-b172-4deb-83d3-fe1f78aed81d,Tembo Logistics,4,Haut-Katanga,Lubumbashi,Paiement comptant a la livraison,actif,76.05,2025-11-07,standard,contact@tembologistics.cd,+243832970241,2022-12-30
+163133d0-5e97-4fc1-b7e6-0c4ec64ec0d5,Bomoko General Merchandise,3,Sud-Kivu,Kamituga,50% avance / 50% a la livraison,actif,62.54,2026-04-26,standard,contact@bomokogeneralmerchandise.cd,+243978973282,2022-01-28
+c017b6db-22cc-4a34-9dfe-ac68b865efca,Tembo Group SARL,6,Kasai-Central,Kananga,Net 30,suspendu,74.52,2026-04-08,standard,contact@tembogroupsarl.cd,+243914141174,2024-11-07
+2d6b8127-c234-4d58-b6b0-d83430e87f66,Ruwenzori Freight & Supply,2,Nord-Kivu,Beni,Net 30,actif,88.72,2026-05-15,premium,contact@ruwenzorifreightsupply.cd,+243895771873,2020-04-06
+571f7bac-9006-451b-9b1d-ae737531e8ff,Virunga Distribution,6,Kasai-Central,Kananga,Net 30 apres reception facture,actif,65.44,2026-08-01,standard,contact@virungadistribution.cd,+243967242398,2025-04-17
+d45b315f-a1a9-4e8d-9b16-2504d71fda5a,Esengo Commercial House,2,Nord-Kivu,Butembo,Net 45,actif,71.23,2026-07-19,standard,contact@esengocommercialhouse.cd,+243817418120,2022-11-11
+40a7f09f-8a0a-4ac4-a6dd-75150b3ee8f2,Boyoma Business Group,3,Sud-Kivu,Bukavu,Net 30 apres reception facture,suspendu,38.59,2026-05-08,economique,contact@boyomabusinessgroup.cd,+243864135771,2020-04-15
+8fd8fe71-ee02-4bcb-8df4-4fe7b861ae03,Bonsomi Trading SPRL,1,Kinshasa,Kinshasa - Gombe,30% avance / 70% a 30 jours,actif,58.8,2026-05-20,economique,contact@bonsomitradingsprl.cd,+243934142008,2023-10-26
+f634c1e3-e0ef-419c-adee-8b3c9a9caa11,Tembo Enterprises,6,Kasai-Central,Luiza,Net 60,actif,80.13,2026-06-21,premium,contact@temboenterprises.cd,+243844834158,2021-03-17
+fbd959d8-a924-4040-8652-94e4ba203e16,Bomoko Import-Export,6,Kasai-Central,Kananga,Paiement comptant a la livraison,actif,80.32,2026-06-13,standard,contact@bomokoimportexport.cd,+243926649863,2020-05-16
+36c46e04-c0c5-469f-8be5-11c4c4c1f848,Mbote Supply Co,3,Sud-Kivu,Uvira,30% avance / 70% a 30 jours,actif,60.51,2026-03-17,standard,contact@mbotesupplyco.cd,+243981365856,2020-08-24
+ff5755d9-ecd6-4fce-b5f5-20112cbcf341,Simba Group SARL,2,Nord-Kivu,Goma,Net 45,actif,88.42,2026-04-28,premium,contact@simbagroupsarl.cd,+243987523341,2021-11-28
+39d5a3bb-144e-4f98-b5f6-3494a3bc43e5,Mont Ngaliema Multiservices,3,Sud-Kivu,Uvira,Net 60,actif,57.51,2026-02-15,standard,contact@montngaliemamultiservices.cd,+243978798838,2022-04-19
+3fb3a64d-4d2a-413f-bd1c-bdacc62b7975,Bakuba Freight & Supply,1,Kinshasa,Kinshasa - Gombe,Paiement comptant a la livraison,actif,32.97,2026-01-18,economique,contact@bakubafreightsupply.cd,+243941362832,2020-03-24
+c4b43574-b1e9-4a9e-8a37-72f7bc3906b3,Boyoma & Fils,1,Kinshasa,Kinshasa - Ngaliema,Net 30,actif,60.5,2026-03-15,standard,contact@boyomafils.cd,+243968156018,2024-02-25
+4f27fb11-f00f-4539-aad0-899c2b0c6433,Congo Services SARL,3,Sud-Kivu,Kamituga,Paiement comptant a la livraison,actif,67.28,2026-05-30,standard,contact@congoservicessarl.cd,+243903159189,2023-03-20
+bc29f9bf-cb66-4b05-b9fb-2052d83ab07a,Kasai Freight & Supply,5,Ituri,Bunia,Paiement comptant a la livraison,actif,59.42,2026-05-27,economique,contact@kasaifreightsupply.cd,+243979809211,2023-06-17
+56536abe-446b-4c1f-b944-9984c22cfbd4,Uzima Distribution,6,Kasai-Central,Tshikapa,30% avance / 70% a 30 jours,actif,48.95,2026-02-20,economique,contact@uzimadistribution.cd,+243895486278,2025-06-16
+e033e357-3f3e-4cb4-9c31-4a7ac78191b4,Virunga Services SARL,2,Nord-Kivu,Goma,Net 30,actif,72.09,2026-03-18,standard,contact@virungaservicessarl.cd,+243955546193,2021-11-02
+d2cd9d4f-8617-4e5a-9426-ea59fd04b570,Bonsomi Enterprises,1,Kinshasa,Kinshasa - Ngaliema,Paiement comptant a la livraison,actif,66.58,2026-06-14,economique,contact@bonsomienterprises.cd,+243906862490,2024-12-20
+886c09a9-12c4-40fe-9ffd-6a5c0a40c71c,Salongo Services SARL,6,Kasai-Central,Tshikapa,Net 30,actif,63.47,2026-01-30,standard,contact@salongoservicessarl.cd,+243988508668,2022-02-06
+ccf17061-0cda-4ba0-8b02-d0c09b734aa6,Lokole Freight & Supply,1,Kinshasa,Kinshasa,Net 30 apres reception facture,actif,76.62,2025-11-23,standard,contact@lokolefreightsupply.cd,+243849544415,2025-01-02
+66e82ad3-ff93-47e1-b790-a30b59c59213,Bakuba Business Group,4,Haut-Katanga,Kasumbalesa,50% avance / 50% a la livraison,actif,65.65,2026-03-06,standard,contact@bakubabusinessgroup.cd,+243838749045,2021-02-19
+3bcc0758-fd08-47fc-a143-4e6ee0ecf752,Kasai Business Group,4,Haut-Katanga,Lubumbashi,30% avance / 70% a 30 jours,actif,63.37,2026-02-23,standard,contact@kasaibusinessgroup.cd,+243909348073,2020-08-12
+28b193b4-ef99-4f24-9591-dcbb9bafd8b3,Virunga Logistics,3,Sud-Kivu,Bukavu,50% avance / 50% a la livraison,blackliste,70.14,2026-07-09,standard,contact@virungalogistics.cd,+243932412900,2022-12-29
+c60a0aa4-3a5d-44b8-8b6c-869b851cb82d,Malaika Freight & Supply,2,Nord-Kivu,Goma,30% avance / 70% a 30 jours,actif,61.1,2026-05-20,standard,contact@malaikafreightsupply.cd,+243851367806,2022-04-13
+d528bb24-fdb7-452f-9031-935e4021897b,Bakuba Group SARL,4,Haut-Katanga,Likasi,Net 30,actif,72.32,2026-02-12,economique,contact@bakubagroupsarl.cd,+243999643385,2020-04-01
+f3b095b7-2a17-4c3b-9121-de9d53c2fdb3,Simba Freight & Supply,3,Sud-Kivu,Uvira,Net 45,actif,59.14,2026-01-08,standard,contact@simbafreightsupply.cd,+243935921670,2024-04-28
+671a153c-69db-4727-981d-9cbd2830ce91,Zamani Logistics,1,Kinshasa,Kinshasa - Limete,50% avance / 50% a la livraison,actif,62.32,2026-02-26,standard,contact@zamanilogistics.cd,+243821507098,2023-03-29
+b2d33609-0746-4564-8259-5aafc6fefe39,Congo Business Group,1,Kinshasa,Kinshasa - Ngaliema,Net 45,actif,65.82,2026-03-27,standard,contact@congobusinessgroup.cd,+243947907830,2025-01-05
+4053b0ab-cb04-46d1-95e9-aed887cc93a2,Kasai Services SARL,4,Haut-Katanga,Lubumbashi,Net 30,actif,87.8,2026-05-03,standard,contact@kasaiservicessarl.cd,+243993906159,2020-12-21
+655629f7-7449-4a0d-990f-1bd61a038acb,Lualaba Business Group,5,Ituri,Bunia,Net 30 apres reception facture,actif,78.55,2026-02-10,premium,contact@lualababusinessgroup.cd,+243995154346,2021-05-31
+72e73095-75bf-4398-b847-08e9168df589,Fleuve Freight & Supply,1,Kinshasa,Kinshasa,Net 60,actif,62.77,2026-01-29,standard,contact@fleuvefreightsupply.cd,+243981611105,2023-08-21
+029ef2d7-b2d9-484e-8221-0fcf90c2eea8,Nzuri Supply Co,1,Kinshasa,Kinshasa,Net 60,actif,89.01,2026-07-20,premium,contact@nzurisupplyco.cd,+243864948297,2023-03-05
+fb8eb5be-392a-48ed-be4f-fbe83bbdfc51,Mont Ngaliema Import-Export,3,Sud-Kivu,Bukavu,Net 30,suspendu,77.57,2026-06-06,standard,contact@montngaliemaimportexport.cd,+243933233302,2020-10-26
+a28fb1d2-1432-45d8-9a1e-84c96becae77,Uzima Logistics,5,Ituri,Aru,30% avance / 70% a 30 jours,actif,74.86,2026-07-22,standard,contact@uzimalogistics.cd,+243911987069,2020-08-13
+b6784bf6-2af7-45cf-a541-f662b70f9641,Tembo Commercial House,6,Kasai-Central,Kananga,Paiement comptant a la livraison,actif,85.91,2026-04-20,standard,contact@tembocommercialhouse.cd,+243825214583,2023-07-03
+854658bb-c232-4f71-aa6c-9df7715c0191,Katanga Plus Group SARL,1,Kinshasa,Kinshasa,Net 60,actif,39.57,2026-06-07,economique,contact@katangaplusgroupsarl.cd,+243918942977,2024-10-04
+3615848a-a900-4305-a1e9-0546049b045d,Lomami Trading Co,5,Ituri,Aru,Net 30,actif,77.07,2026-06-08,premium,contact@lomamitradingco.cd,+243803191430,2020-03-13
+570fe43c-4ebf-489c-a30b-13f2e5564ce5,Mbote Services SARL,5,Ituri,Bunia,Net 30,actif,58.43,2025-11-13,economique,contact@mboteservicessarl.cd,+243855503466,2025-02-27
+8ec728c1-755b-4f37-a782-0445bad7f47c,Ruwenzori Commercial House,1,Kinshasa,Kinshasa,Paiement comptant a la livraison,actif,57.49,2025-12-12,economique,contact@ruwenzoricommercialhouse.cd,+243861113690,2022-09-04
+bce6ab85-aa34-4f0a-bb51-6d5555c4f3c9,Lokole Business Group,2,Nord-Kivu,Goma,Net 45,actif,49.66,2026-07-20,economique,contact@lokolebusinessgroup.cd,+243974641716,2021-03-14
+d303459d-1799-496c-a354-9d20c21f8675,Uzima Freight & Supply,5,Ituri,Bunia,Paiement comptant a la livraison,actif,76.98,2026-03-18,standard,contact@uzimafreightsupply.cd,+243952018643,2023-11-29
+df297d5b-2b5b-4f9c-8781-144afc07c0af,Nzuri Business Group,2,Nord-Kivu,Beni,Net 45,actif,36.97,2026-05-23,economique,contact@nzuribusinessgroup.cd,+243939717707,2022-02-17
+371c8c09-6d36-4e68-874b-99d138a33dcb,Congo Commercial House,1,Kinshasa,Kinshasa,50% avance / 50% a la livraison,actif,76.97,2026-04-03,premium,contact@congocommercialhouse.cd,+243853260573,2021-07-30
+bb1331e5-7678-4ece-b702-0fb01e46be4f,Virunga Trading SPRL,1,Kinshasa,Kinshasa - Limete,Net 60,actif,74.31,2025-11-06,economique,contact@virungatradingsprl.cd,+243998110896,2023-12-24
+6c350f62-f02a-4586-85d9-239c308d25b9,Lualaba Distribution,3,Sud-Kivu,Uvira,Net 30,actif,37.35,2026-04-08,economique,contact@lualabadistribution.cd,+243997935544,2023-02-03
+00dfa015-74ef-4ce4-aca6-9803aeabe0c1,Salongo Freight & Supply,3,Sud-Kivu,Uvira,Paiement comptant a la livraison,actif,69.42,2026-05-18,economique,contact@salongofreightsupply.cd,+243872359953,2022-12-12
+47f5e673-0ff7-4bb8-8701-e7e6c292076e,Nzuri Trading Co,4,Haut-Katanga,Kasumbalesa,30% avance / 70% a 30 jours,actif,82.07,2026-04-29,standard,contact@nzuritradingco.cd,+243813083232,2024-07-01
+13366b3c-dc4b-4694-8f86-7ba86da283ef,Malaika General Merchandise,4,Haut-Katanga,Lubumbashi,Paiement comptant a la livraison,actif,80.12,2026-07-20,premium,contact@malaikageneralmerchandise.cd,+243844712175,2023-10-09
+7f262761-22b2-4d5b-98d3-a3067f559ed6,Lokole Services SARL,1,Kinshasa,Kinshasa - Ngaliema,Paiement comptant a la livraison,actif,57.23,2026-07-11,standard,contact@lokoleservicessarl.cd,+243914794213,2022-12-16
+cca7c970-2310-4fa1-a036-1ada096e2484,Esengo Multiservices,1,Kinshasa,Kinshasa - Gombe,Net 45,actif,61.9,2026-03-26,economique,contact@esengomultiservices.cd,+243834830445,2023-05-28
+c9dcce2f-3bee-4a3e-8e93-abf97be12212,Zamani Freight & Supply,6,Kasai-Central,Tshikapa,Net 45,actif,60.7,2026-03-31,economique,contact@zamanifreightsupply.cd,+243802329420,2023-05-03
+eb6f5e2d-d070-470f-94a0-16d83e67dc6f,Congo Distribution,6,Kasai-Central,Kananga,Paiement comptant a la livraison,actif,39.58,2026-03-29,economique,contact@congodistribution.cd,+243949297835,2020-03-09
+dfcd9e78-8b7b-46dd-a1c7-ef3903c30d4a,Elikya Multiservices,4,Haut-Katanga,Lubumbashi,Net 60,actif,71.29,2025-11-05,standard,contact@elikyamultiservices.cd,+243807889751,2024-05-03
+d47cf498-8dcc-4c8c-83c2-f6f0d56cc342,Kivu & Fils,2,Nord-Kivu,Beni,Net 30,actif,84.3,2026-01-07,premium,contact@kivufils.cd,+243962488983,2025-07-06
+9fb107d4-34a5-4b97-99a8-0281781a1dd3,Lac Kivu Trading SPRL,2,Nord-Kivu,Goma,50% avance / 50% a la livraison,suspendu,84.56,2026-06-04,standard,contact@lackivutradingsprl.cd,+243959717178,2020-07-07
+8f16e7ab-1e5f-4fcc-863d-9f8697ce2a3e,Lokole Enterprises,5,Ituri,Aru,50% avance / 50% a la livraison,actif,34.19,2026-06-04,economique,contact@lokoleenterprises.cd,+243997143375,2021-10-06
+d5322c4b-f959-4bfd-8ada-ed5acde47970,Katanga Plus Multiservices,6,Kasai-Central,Luiza,50% avance / 50% a la livraison,suspendu,62.41,2026-02-10,standard,contact@katangaplusmultiservices.cd,+243831913615,2020-09-11
+d92cac07-0915-4ab5-a957-c8df266378a9,Lomami Services SARL,4,Haut-Katanga,Lubumbashi,30% avance / 70% a 30 jours,suspendu,67.62,2026-01-30,standard,contact@lomamiservicessarl.cd,+243969749210,2024-05-27
+dd0cf926-595f-47d3-8c00-0881d67fe74a,Uzima Multiservices,3,Sud-Kivu,Uvira,Net 45,actif,89.67,2026-08-17,premium,contact@uzimamultiservices.cd,+243923186223,2022-06-08
+88872c0b-d220-4aec-a30d-38ac36d3a980,Nzuri Commercial House,4,Haut-Katanga,Kasumbalesa,Net 45,actif,90.06,2026-03-25,premium,contact@nzuricommercialhouse.cd,+243879754439,2020-09-25
+62e246ec-a061-4474-9dc2-b06832277d05,Nzuri Trading SPRL,6,Kasai-Central,Tshikapa,Net 30 apres reception facture,actif,72.29,2026-04-21,economique,contact@nzuritradingsprl.cd,+243989809610,2024-07-10
+1c35f57b-cb54-4453-858d-1907c7404913,Salongo & Fils,5,Ituri,Mahagi,Paiement comptant a la livraison,actif,92.56,2026-03-05,premium,contact@salongofils.cd,+243883394692,2023-06-19
+bd9eec0b-42c4-43b1-a36c-3ef5d874add9,Elikya Enterprises,5,Ituri,Mahagi,Paiement comptant a la livraison,actif,65.59,2026-07-23,economique,contact@elikyaenterprises.cd,+243824348261,2022-06-05
+63d20255-2f55-44de-b794-33c22c53d4bf,Simba Supply Co,4,Haut-Katanga,Kasumbalesa,Net 60,actif,82.89,2026-07-11,standard,contact@simbasupplyco.cd,+243897140253,2025-03-28
+f747b64e-b692-4aa3-b6a0-89c805f571a8,Kivu Multiservices,2,Nord-Kivu,Butembo,Net 60,actif,74.79,2025-12-14,economique,contact@kivumultiservices.cd,+243905954533,2025-06-07
+8ac23be8-aaa2-40c5-84d9-2a2615ae7eb3,Elikya Import-Export,5,Ituri,Bunia,30% avance / 70% a 30 jours,actif,82.86,2026-02-05,standard,contact@elikyaimportexport.cd,+243996736285,2023-09-06
+fb18a491-cf1d-48f8-9e10-55d6eb4e314a,Simba Distribution,2,Nord-Kivu,Butembo,Net 30 apres reception facture,actif,42.62,2025-12-18,economique,contact@simbadistribution.cd,+243974307171,2021-05-30
+2f5bdb12-bf8a-47ec-af70-29aa89b4929d,Salongo Trading SPRL,1,Kinshasa,Kinshasa,Net 30,actif,68.87,2026-02-24,standard,contact@salongotradingsprl.cd,+243803961961,2021-12-05
+8ea7c5a5-5363-4934-8605-e203779947c0,Kivu Distribution,4,Haut-Katanga,Lubumbashi,30% avance / 70% a 30 jours,actif,36,2025-11-22,economique,contact@kivudistribution.cd,+243844461289,2020-08-30
+97abb168-3ff2-4631-b18c-5dd6128460ce,Elikya Trading Co,3,Sud-Kivu,Bukavu,30% avance / 70% a 30 jours,actif,34.23,2025-12-07,economique,contact@elikyatradingco.cd,+243892916774,2020-11-13
+8a012e96-4687-4bec-9a48-8c2b0ea1fc15,Fleuve Logistics,6,Kasai-Central,Luiza,30% avance / 70% a 30 jours,actif,69.4,2026-03-14,economique,contact@fleuvelogistics.cd,+243941247089,2024-09-20
+570b5310-22ef-4ac0-ae75-b9bdafb598f5,Fleuve Commercial House,3,Sud-Kivu,Uvira,Net 60,actif,57.17,2026-01-12,standard,contact@fleuvecommercialhouse.cd,+243812304829,2022-10-11
+5a5d7021-49e4-4e72-bbcb-625eca7a0609,Simba Trading SPRL,3,Sud-Kivu,Uvira,Paiement comptant a la livraison,actif,75.5,2026-06-14,premium,contact@simbatradingsprl.cd,+243846846607,2022-06-06
+95af47c5-d797-4640-923f-df92b6a2b4be,Kivu Enterprises,1,Kinshasa,Kinshasa - Limete,Net 45,actif,76.25,2026-08-01,standard,contact@kivuenterprises.cd,+243965839344,2022-09-23
+1cc48374-eda0-4183-917f-d0fbe9dfb23a,Fleuve Supply Co,6,Kasai-Central,Tshikapa,Net 30 apres reception facture,suspendu,74.07,2026-04-20,standard,contact@fleuvesupplyco.cd,+243878430631,2024-09-28
+5f89faf5-04e4-478b-9246-ee54ea789e2e,Boyoma Distribution,6,Kasai-Central,Luiza,Net 30 apres reception facture,actif,37.2,2026-05-24,economique,contact@boyomadistribution.cd,+243867473329,2023-04-15
+cea66011-83a9-4048-97ed-479fc7d73ee7,Kivu Import-Export,2,Nord-Kivu,Beni,Paiement comptant a la livraison,actif,79.35,2025-12-12,premium,contact@kivuimportexport.cd,+243916906344,2022-09-16
+4dd94df2-be72-4ef4-a3f0-a6ca5d751022,Uzima Business Group,3,Sud-Kivu,Uvira,Net 30,actif,83.05,2026-07-15,premium,contact@uzimabusinessgroup.cd,+243888779392,2022-02-18
+d553b782-f656-4818-8a43-c51d211a0ec0,Tumaini & Fils,3,Sud-Kivu,Kamituga,Paiement comptant a la livraison,actif,60.04,2026-04-13,economique,contact@tumainifils.cd,+243875254746,2025-06-30
+78d60221-f8f6-4ffe-9286-d1662f310103,Elikya & Fils,1,Kinshasa,Kinshasa,Net 45,actif,73.56,2026-06-06,standard,contact@elikyafils.cd,+243831420065,2020-10-21
+b02505ad-c463-491f-a246-827bc3d233fa,Mbote Logistics,2,Nord-Kivu,Beni,Net 30,actif,71.96,2025-12-22,standard,contact@mbotelogistics.cd,+243827758484,2021-12-04
+8afc134a-c546-45a2-84ea-56d829bb9b5e,Lokole & Fils,3,Sud-Kivu,Kamituga,Net 30 apres reception facture,actif,54.23,2026-06-06,economique,contact@lokolefils.cd,+243974796162,2021-12-26
+13f6dc4c-e7c5-42ec-a97b-b6837ae39fa4,Salongo Supply Co,2,Nord-Kivu,Butembo,30% avance / 70% a 30 jours,actif,63.6,2026-01-26,standard,contact@salongosupplyco.cd,+243839027125,2020-11-02
+6f6217e6-7bdb-4338-bfd7-4f11dd7977aa,Esengo Trading SPRL,4,Haut-Katanga,Kasumbalesa,Net 30,actif,59.62,2026-04-01,standard,contact@esengotradingsprl.cd,+243887403927,2025-01-11
+78c88e86-39fe-403f-812a-4a6605cc3830,Lomami Group SARL,1,Kinshasa,Kinshasa - Gombe,Net 30 apres reception facture,actif,78.24,2026-02-24,standard,contact@lomamigroupsarl.cd,+243994283518,2022-06-28
+5ec5f831-f069-4d2c-ae36-9e7bd23ff888,Boyoma Group SARL,1,Kinshasa,Kinshasa,Net 30,actif,62.07,2025-11-22,economique,contact@boyomagroupsarl.cd,+243971106779,2025-01-02
+0b0e7774-5826-4d3c-be1d-2c49f78df11c,Salongo Import-Export,3,Sud-Kivu,Bukavu,Net 30 apres reception facture,actif,40.9,2025-11-26,economique,contact@salongoimportexport.cd,+243983503578,2025-04-06
+d0b6a5b6-640a-4c87-abd3-98c84278d725,Amani Multiservices,2,Nord-Kivu,Goma,50% avance / 50% a la livraison,actif,78.87,2025-12-28,standard,contact@amanimultiservices.cd,+243821634543,2023-08-11
+fff8d95e-d64a-4000-8f35-05d3ea210c94,Lokole Commercial House,1,Kinshasa,Kinshasa - Limete,Paiement comptant a la livraison,actif,37.51,2025-11-28,economique,contact@lokolecommercialhouse.cd,+243877973743,2024-08-10
+fac3bcc8-0fbb-4b37-9f4d-c78ba0790e19,Congo General Merchandise,1,Kinshasa,Kinshasa,Paiement comptant a la livraison,actif,81.87,2026-08-13,premium,contact@congogeneralmerchandise.cd,+243852985793,2020-07-13
+e831f71d-f692-48c0-b395-00c8873b6814,Katanga Plus & Fils,1,Kinshasa,Kinshasa,Net 60,actif,69.55,2026-07-03,economique,contact@katangaplusfils.cd,+243919642299,2023-08-11
+a9de96ea-efd8-4660-8446-64e2dd0b1c79,Mont Ngaliema Services SARL,3,Sud-Kivu,Uvira,Paiement comptant a la livraison,actif,58.87,2025-12-13,economique,contact@montngaliemaservicessarl.cd,+243973872774,2022-09-17
+72406169-a249-4093-9130-ca7f26d1908f,Salongo Enterprises,5,Ituri,Aru,Net 45,actif,78.37,2026-06-24,standard,contact@salongoenterprises.cd,+243907273033,2024-02-11
+ef775092-0eea-4faa-bede-2e7bd64f7627,Ruwenzori Trading SPRL,6,Kasai-Central,Luiza,Net 45,actif,84.26,2026-02-04,standard,contact@ruwenzoritradingsprl.cd,+243983017323,2020-11-02
+cb637792-1dcc-4a43-996d-92c9bcb8e457,Nzuri Group SARL,4,Haut-Katanga,Likasi,50% avance / 50% a la livraison,actif,58,2025-12-01,economique,contact@nzurigroupsarl.cd,+243919397570,2021-09-26
+1f9ad896-a0c9-47e5-bc58-1cc886cd3ad5,Malaika Multiservices,1,Kinshasa,Kinshasa - Gombe,Net 45,actif,43.19,2025-11-27,economique,contact@malaikamultiservices.cd,+243853990099,2025-07-12
+0c915539-8bf1-4382-a92e-b418e7546d54,Malaika Group SARL,4,Haut-Katanga,Lubumbashi,50% avance / 50% a la livraison,actif,83.14,2025-12-19,standard,contact@malaikagroupsarl.cd,+243912146298,2020-05-23
+a0df5c84-1933-417d-8380-ba2f1869c94a,Lomami Supply Co,1,Kinshasa,Kinshasa - Limete,30% avance / 70% a 30 jours,actif,40.76,2026-04-24,economique,contact@lomamisupplyco.cd,+243801903634,2024-10-26
+16341f3a-6dfc-449e-b20f-70d296c8f44b,Boyoma Enterprises,1,Kinshasa,Kinshasa,Net 60,suspendu,67.15,2026-04-04,standard,contact@boyomaenterprises.cd,+243836929192,2021-03-26

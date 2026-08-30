@@ -1,0 +1,252 @@
+[
+  {
+    "id": "20da184d-a946-4f2e-a2b4-d310bc23438d",
+    "fournisseur_id": "5b2aa3d2-e3a3-42dc-9fc0-5f8653da0fe2",
+    "categorie_id": 1,
+    "date_debut": "2025-03-03",
+    "date_fin": "2027-02-21",
+    "conditions": "50% avance / 50% a la livraison",
+    "statut": "actif",
+    "taux_utilisation_pct": 68
+  },
+  {
+    "id": "427822b9-59e4-49c9-98a1-15e7980c98b6",
+    "fournisseur_id": "655629f7-7449-4a0d-990f-1bd61a038acb",
+    "categorie_id": 2,
+    "date_debut": "2025-08-11",
+    "date_fin": "2026-02-07",
+    "conditions": "Net 30 apres reception facture",
+    "statut": "expire",
+    "taux_utilisation_pct": 79.3
+  },
+  {
+    "id": "8851a9e8-a21a-49a8-a3c1-8feeee557af8",
+    "fournisseur_id": "dd0cf926-595f-47d3-8c00-0881d67fe74a",
+    "categorie_id": 3,
+    "date_debut": "2025-04-01",
+    "date_fin": "2026-03-27",
+    "conditions": "Net 45",
+    "statut": "expire",
+    "taux_utilisation_pct": 22.3
+  },
+  {
+    "id": "af47a792-f6da-40e2-bab2-d632432a4543",
+    "fournisseur_id": "d303459d-1799-496c-a354-9d20c21f8675",
+    "categorie_id": 4,
+    "date_debut": "2025-03-24",
+    "date_fin": "2026-03-19",
+    "conditions": "Paiement comptant a la livraison",
+    "statut": "expire",
+    "taux_utilisation_pct": 37.1
+  },
+  {
+    "id": "d5290d6d-c4c3-4e5c-96fc-bfcccd86a80c",
+    "fournisseur_id": "b02505ad-c463-491f-a246-827bc3d233fa",
+    "categorie_id": 4,
+    "date_debut": "2025-07-07",
+    "date_fin": "2026-07-02",
+    "conditions": "Net 30",
+    "statut": "expire",
+    "taux_utilisation_pct": 12.1
+  },
+  {
+    "id": "c97b95f6-3009-49ff-bc64-05825d1ef71b",
+    "fournisseur_id": "78d60221-f8f6-4ffe-9286-d1662f310103",
+    "categorie_id": 4,
+    "date_debut": "2025-02-13",
+    "date_fin": "2025-08-12",
+    "conditions": "Net 45",
+    "statut": "expire",
+    "taux_utilisation_pct": 52.1
+  },
+  {
+    "id": "cc33b238-0423-4ef0-a1d3-d87d66a27728",
+    "fournisseur_id": "cca7c970-2310-4fa1-a036-1ada096e2484",
+    "categorie_id": 5,
+    "date_debut": "2025-04-13",
+    "date_fin": "2026-04-08",
+    "conditions": "Net 45",
+    "statut": "expire",
+    "taux_utilisation_pct": 18.1
+  },
+  {
+    "id": "73079705-cb3a-4f3e-8b3e-64f87794aa3e",
+    "fournisseur_id": "a6c540a3-1186-4b1f-953d-5065e93d8e3f",
+    "categorie_id": 6,
+    "date_debut": "2025-06-07",
+    "date_fin": "2025-12-04",
+    "conditions": "Net 60",
+    "statut": "expire",
+    "taux_utilisation_pct": 61.3
+  },
+  {
+    "id": "96b68221-c5b0-4939-8ac5-9d9f783e1fee",
+    "fournisseur_id": "5ec5f831-f069-4d2c-ae36-9e7bd23ff888",
+    "categorie_id": 6,
+    "date_debut": "2025-07-19",
+    "date_fin": "2027-07-09",
+    "conditions": "Net 30",
+    "statut": "actif",
+    "taux_utilisation_pct": 52.1
+  },
+  {
+    "id": "428c97b8-3ee0-419e-896e-60cf87f1c9ed",
+    "fournisseur_id": "d303459d-1799-496c-a354-9d20c21f8675",
+    "categorie_id": 6,
+    "date_debut": "2025-04-04",
+    "date_fin": "2027-03-25",
+    "conditions": "Paiement comptant a la livraison",
+    "statut": "actif",
+    "taux_utilisation_pct": 28.2
+  },
+  {
+    "id": "4fcda50e-591b-4805-a686-7da8cefdb57e",
+    "fournisseur_id": "1e099a0a-dd20-4ad3-a12d-1a26dc51ee09",
+    "categorie_id": 7,
+    "date_debut": "2025-07-29",
+    "date_fin": "2026-07-24",
+    "conditions": "50% avance / 50% a la livraison",
+    "statut": "expire",
+    "taux_utilisation_pct": 79.7
+  },
+  {
+    "id": "27d49920-97eb-4ac4-bf84-d3623cf93421",
+    "fournisseur_id": "ff5755d9-ecd6-4fce-b5f5-20112cbcf341",
+    "categorie_id": 7,
+    "date_debut": "2025-03-14",
+    "date_fin": "2027-03-04",
+    "conditions": "Net 45",
+    "statut": "actif",
+    "taux_utilisation_pct": 90.8
+  },
+  {
+    "id": "c06a7a31-0541-4c9a-a4a8-0c09e0e09345",
+    "fournisseur_id": "8a012e96-4687-4bec-9a48-8c2b0ea1fc15",
+    "categorie_id": 8,
+    "date_debut": "2025-03-12",
+    "date_fin": "2025-09-08",
+    "conditions": "30% avance / 70% a 30 jours",
+    "statut": "expire",
+    "taux_utilisation_pct": 75.9
+  },
+  {
+    "id": "864412b6-90b6-4593-b211-6fb8945a74a7",
+    "fournisseur_id": "029ef2d7-b2d9-484e-8221-0fcf90c2eea8",
+    "categorie_id": 9,
+    "date_debut": "2025-05-26",
+    "date_fin": "2026-05-21",
+    "conditions": "Net 60",
+    "statut": "expire",
+    "taux_utilisation_pct": 85.7
+  },
+  {
+    "id": "419bb0ee-3322-4322-a4a1-401db1e0a30e",
+    "fournisseur_id": "47f5e673-0ff7-4bb8-8701-e7e6c292076e",
+    "categorie_id": 9,
+    "date_debut": "2025-03-18",
+    "date_fin": "2027-03-08",
+    "conditions": "30% avance / 70% a 30 jours",
+    "statut": "actif",
+    "taux_utilisation_pct": 81.9
+  },
+  {
+    "id": "0da30c6a-694b-47b2-b267-65e1b0c473a2",
+    "fournisseur_id": "bb1331e5-7678-4ece-b702-0fb01e46be4f",
+    "categorie_id": 9,
+    "date_debut": "2025-02-27",
+    "date_fin": "2026-02-22",
+    "conditions": "Net 60",
+    "statut": "expire",
+    "taux_utilisation_pct": 54.1
+  },
+  {
+    "id": "d4166dbe-aee6-473c-ae4b-2fcba5b9287c",
+    "fournisseur_id": "cca7c970-2310-4fa1-a036-1ada096e2484",
+    "categorie_id": 10,
+    "date_debut": "2025-07-20",
+    "date_fin": "2026-01-16",
+    "conditions": "Net 45",
+    "statut": "expire",
+    "taux_utilisation_pct": 91.4
+  },
+  {
+    "id": "f7f86e2e-f206-4952-8c01-d862635203da",
+    "fournisseur_id": "3bcc0758-fd08-47fc-a143-4e6ee0ecf752",
+    "categorie_id": 11,
+    "date_debut": "2025-04-29",
+    "date_fin": "2027-04-19",
+    "conditions": "30% avance / 70% a 30 jours",
+    "statut": "actif",
+    "taux_utilisation_pct": 68.8
+  },
+  {
+    "id": "ccb04673-b93d-4ec8-82d5-455635b57bd9",
+    "fournisseur_id": "c9dcce2f-3bee-4a3e-8e93-abf97be12212",
+    "categorie_id": 11,
+    "date_debut": "2025-04-09",
+    "date_fin": "2027-03-30",
+    "conditions": "Net 45",
+    "statut": "actif",
+    "taux_utilisation_pct": 20
+  },
+  {
+    "id": "1175a418-3c61-4430-a91c-be463db60231",
+    "fournisseur_id": "63d20255-2f55-44de-b794-33c22c53d4bf",
+    "categorie_id": 12,
+    "date_debut": "2025-07-11",
+    "date_fin": "2027-07-01",
+    "conditions": "Net 60",
+    "statut": "actif",
+    "taux_utilisation_pct": 10.4
+  },
+  {
+    "id": "b61cb374-6b6b-4248-9d94-babb742563f8",
+    "fournisseur_id": "d481bc52-8eec-49bb-b661-3445c0841280",
+    "categorie_id": 13,
+    "date_debut": "2025-05-13",
+    "date_fin": "2026-05-08",
+    "conditions": "50% avance / 50% a la livraison",
+    "statut": "expire",
+    "taux_utilisation_pct": 37.7
+  },
+  {
+    "id": "44a8f4e0-75ca-43bd-8a2a-b94da3b214fa",
+    "fournisseur_id": "1c35f57b-cb54-4453-858d-1907c7404913",
+    "categorie_id": 14,
+    "date_debut": "2025-06-07",
+    "date_fin": "2027-05-28",
+    "conditions": "Paiement comptant a la livraison",
+    "statut": "actif",
+    "taux_utilisation_pct": 43.1
+  },
+  {
+    "id": "cebd7822-a748-4ddc-8ca4-237f35fa61c2",
+    "fournisseur_id": "593fa40b-f51a-4095-82e1-a72af438c7aa",
+    "categorie_id": 14,
+    "date_debut": "2025-06-27",
+    "date_fin": "2026-06-22",
+    "conditions": "Net 60",
+    "statut": "expire",
+    "taux_utilisation_pct": 18.7
+  },
+  {
+    "id": "1cbbf457-e4d8-46de-9ef2-1c6f9fce8259",
+    "fournisseur_id": "3bcc0758-fd08-47fc-a143-4e6ee0ecf752",
+    "categorie_id": 14,
+    "date_debut": "2025-05-08",
+    "date_fin": "2025-11-04",
+    "conditions": "30% avance / 70% a 30 jours",
+    "statut": "expire",
+    "taux_utilisation_pct": 65.4
+  },
+  {
+    "id": "1783b670-a96a-42f1-9ae4-56b6a8b94fde",
+    "fournisseur_id": "bb1331e5-7678-4ece-b702-0fb01e46be4f",
+    "categorie_id": 15,
+    "date_debut": "2025-07-29",
+    "date_fin": "2026-01-25",
+    "conditions": "Net 60",
+    "statut": "expire",
+    "taux_utilisation_pct": 17.8
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nom_province": "Kinshasa"
+  },
+  {
+    "id": 2,
+    "nom_province": "Nord-Kivu"
+  },
+  {
+    "id": 3,
+    "nom_province": "Sud-Kivu"
+  },
+  {
+    "id": 4,
+    "nom_province": "Haut-Katanga"
+  },
+  {
+    "id": 5,
+    "nom_province": "Ituri"
+  },
+  {
+    "id": 6,
+    "nom_province": "Kasai-Central"
+  }
+]
