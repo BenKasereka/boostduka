@@ -1,5 +1,14 @@
 import { supabase, isSupabaseConfigured } from './supabaseClient';
 import { getImportedDevis, addImportedDevis } from './importOverlay';
+import { toUsd } from './currency';
+import {
+  getNewFournisseurs,
+  getNewFournisseurCategories,
+  getFournisseurPatches,
+  addFournisseur,
+  addFournisseursBulk,
+  patchFournisseur,
+} from './fournisseurStore';
 
 // =====================================================================
 // Couche d'acces aux donnees.
@@ -59,6 +68,14 @@ export async function loadTable(table) {
     if (table === 'devis' && !isSupabaseConfigured()) {
       return rows.concat(getImportedDevis());
     }
+    if (table === 'fournisseurs' && !isSupabaseConfigured()) {
+      const patches = getFournisseurPatches();
+      const applyPatch = (f) => (patches[f.id] ? { ...f, ...patches[f.id] } : f);
+      return rows.concat(getNewFournisseurs()).map(applyPatch);
+    }
+    if (table === 'fournisseur_categories' && !isSupabaseConfigured()) {
+      return rows.concat(getNewFournisseurCategories());
+    }
     return rows;
   })();
   cache.set(table, promise);
@@ -76,6 +93,56 @@ export async function commitDevisImport(rows) {
     addImportedDevis(rows);
   }
   cache.delete('devis');
+}
+
+// Enregistre un nouveau fournisseur (fiche + categories couvertes).
+export async function commitNouveauFournisseur(fournisseur, categorieIds) {
+  if (isSupabaseConfigured()) {
+    const { error } = await supabase.from('fournisseurs').insert([fournisseur]);
+    if (error) throw new Error(`Supabase[fournisseurs insert]: ${error.message}`);
+    if (categorieIds.length > 0) {
+      const { error: errCat } = await supabase
+        .from('fournisseur_categories')
+        .insert(categorieIds.map((categorie_id) => ({ fournisseur_id: fournisseur.id, categorie_id })));
+      if (errCat) throw new Error(`Supabase[fournisseur_categories insert]: ${errCat.message}`);
+    }
+  } else {
+    addFournisseur(fournisseur, categorieIds);
+  }
+  cache.delete('fournisseurs');
+  cache.delete('fournisseur_categories');
+}
+
+// Enregistre plusieurs nouveaux fournisseurs en une fois (import Excel/CSV en masse).
+// items: [{ fournisseur, categorieIds }]
+export async function commitNouveauxFournisseurs(items) {
+  if (isSupabaseConfigured()) {
+    const { error } = await supabase.from('fournisseurs').insert(items.map((i) => i.fournisseur));
+    if (error) throw new Error(`Supabase[fournisseurs insert]: ${error.message}`);
+    const liens = items.flatMap((i) => i.categorieIds.map((categorie_id) => ({ fournisseur_id: i.fournisseur.id, categorie_id })));
+    if (liens.length > 0) {
+      const { error: errCat } = await supabase.from('fournisseur_categories').insert(liens);
+      if (errCat) throw new Error(`Supabase[fournisseur_categories insert]: ${errCat.message}`);
+    }
+  } else {
+    addFournisseursBulk(items);
+  }
+  cache.delete('fournisseurs');
+  cache.delete('fournisseur_categories');
+}
+
+// Modifie un fournisseur existant (statut, score de fiabilite, conditions...).
+// Sert notamment de "suppression douce" (passage en suspendu/blackliste)
+// plutot qu'une suppression definitive qui casserait l'historique des
+// devis/commandes deja rattaches a ce fournisseur.
+export async function commitFournisseurPatch(fournisseurId, patch) {
+  if (isSupabaseConfigured()) {
+    const { error } = await supabase.from('fournisseurs').update(patch).eq('id', fournisseurId);
+    if (error) throw new Error(`Supabase[fournisseurs update]: ${error.message}`);
+  } else {
+    patchFournisseur(fournisseurId, patch);
+  }
+  cache.delete('fournisseurs');
 }
 
 export async function loadAllTables() {
@@ -161,6 +228,8 @@ export async function listPriceRows(filters = {}) {
       quantite_min: d.quantite_min,
       date_soumission: d.date_soumission,
       validite_offre_date: d.validite_offre_date,
+      conditions_paiement: fournisseur?.conditions_paiement ?? '—',
+      prix_unitaire_usd: toUsd(d.prix_unitaire, d.devise),
     };
   });
 
@@ -173,7 +242,9 @@ export async function listPriceRows(filters = {}) {
     );
   }
 
-  rows.sort((a, b) => a.article_nom.localeCompare(b.article_nom) || a.prix_unitaire - b.prix_unitaire);
+  // Tri sur l'equivalent USD : comparer des prix bruts entre devises
+  // differentes (CDF vs USD) n'aurait aucun sens.
+  rows.sort((a, b) => a.article_nom.localeCompare(b.article_nom) || a.prix_unitaire_usd - b.prix_unitaire_usd);
   return rows;
 }
 
@@ -221,6 +292,7 @@ export async function listCandidatesForArticle(articleId) {
       conditions_paiement: f?.conditions_paiement ?? '—',
       prix_unitaire: d.prix_unitaire,
       devise: d.devise,
+      prix_unitaire_usd: toUsd(d.prix_unitaire, d.devise),
       delai_livraison_jours: d.delai_livraison_jours,
       quantite_min: d.quantite_min,
       validite_offre_date: d.validite_offre_date,

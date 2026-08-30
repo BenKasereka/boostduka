@@ -26,6 +26,10 @@ const {
 // PRNG deterministe (mulberry32) : meme seed => meme dataset a chaque run
 // ---------------------------------------------------------------------
 const SEED = 20260830;
+
+// Taux de reference utilise pour generer des montants CDF realistes
+// (doit rester coherent avec src/lib/currency.js cote frontend).
+const CDF_PER_USD = 2800;
 function mulberry32(a) {
   return function () {
     a |= 0; a = (a + 0x6d2b79f5) | 0;
@@ -262,13 +266,17 @@ articles.forEach((article) => {
     const nbRounds = chance(0.35) ? 2 : 1;
     for (let r = 0; r < nbRounds; r++) {
       const dateSoumission = addDays(WINDOW_START, randInt(0, 365));
-      const prixUnitaire = Math.max(0.1, prixMarche * multiplicateurProfil(f.profil_prix) * randFloat(0.95, 1.05, 3));
+      const prixUnitaireUsd = Math.max(0.1, prixMarche * multiplicateurProfil(f.profil_prix) * randFloat(0.95, 1.05, 3));
+      const devise = chance(0.85) ? 'USD' : 'CDF';
+      const prixUnitaire = devise === 'CDF'
+        ? Math.round(prixUnitaireUsd * CDF_PER_USD)
+        : Math.round(prixUnitaireUsd * 100) / 100;
       devis.push({
         id: uuid(),
         fournisseur_id: f.id,
         article_id: article.id,
-        prix_unitaire: Math.round(prixUnitaire * 100) / 100,
-        devise: chance(0.85) ? 'USD' : 'CDF',
+        prix_unitaire: prixUnitaire,
+        devise,
         delai_livraison_jours: delaiLivraisonProfil(f.profil_prix),
         quantite_min: pick([1, 1, 5, 10, 20, 50]),
         validite_offre_date: fmt(addDays(dateSoumission, randInt(30, 90))),

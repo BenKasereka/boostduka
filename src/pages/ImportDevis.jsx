@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { loadTable, commitDevisImport } from '../lib/dataSource';
 import { parseSpreadsheetFile, validateImportRows, buildDevisTemplate } from '../lib/devisImport';
+import { extractRowsFromPdf } from '../lib/pdfImport';
 import { exportToExcel } from '../lib/exportExcel';
 
 function addDaysIso(days) {
@@ -15,7 +16,9 @@ export default function ImportDevis() {
   const [articles, setArticles] = useState([]);
   const [rows, setRows] = useState([]);
   const [fileName, setFileName] = useState('');
+  const [sourceType, setSourceType] = useState(null); // 'fichier' | 'pdf'
   const [parseError, setParseError] = useState('');
+  const [parsing, setParsing] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const fileInputRef = useRef(null);
@@ -33,10 +36,17 @@ export default function ImportDevis() {
     setFileName(file.name);
     setParseError('');
     setSuccessMessage('');
+    setParsing(true);
+    const estPdf = file.name.toLowerCase().endsWith('.pdf');
+    setSourceType(estPdf ? 'pdf' : 'fichier');
     try {
-      const rawRows = await parseSpreadsheetFile(file);
+      const rawRows = estPdf ? await extractRowsFromPdf(file, articles) : await parseSpreadsheetFile(file);
       if (rawRows.length === 0) {
-        setParseError('Le fichier ne contient aucune ligne de données.');
+        setParseError(
+          estPdf
+            ? "Aucune ligne exploitable détectée dans ce PDF. L'extraction automatique fonctionne mieux sur des devis structurés (une ligne = un article, un prix, une devise) ; à défaut, utilisez l'import Excel/CSV."
+            : 'Le fichier ne contient aucune ligne de données.'
+        );
         setRows([]);
         return;
       }
@@ -44,6 +54,8 @@ export default function ImportDevis() {
     } catch (err) {
       setParseError(`Impossible de lire ce fichier : ${err.message}`);
       setRows([]);
+    } finally {
+      setParsing(false);
     }
   }
 
@@ -69,12 +81,13 @@ export default function ImportDevis() {
         quantite_min: r.quantite_min,
         validite_offre_date: r.validite_offre_date || addDaysIso(60),
         date_soumission: today,
-        source_import: 'import_excel',
+        source_import: sourceType === 'pdf' ? 'import_pdf' : 'import_excel',
       }));
       await commitDevisImport(devisRows);
       setSuccessMessage(`${devisRows.length} devis importé(s) avec succès. Visibles dans Liste de Prix, Synthèse comparative et Dashboard.`);
       setRows([]);
       setFileName('');
+      setSourceType(null);
       if (fileInputRef.current) fileInputRef.current.value = '';
     } catch (err) {
       setParseError(`Échec de l'import : ${err.message}`);
@@ -86,7 +99,7 @@ export default function ImportDevis() {
   return (
     <div className="max-w-5xl mx-auto">
       <div className="mb-5">
-        <h1 className="text-xl font-semibold text-slate-800">Import de devis (Excel/CSV)</h1>
+        <h1 className="text-xl font-semibold text-slate-800">Import de devis (Excel/CSV/PDF)</h1>
         <p className="text-sm text-slate-500 mt-0.5">
           Importez une quotation reçue d'un fournisseur. Chaque ligne doit référencer un article déjà présent dans le catalogue.
         </p>
@@ -103,11 +116,11 @@ export default function ImportDevis() {
           </select>
         </div>
         <div>
-          <label className="text-xs font-medium text-slate-500 mb-1 block">2. Fichier Excel/CSV</label>
+          <label className="text-xs font-medium text-slate-500 mb-1 block">2. Fichier Excel/CSV ou PDF</label>
           <input
             ref={fileInputRef}
             type="file"
-            accept=".xlsx,.xls,.csv"
+            accept=".xlsx,.xls,.csv,.pdf"
             className="input-field"
             disabled={!fournisseurId}
             onChange={handleFileChange}
@@ -117,8 +130,17 @@ export default function ImportDevis() {
 
       <div className="flex items-center justify-between mb-4">
         <button className="btn-secondary" onClick={handleDownloadTemplate}>Télécharger le modèle Excel</button>
-        {fileName && <span className="text-xs text-slate-400">Fichier : {fileName}</span>}
+        {fileName && <span className="text-xs text-slate-400">Fichier : {fileName}{parsing && ' — analyse en cours…'}</span>}
       </div>
+
+      {sourceType === 'pdf' && rows.length > 0 && (
+        <div className="text-sm text-or-700 bg-or-50 border border-or-200 rounded-md p-3 mb-4">
+          <strong>Extraction PDF bêta :</strong> lecture par reconnaissance de motifs (texte + prix + devise détectés
+          ligne par ligne), pas une IA documentaire — l'app est un frontend statique sans backend, donc pas de clé
+          d'API tierce exposée côté client. Vérifiez chaque ligne (colonne « Texte source ») avant de confirmer ;
+          en cas de doute, préférez l'import Excel/CSV, plus fiable.
+        </div>
+      )}
 
       {parseError && <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-md p-3 mb-4">{parseError}</div>}
       {successMessage && <div className="text-sm text-emeraude-700 bg-emeraude-50 border border-emeraude-200 rounded-md p-3 mb-4">{successMessage}</div>}
@@ -139,12 +161,14 @@ export default function ImportDevis() {
                 <thead className="bg-slate-50 border-b border-slate-200 sticky top-0">
                   <tr>
                     <th className="table-th">Statut</th>
-                    <th className="table-th">Article (fichier)</th>
+                    <th className="table-th">Article (détecté)</th>
                     <th className="table-th text-right">Prix</th>
                     <th className="table-th">Devise</th>
+                    <th className="table-th text-right">≈ USD</th>
                     <th className="table-th text-center">Délai (j)</th>
                     <th className="table-th text-center">Qté min</th>
                     <th className="table-th">Validité offre</th>
+                    {sourceType === 'pdf' && <th className="table-th">Texte source (PDF)</th>}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
@@ -160,9 +184,13 @@ export default function ImportDevis() {
                       <td className="table-td font-medium text-slate-800">{r.articleRaw || '—'}</td>
                       <td className="table-td text-right">{isNaN(r.prix_unitaire) ? '—' : r.prix_unitaire}</td>
                       <td className="table-td">{r.devise}</td>
+                      <td className="table-td text-right text-slate-400">{r.prix_unitaire_usd != null ? `$${r.prix_unitaire_usd.toFixed(2)}` : '—'}</td>
                       <td className="table-td text-center">{r.delai_livraison_jours ?? '—'}</td>
                       <td className="table-td text-center">{r.quantite_min}</td>
                       <td className="table-td text-slate-500">{r.validite_offre_date || '—'}</td>
+                      {sourceType === 'pdf' && (
+                        <td className="table-td text-[10px] text-slate-400 max-w-[220px] truncate" title={r.ligneSource}>{r.ligneSource}</td>
+                      )}
                     </tr>
                   ))}
                 </tbody>

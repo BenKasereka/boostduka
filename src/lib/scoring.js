@@ -53,14 +53,16 @@ function normalize(values, value, higherIsBetter) {
 }
 
 export function computeScores(candidats, weights = DEFAULT_WEIGHTS, today = new Date()) {
-  const prix = candidats.map((c) => c.prix_unitaire);
+  // Comparaison sur l'equivalent USD : des prix bruts en devises differentes
+  // (ex: CDF vs USD) ne sont pas comparables sans conversion prealable.
+  const prix = candidats.map((c) => c.prix_unitaire_usd ?? c.prix_unitaire);
   const delais = candidats.map((c) => c.delai_livraison_jours);
 
   const weightSum = Object.values(weights).reduce((a, b) => a + b, 0) || 1;
 
   return candidats
     .map((c) => {
-      const scorePrix = normalize(prix, c.prix_unitaire, false);
+      const scorePrix = normalize(prix, c.prix_unitaire_usd ?? c.prix_unitaire, false);
       const scoreQualite = c.score_fiabilite;
       const scoreDelai = normalize(delais, c.delai_livraison_jours, false);
       const offreValide = !c.validite_offre_date || new Date(c.validite_offre_date) >= today;

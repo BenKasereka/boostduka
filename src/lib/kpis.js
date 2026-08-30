@@ -1,4 +1,5 @@
 import { loadTable } from './dataSource';
+import { toUsd } from './currency';
 
 // =====================================================================
 // Agregation des KPIs du dashboard, par phase du cycle procurement.
@@ -55,10 +56,13 @@ export async function computeKpis(filters = {}) {
   // Prix moyen marche par article — calcule sur TOUS les devis (baseline
   // stable), independamment des filtres periode/section, pour comparer
   // un achat filtre a un marche non biaise par la fenetre choisie.
+  // Converti en USD avant moyenne : des devis en CDF et en USD ne sont
+  // pas comparables sans conversion (les commandes, elles, sont toujours
+  // en USD dans ce dataset, donc directement comparables a cette moyenne).
   // ---------------------------------------------------------------------
   const pricesByArticle = {};
   devis.forEach((d) => {
-    (pricesByArticle[d.article_id] ||= []).push(d.prix_unitaire);
+    (pricesByArticle[d.article_id] ||= []).push(toUsd(d.prix_unitaire, d.devise));
   });
   const avgPriceByArticle = Object.fromEntries(
     Object.entries(pricesByArticle).map(([aid, arr]) => [Number(aid), avg(arr)])

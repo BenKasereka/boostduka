@@ -67,6 +67,7 @@ export default function ListePrix() {
             'Qté min': r.quantite_min,
             'Date soumission': r.date_soumission,
             'Validité offre': r.validite_offre_date,
+            'Modalité de paiement': r.conditions_paiement,
           })),
         },
       ],
@@ -132,15 +133,17 @@ export default function ListePrix() {
                 <th className="table-th text-right">Prix unitaire</th>
                 <th className="table-th">Délai (j)</th>
                 <th className="table-th">Qté min</th>
+                <th className="table-th">Validité offre</th>
+                <th className="table-th">Modalité paiement</th>
                 <th className="table-th">Soumis le</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {loading && (
-                <tr><td className="table-td text-slate-400" colSpan={8}>Chargement…</td></tr>
+                <tr><td className="table-td text-slate-400" colSpan={10}>Chargement…</td></tr>
               )}
               {!loading && pageRows.length === 0 && (
-                <tr><td className="table-td text-slate-400" colSpan={8}>Aucun devis ne correspond aux filtres.</td></tr>
+                <tr><td className="table-td text-slate-400" colSpan={10}>Aucun devis ne correspond aux filtres.</td></tr>
               )}
               {!loading && pageRows.map((r) => (
                 <tr key={r.devis_id} className="hover:bg-slate-50">
@@ -149,10 +152,15 @@ export default function ListePrix() {
                   <td className="table-td">{r.fournisseur_nom}</td>
                   <td className="table-td text-slate-500">{r.province_nom}</td>
                   <td className="table-td text-right font-medium">
-                    {r.prix_unitaire.toLocaleString('fr-FR', { minimumFractionDigits: 2 })} {r.devise}
+                    {r.prix_unitaire.toLocaleString('fr-FR', { minimumFractionDigits: r.devise === 'CDF' ? 0 : 2 })} {r.devise}
+                    {r.devise !== 'USD' && (
+                      <div className="text-[10px] text-slate-400 font-normal">≈ ${r.prix_unitaire_usd.toFixed(2)}</div>
+                    )}
                   </td>
                   <td className="table-td text-center">{r.delai_livraison_jours}</td>
                   <td className="table-td text-center">{r.quantite_min}</td>
+                  <td className="table-td text-slate-500">{r.validite_offre_date}</td>
+                  <td className="table-td text-slate-500 text-xs">{r.conditions_paiement}</td>
                   <td className="table-td text-slate-500">{r.date_soumission}</td>
                 </tr>
               ))}

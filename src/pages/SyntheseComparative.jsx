@@ -227,7 +227,10 @@ export default function SyntheseComparative() {
                         {idx === 0 && <span className="badge bg-emeraude-100 text-emeraude-700 ml-2 text-[10px]">Meilleur score</span>}
                         <div className="text-xs text-slate-400 font-normal">{s.province_nom}</div>
                       </td>
-                      <td className="table-td text-right">{s.prix_unitaire.toLocaleString('fr-FR', { minimumFractionDigits: 2 })} {s.devise}</td>
+                      <td className="table-td text-right">
+                        {s.prix_unitaire.toLocaleString('fr-FR', { minimumFractionDigits: s.devise === 'CDF' ? 0 : 2 })} {s.devise}
+                        {s.devise !== 'USD' && <div className="text-[10px] text-slate-400">≈ ${s.prix_unitaire_usd.toFixed(2)}</div>}
+                      </td>
                       <td className="table-td text-center"><ScoreCell value={s.scores.prix} /></td>
                       <td className="table-td text-center"><ScoreCell value={s.scores.qualite} /></td>
                       <td className="table-td text-center">{s.delai_livraison_jours}</td>

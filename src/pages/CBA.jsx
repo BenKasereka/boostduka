@@ -126,7 +126,12 @@ export default function CBA() {
                     <tr key={l.fournisseur_id} className={`border-b border-slate-100 ${retenu ? 'bg-emeraude-50/50 font-medium' : ''}`}>
                       <td className="py-1.5">{l.fournisseur_nom}{retenu && ' ✓'}</td>
                       <td className="py-1.5 text-slate-500">{l.province_nom}</td>
-                      <td className="py-1.5 text-right">{l.prix_unitaire.toLocaleString('fr-FR', { minimumFractionDigits: 2 })} {l.devise}</td>
+                      <td className="py-1.5 text-right">
+                        {l.prix_unitaire.toLocaleString('fr-FR', { minimumFractionDigits: l.devise === 'CDF' ? 0 : 2 })} {l.devise}
+                        {l.devise !== 'USD' && l.prix_unitaire_usd != null && (
+                          <span className="text-slate-400 text-[10px]"> (≈${l.prix_unitaire_usd.toFixed(2)})</span>
+                        )}
+                      </td>
                       <td className="py-1.5 text-center">{l.delai_livraison_jours}</td>
                       <td className="py-1.5 text-xs text-slate-500">{l.conditions_paiement}</td>
                       <td className="py-1.5 text-center font-semibold text-marine-700">{l.scores.total.toFixed(1)}</td>

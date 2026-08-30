@@ -1,7 +1,7 @@
 id,nom_base,province_id,nom_responsable,email_responsable,telephone_responsable,date_ouverture_base
-96f35a01-5136-4441-be13-f2a21147a49e,Base VISIBA Kinshasa,1,Guelord Kasongo,guelord.kasongo@visiba-logistics.org,+243924558532,2022-03-25
-b0a22519-635b-4723-b7e2-16906911682f,Base VISIBA Goma,2,Clarisse Mukendi,clarisse.mukendi@visiba-logistics.org,+243896008248,2023-06-18
-849b35ab-b6ac-4eb3-8b52-b3b9ff7f3e8e,Base VISIBA Bukavu,3,Serge Nkulu,serge.nkulu@visiba-logistics.org,+243957562987,2022-04-21
-771fd5d0-c0c0-450d-bdd1-2260c03031bb,Base VISIBA Lubumbashi,4,Jean-Pierre Bakajika,jean.pierre.bakajika@visiba-logistics.org,+243959018433,2021-09-03
-8cba87e2-77e4-4f13-87db-4244b6412ba2,Base VISIBA Bunia,5,Prisca Bofasa,prisca.bofasa@visiba-logistics.org,+243803677606,2023-06-05
-9ee41bc3-c21a-4fa1-a3ed-86f62b662e30,Base VISIBA Kananga,6,Guelord Kazadi,guelord.kazadi@visiba-logistics.org,+243888268918,2023-05-05
+9afefdbb-119c-4425-8535-6fec5127f4b6,Base VISIBA Kinshasa,1,Guelord Kasongo,guelord.kasongo@visiba-logistics.org,+243924558532,2022-03-25
+233431b7-94e1-4972-835b-5ab9bc49f081,Base VISIBA Goma,2,Clarisse Mukendi,clarisse.mukendi@visiba-logistics.org,+243896008248,2023-06-18
+ae000a4f-dbc2-4247-b4b4-3635d5f0ab1c,Base VISIBA Bukavu,3,Serge Nkulu,serge.nkulu@visiba-logistics.org,+243957562987,2022-04-21
+47412352-fa9b-4881-bdd6-aa37fbcc2ce3,Base VISIBA Lubumbashi,4,Jean-Pierre Bakajika,jean.pierre.bakajika@visiba-logistics.org,+243959018433,2021-09-03
+82563cbe-1a9f-4aeb-b31a-d18aac64d91f,Base VISIBA Bunia,5,Prisca Bofasa,prisca.bofasa@visiba-logistics.org,+243803677606,2023-06-05
+20036399-853f-4275-81f5-a1af194fd3fd,Base VISIBA Kananga,6,Guelord Kazadi,guelord.kazadi@visiba-logistics.org,+243888268918,2023-05-05

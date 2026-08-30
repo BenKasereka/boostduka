@@ -6,6 +6,10 @@
 // lignes de catalogue a la volee, pour ne pas casser le modele relationnel.
 // =====================================================================
 
+import { CURRENCIES, toUsd } from './currency';
+
+const CODES_DEVISE_VALIDES = CURRENCIES.map((c) => c.code);
+
 const HEADER_ALIASES = {
   article: ['article', 'nom_article', 'produit', 'item', 'designation'],
   prix_unitaire: ['prix unitaire', 'prix_unitaire', 'prix', 'unit price', 'price'],
@@ -82,7 +86,7 @@ export function validateImportRows(rawRows, articles) {
     }
 
     let devise = (row.devise ?? 'USD').toString().trim().toUpperCase();
-    if (!['USD', 'CDF'].includes(devise)) devise = 'USD';
+    if (!CODES_DEVISE_VALIDES.includes(devise)) devise = 'USD';
 
     const delai = Number(row.delai_livraison_jours);
     const delaiValide = row.delai_livraison_jours !== undefined && row.delai_livraison_jours !== '' && !isNaN(delai) && delai >= 0;
@@ -97,9 +101,11 @@ export function validateImportRows(rawRows, articles) {
       article,
       prix_unitaire: prixUnitaire,
       devise,
+      prix_unitaire_usd: isNaN(prixUnitaire) ? null : toUsd(prixUnitaire, devise),
       delai_livraison_jours: delaiValide ? delai : null,
       quantite_min: quantiteMin,
       validite_offre_date: parseDate(row.validite_offre_date),
+      ligneSource: rawRow._ligneSource,
       ok: errors.length === 0,
       errors,
     };
