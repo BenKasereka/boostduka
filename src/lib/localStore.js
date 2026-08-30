@@ -1,10 +1,10 @@
 // =====================================================================
-// Persistance locale (navigateur) des feuilles de synthese comparative.
+// Persistance locale (navigateur) des dossiers de synthese comparative.
 // Tant que Supabase n'est pas branche, cette couche tient lieu d'insert/
-// update sur evaluations_comparatives + evaluation_lignes (voir schema.sql).
-// Le format des objets stockes reprend directement ces deux tables afin
-// qu'un futur `saveEvaluation` puisse ecrire vers Supabase sans changer
-// la forme des donnees consommees par l'UI.
+// update sur evaluations_comparatives + evaluation_articles + evaluation_
+// lignes + evaluation_criteres_personnalises (voir schema.sql). Un dossier
+// peut couvrir plusieurs articles (un "lot"), chacun avec son propre
+// fournisseur retenu (attribution scindee).
 // =====================================================================
 
 const STORAGE_KEY = 'visiba_evaluations_comparatives';
@@ -26,8 +26,10 @@ export function listEvaluations() {
   return readAll().sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 }
 
+// Un dossier peut couvrir plusieurs articles (un "lot") — on le retrouve
+// des qu'un de ses articles correspond a articleId.
 export function listEvaluationsForArticle(articleId) {
-  return listEvaluations().filter((e) => e.article_id === articleId);
+  return listEvaluations().filter((e) => (e.articles || []).some((a) => a.article_id === articleId));
 }
 
 export function getEvaluation(id) {

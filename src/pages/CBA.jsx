@@ -22,6 +22,7 @@ export default function CBA() {
   }
 
   const evaluation = evaluations.find((e) => e.id === selectedId);
+  const criteresPersonnalises = evaluation?.criteresPersonnalises || [];
 
   function handleValidate() {
     if (!evaluation) return;
@@ -49,11 +50,14 @@ export default function CBA() {
         </div>
         <div className="flex items-center gap-2">
           <select className="input-field !w-auto min-w-[260px]" value={selectedId} onChange={(e) => setSelectedId(e.target.value)}>
-            {evaluations.map((e) => (
-              <option key={e.id} value={e.id}>
-                {e.article_nom} — {e.fournisseur_retenu_nom} ({new Date(e.created_at).toLocaleDateString('fr-FR')})
-              </option>
-            ))}
+            {evaluations.map((e) => {
+              const noms = (e.articles || []).map((a) => a.article_nom).join(', ') || 'Dossier vide';
+              return (
+                <option key={e.id} value={e.id}>
+                  {noms} ({new Date(e.created_at).toLocaleDateString('fr-FR')})
+                </option>
+              );
+            })}
           </select>
           {evaluation?.statut !== 'valide' && (
             <button className="btn-secondary" onClick={handleValidate}>Marquer comme validé</button>
@@ -78,22 +82,23 @@ export default function CBA() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6 text-sm">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6 text-sm">
             <div>
               <div className="text-xs text-slate-400">Section demandeuse</div>
               <div className="font-medium">{evaluation.section_nom || 'Intersection Procurement'}</div>
             </div>
             <div>
-              <div className="text-xs text-slate-400">Catégorie</div>
-              <div className="font-medium">{evaluation.categorie_nom}</div>
+              <div className="text-xs text-slate-400">Articles du dossier (lot)</div>
+              <div className="font-medium">{(evaluation.articles || []).length} article(s)</div>
             </div>
             <div>
-              <div className="text-xs text-slate-400">Article</div>
-              <div className="font-medium">{evaluation.article_nom}</div>
-            </div>
-            <div>
-              <div className="text-xs text-slate-400">Offres comparées</div>
-              <div className="font-medium">{evaluation.lignes.length} fournisseur(s)</div>
+              <div className="text-xs text-slate-400">Fournisseurs distincts retenus</div>
+              <div className="font-medium">
+                {new Set((evaluation.articles || []).map((a) => a.fournisseur_retenu_id)).size}
+                {(evaluation.articles || []).length > 1 && new Set((evaluation.articles || []).map((a) => a.fournisseur_retenu_id)).size > 1 && (
+                  <span className="text-[10px] text-or-700 ml-1 font-normal">(attribution scindée)</span>
+                )}
+              </div>
             </div>
           </div>
 
@@ -103,51 +108,59 @@ export default function CBA() {
               {CRITERES.map((c) => (
                 <span key={c.key} className="badge bg-marine-50 text-marine-700">{c.label} : {evaluation.ponderation[c.key]}%</span>
               ))}
+              {criteresPersonnalises.map((c) => (
+                <span key={c.id} className="badge bg-or-50 text-or-700">{c.label} : {c.poids}%</span>
+              ))}
             </div>
           </div>
 
-          <div className="mb-6">
-            <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Offres comparées</div>
-            <table className="w-full border-collapse text-sm">
-              <thead>
-                <tr className="border-b border-slate-300">
-                  <th className="text-left py-1.5 font-semibold text-slate-600">Fournisseur</th>
-                  <th className="text-left py-1.5 font-semibold text-slate-600">Province</th>
-                  <th className="text-right py-1.5 font-semibold text-slate-600">Prix</th>
-                  <th className="text-center py-1.5 font-semibold text-slate-600">Délai (j)</th>
-                  <th className="text-left py-1.5 font-semibold text-slate-600">Conditions paiement</th>
-                  <th className="text-center py-1.5 font-semibold text-slate-600">Score total</th>
-                </tr>
-              </thead>
-              <tbody>
-                {evaluation.lignes.map((l) => {
-                  const retenu = l.fournisseur_id === evaluation.fournisseur_retenu_id;
-                  return (
-                    <tr key={l.fournisseur_id} className={`border-b border-slate-100 ${retenu ? 'bg-emeraude-50/50 font-medium' : ''}`}>
-                      <td className="py-1.5">{l.fournisseur_nom}{retenu && ' ✓'}</td>
-                      <td className="py-1.5 text-slate-500">{l.province_nom}</td>
-                      <td className="py-1.5 text-right">
-                        {l.prix_unitaire.toLocaleString('fr-FR', { minimumFractionDigits: l.devise === 'CDF' ? 0 : 2 })} {l.devise}
-                        {l.devise !== 'USD' && l.prix_unitaire_usd != null && (
-                          <span className="text-slate-400 text-[10px]"> (≈${l.prix_unitaire_usd.toFixed(2)})</span>
-                        )}
-                      </td>
-                      <td className="py-1.5 text-center">{l.delai_livraison_jours}</td>
-                      <td className="py-1.5 text-xs text-slate-500">{l.conditions_paiement}</td>
-                      <td className="py-1.5 text-center font-semibold text-marine-700">{l.scores.total.toFixed(1)}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+          {(evaluation.articles || []).map((art, i) => (
+            <div key={art.article_id} className="mb-8 break-inside-avoid">
+              <div className="text-sm font-bold text-slate-800 mb-2 pb-1 border-b border-slate-200">
+                {i + 1}. {art.article_nom} <span className="text-xs font-normal text-slate-400">({art.categorie_nom})</span>
+              </div>
 
-          <div className="border border-emeraude-200 bg-emeraude-50/40 rounded-md p-4 mb-8">
-            <div className="text-xs font-semibold uppercase tracking-wide text-emeraude-700 mb-1">Fournisseur retenu</div>
-            <div className="text-base font-semibold text-slate-800 mb-1">{evaluation.fournisseur_retenu_nom}</div>
-            <div className="text-xs text-slate-400 mb-1">Justification d'attribution</div>
-            <p className="text-sm text-slate-700 whitespace-pre-wrap">{evaluation.justification || '—'}</p>
-          </div>
+              <table className="w-full border-collapse text-sm mb-3">
+                <thead>
+                  <tr className="border-b border-slate-300">
+                    <th className="text-left py-1.5 font-semibold text-slate-600">Fournisseur</th>
+                    <th className="text-left py-1.5 font-semibold text-slate-600">Province</th>
+                    <th className="text-right py-1.5 font-semibold text-slate-600">Prix</th>
+                    <th className="text-center py-1.5 font-semibold text-slate-600">Délai (j)</th>
+                    <th className="text-left py-1.5 font-semibold text-slate-600">Conditions paiement</th>
+                    <th className="text-center py-1.5 font-semibold text-slate-600">Score total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {art.lignes.map((l) => {
+                    const retenu = l.fournisseur_id === art.fournisseur_retenu_id;
+                    return (
+                      <tr key={l.fournisseur_id} className={`border-b border-slate-100 ${retenu ? 'bg-emeraude-50/50 font-medium' : ''}`}>
+                        <td className="py-1.5">{l.fournisseur_nom}{retenu && ' ✓'}</td>
+                        <td className="py-1.5 text-slate-500">{l.province_nom}</td>
+                        <td className="py-1.5 text-right">
+                          {l.prix_unitaire.toLocaleString('fr-FR', { minimumFractionDigits: l.devise === 'CDF' ? 0 : 2 })} {l.devise}
+                          {l.devise !== 'USD' && l.prix_unitaire_usd != null && (
+                            <span className="text-slate-400 text-[10px]"> (≈${l.prix_unitaire_usd.toFixed(2)})</span>
+                          )}
+                        </td>
+                        <td className="py-1.5 text-center">{l.delai_livraison_jours}</td>
+                        <td className="py-1.5 text-xs text-slate-500">{l.conditions_paiement}</td>
+                        <td className="py-1.5 text-center font-semibold text-marine-700">{l.scores.total.toFixed(1)}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+
+              <div className="border border-emeraude-200 bg-emeraude-50/40 rounded-md p-3">
+                <div className="text-xs font-semibold uppercase tracking-wide text-emeraude-700 mb-1">Fournisseur retenu</div>
+                <div className="text-sm font-semibold text-slate-800 mb-1">{art.fournisseur_retenu_nom || '—'}</div>
+                <div className="text-xs text-slate-400 mb-1">Justification d'attribution</div>
+                <p className="text-sm text-slate-700 whitespace-pre-wrap">{art.justification || '—'}</p>
+              </div>
+            </div>
+          ))}
 
           <div className="grid grid-cols-2 gap-8 pt-6 border-t border-slate-200 text-sm">
             <div>

@@ -193,34 +193,70 @@ comment on table commandes is 'Historique du cycle PR -> PO -> Livraison, 12 moi
 
 -- ---------------------------------------------------------------------
 -- TABLE: evaluations_comparatives (feuille de synthèse — Module 3)
--- En-tête d'une comparaison multicritères pour un article donné.
+-- En-tête d'un dossier de comparaison : peut couvrir PLUSIEURS articles
+-- (un "lot"), chacun pouvant etre attribue a un fournisseur different
+-- (attribution scindee / split award). Le detail par article vit dans
+-- evaluation_articles ci-dessous.
 -- ---------------------------------------------------------------------
 create table evaluations_comparatives (
     id                          uuid primary key default gen_random_uuid(),
-    article_id                  integer not null references articles(id),
-    categorie_id                smallint not null references categories_articles(id),
     section_id                  uuid references sections(id),           -- section demandeuse (optionnel)
     ponderation_prix            numeric(5,2) not null default 35,
     ponderation_qualite         numeric(5,2) not null default 25,
     ponderation_delai           numeric(5,2) not null default 20,
     ponderation_disponibilite   numeric(5,2) not null default 10,
     ponderation_conditions      numeric(5,2) not null default 10,
-    fournisseur_retenu_id       uuid references fournisseurs(id),
-    justification               text,
     statut                      text not null default 'brouillon' check (statut in ('brouillon','valide')),
     cree_par                    text,   -- email de l'analyste procurement
     created_at                  timestamptz not null default now(),
     updated_at                  timestamptz not null default now()
 );
 
-comment on table evaluations_comparatives is 'Feuille de synthèse comparative multicritères (Prix/Qualité/Délai/Disponibilité/Conditions) pour un article donné';
+comment on table evaluations_comparatives is 'Dossier de synthèse comparative (un ou plusieurs articles / lot), pondération multicritères commune';
 
 -- ---------------------------------------------------------------------
--- TABLE: evaluation_lignes (une ligne = un fournisseur candidat evalue)
+-- TABLE: evaluation_criteres_personnalises (specifications ajoutees a la
+-- main par l'analyste, selon les besoins exprimes par le demandeur, en
+-- plus des 5 criteres fixes ci-dessus)
+-- ---------------------------------------------------------------------
+create table evaluation_criteres_personnalises (
+    id              uuid primary key default gen_random_uuid(),
+    evaluation_id   uuid not null references evaluations_comparatives(id) on delete cascade,
+    label           text not null,
+    poids           numeric(5,2) not null default 10,
+    ordre           smallint not null default 0
+);
+
+create index idx_eval_criteres_evaluation on evaluation_criteres_personnalises(evaluation_id);
+
+comment on table evaluation_criteres_personnalises is 'Critères de sélection additionnels, définis manuellement pour un dossier donné';
+
+-- ---------------------------------------------------------------------
+-- TABLE: evaluation_articles (un article du lot, avec son fournisseur
+-- retenu propre — permet l'attribution scindée entre plusieurs
+-- fournisseurs sur un même dossier)
+-- ---------------------------------------------------------------------
+create table evaluation_articles (
+    id                      uuid primary key default gen_random_uuid(),
+    evaluation_id           uuid not null references evaluations_comparatives(id) on delete cascade,
+    article_id              integer not null references articles(id),
+    categorie_id            smallint not null references categories_articles(id),
+    ordre                   smallint not null default 0,
+    fournisseur_retenu_id   uuid references fournisseurs(id),
+    justification           text
+);
+
+create index idx_eval_articles_evaluation on evaluation_articles(evaluation_id);
+
+comment on table evaluation_articles is 'Un article comparé au sein d''un dossier, avec son fournisseur retenu et sa justification propres';
+
+-- ---------------------------------------------------------------------
+-- TABLE: evaluation_lignes (une ligne = un fournisseur candidat evalue,
+-- pour un article donne du dossier)
 -- ---------------------------------------------------------------------
 create table evaluation_lignes (
     id                              uuid primary key default gen_random_uuid(),
-    evaluation_id                   uuid not null references evaluations_comparatives(id) on delete cascade,
+    evaluation_article_id           uuid not null references evaluation_articles(id) on delete cascade,
     fournisseur_id                  uuid not null references fournisseurs(id),
     devis_id                        uuid references devis(id),
     score_prix                      numeric(5,2),
@@ -232,9 +268,24 @@ create table evaluation_lignes (
     note_libre                      text
 );
 
-create index idx_eval_lignes_evaluation on evaluation_lignes(evaluation_id);
+create index idx_eval_lignes_article on evaluation_lignes(evaluation_article_id);
 
-comment on table evaluation_lignes is 'Scores par critère et par fournisseur candidat, pour une evaluation_comparative donnée';
+comment on table evaluation_lignes is 'Scores par critère et par fournisseur candidat, pour un article donné du dossier';
+
+-- ---------------------------------------------------------------------
+-- TABLE: evaluation_scores_personnalises (score manuel par candidat pour
+-- chaque critère personnalisé, propre a chaque article du lot)
+-- ---------------------------------------------------------------------
+create table evaluation_scores_personnalises (
+    id                      uuid primary key default gen_random_uuid(),
+    evaluation_ligne_id     uuid not null references evaluation_lignes(id) on delete cascade,
+    critere_id              uuid not null references evaluation_criteres_personnalises(id) on delete cascade,
+    score                   numeric(5,2) not null default 0
+);
+
+create index idx_eval_scores_perso_ligne on evaluation_scores_personnalises(evaluation_ligne_id);
+
+comment on table evaluation_scores_personnalises is 'Score manuel (0-100) d''un candidat sur un critère personnalisé, pour une ligne d''évaluation donnée';
 
 -- =====================================================================
 -- Table à venir (Étape 4 — non créée ici, réservée) :

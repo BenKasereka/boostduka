@@ -52,13 +52,22 @@ function normalize(values, value, higherIsBetter) {
   return Math.round((higherIsBetter ? ratio : 1 - ratio) * 100 * 100) / 100;
 }
 
-export function computeScores(candidats, weights = DEFAULT_WEIGHTS, today = new Date()) {
+// criteresPersonnalises : [{ id, label, poids }] — specifies ajoutees
+// manuellement par l'analyste selon les besoins exprimes par le demandeur
+// (ex: conformite a une norme, marque exigee...). Comme ces criteres n'ont
+// pas de donnee source automatique, leur score par candidat est saisi a la
+// main : customScores = { [fournisseur_id]: { [critere_id]: 0-100 } }.
+export function computeScores(candidats, weights = DEFAULT_WEIGHTS, options = {}) {
+  const { criteresPersonnalises = [], customScores = {}, today = new Date() } = options;
+
   // Comparaison sur l'equivalent USD : des prix bruts en devises differentes
   // (ex: CDF vs USD) ne sont pas comparables sans conversion prealable.
   const prix = candidats.map((c) => c.prix_unitaire_usd ?? c.prix_unitaire);
   const delais = candidats.map((c) => c.delai_livraison_jours);
 
-  const weightSum = Object.values(weights).reduce((a, b) => a + b, 0) || 1;
+  const weightSumFixe = Object.values(weights).reduce((a, b) => a + b, 0) || 0;
+  const weightSumPerso = criteresPersonnalises.reduce((a, c) => a + (c.poids || 0), 0);
+  const weightSum = weightSumFixe + weightSumPerso || 1;
 
   return candidats
     .map((c) => {
@@ -69,13 +78,22 @@ export function computeScores(candidats, weights = DEFAULT_WEIGHTS, today = new 
       const scoreDisponibilite = c.fournisseur_statut !== 'actif' ? 0 : offreValide ? 100 : 60;
       const scoreConditions = scorePaymentTerms(c.conditions_paiement);
 
-      const totalPondere =
-        (scorePrix * weights.prix +
-          scoreQualite * weights.qualite +
-          scoreDelai * weights.delai +
-          scoreDisponibilite * weights.disponibilite +
-          scoreConditions * weights.conditions) /
-        weightSum;
+      const scoresPerso = criteresPersonnalises.map((crit) => ({
+        id: crit.id,
+        label: crit.label,
+        poids: crit.poids,
+        valeur: customScores[c.fournisseur_id]?.[crit.id] ?? 0,
+      }));
+      const totalPerso = scoresPerso.reduce((a, s) => a + s.valeur * s.poids, 0);
+
+      const totalFixe =
+        scorePrix * weights.prix +
+        scoreQualite * weights.qualite +
+        scoreDelai * weights.delai +
+        scoreDisponibilite * weights.disponibilite +
+        scoreConditions * weights.conditions;
+
+      const totalPondere = (totalFixe + totalPerso) / weightSum;
 
       return {
         ...c,
@@ -85,6 +103,7 @@ export function computeScores(candidats, weights = DEFAULT_WEIGHTS, today = new 
           delai: scoreDelai,
           disponibilite: scoreDisponibilite,
           conditions: scoreConditions,
+          personnalises: scoresPerso,
           total: Math.round(totalPondere * 100) / 100,
         },
       };
