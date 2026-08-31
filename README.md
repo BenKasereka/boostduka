@@ -1,4 +1,4 @@
-# VISIBA Procurement Intelligence Hub
+# BoostDuka
 
 **Outil de Business Intelligence pour la gestion procurement multi-sites en contexte humanitaire.**
 Étude de cas : intersection procurement de VISIBA Logistics Group, 6 bases opérationnelles en République Démocratique du Congo.

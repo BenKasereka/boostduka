@@ -190,7 +190,7 @@ export default function CBA() {
           </div>
 
           <div className="mt-8 pt-3 border-t border-slate-100 text-[10px] text-slate-400 text-center">
-            Document généré par VISIBA Procurement Intelligence Hub — preuve d'audit procurement — {new Date().toLocaleString('fr-FR')}
+            Document généré par BoostDuka — preuve d'audit procurement — {new Date().toLocaleString('fr-FR')}
           </div>
         </div>
       )}

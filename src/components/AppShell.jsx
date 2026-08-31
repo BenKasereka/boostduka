@@ -17,7 +17,7 @@ export default function AppShell({ activePage, onNavigate, children }) {
       <aside className="no-print w-64 shrink-0 bg-marine-700 text-white flex flex-col h-full overflow-y-auto">
         <div className="px-5 py-6 border-b border-white/10">
           <div className="text-xs uppercase tracking-widest text-marine-100/70">VISIBA Logistics Group</div>
-          <div className="text-lg font-semibold leading-tight mt-1">Procurement Intelligence Hub</div>
+          <div className="text-lg font-semibold leading-tight mt-1">BoostDuka</div>
         </div>
         <nav className="flex-1 py-4">
           {NAV_ITEMS.map((item) => {

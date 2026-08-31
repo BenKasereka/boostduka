@@ -1,6 +1,6 @@
 'use strict';
 // =====================================================================
-// VISIBA Procurement Intelligence Hub — Generateur de dataset fictif
+// BoostDuka — Generateur de dataset fictif (cas d'etude VISIBA Logistics Group)
 // Etape 1 : peuple provinces / sections / categories / articles /
 //           fournisseurs / devis / contrats_cadres / commandes
 // Sortie  : ./data/*.json + ./data/*.csv + ./data/seed.sql

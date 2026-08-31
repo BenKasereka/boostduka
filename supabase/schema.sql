@@ -1,5 +1,5 @@
 -- =====================================================================
--- VISIBA Procurement Intelligence Hub — Schéma Supabase (Postgres)
+-- BoostDuka — Schéma Supabase (Postgres) — cas d'étude VISIBA Logistics Group
 -- RDC — 6 sections opérationnelles
 -- =====================================================================
 -- Notes de conception :

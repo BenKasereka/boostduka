@@ -1,4 +1,4 @@
-# Modèle de données Power BI — VISIBA Procurement Intelligence Hub
+# Modèle de données Power BI — BoostDuka (cas d'étude VISIBA Logistics Group)
 
 Ce document décrit comment connecter les tables exportées (module *Export Power BI*
 de l'application, ou directement `data/*.csv` / `data/seed.sql`) dans Power BI
