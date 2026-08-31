@@ -6,6 +6,7 @@ import {
 } from '../lib/dataSource';
 import { listCurrencies, DEVISES_PRINCIPALES } from '../lib/currency';
 import { useDevisePreference } from '../lib/DevisePreferenceContext';
+import { usePowerBiLink } from '../lib/PowerBiLinkContext';
 
 function DeviseSection() {
   const { devisePrincipale, setDevisePrincipale, deviseSecondaire, setDeviseSecondaire } = useDevisePreference();
@@ -44,6 +45,54 @@ function DeviseSection() {
         Taux de référence fixes (non temps réel — voir <code className="bg-slate-100 px-1 py-0.5 rounded">src/lib/currency.js</code>).
         Le scoring de la Synthèse comparative reste calculé en USD en interne pour une comparaison stable, indépendamment de cette préférence d'affichage.
       </p>
+    </div>
+  );
+}
+
+function isLienPowerBIValide(lien) {
+  if (!lien) return true; // champ vide autorisé (retire le lien)
+  try {
+    const u = new URL(lien);
+    return u.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+function PowerBiLinkSection() {
+  const { lienPowerBI, setLienPowerBI } = usePowerBiLink();
+  const [valeur, setValeur] = useState(lienPowerBI);
+  const [message, setMessage] = useState('');
+
+  const valide = isLienPowerBIValide(valeur.trim());
+
+  function handleSave() {
+    if (!valide) return;
+    setLienPowerBI(valeur.trim());
+    setMessage(valeur.trim() ? 'Lien enregistré — visible sur Export Power BI.' : 'Lien retiré.');
+  }
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-lg p-5 mb-5">
+      <h2 className="text-sm font-semibold text-slate-800 mb-1">Rapport Power BI en ligne</h2>
+      <p className="text-xs text-slate-500 mb-4">
+        Une fois votre rapport publié en <strong>« Publier sur le web (public) »</strong> depuis Power BI Desktop
+        (lien public, sans compte requis pour le visiteur — voir <code className="bg-slate-100 px-1 py-0.5 rounded">supabase/modele_donnees_PBI.md</code> section 7),
+        collez son URL ici. Elle apparaîtra comme lien direct sur le module Export Power BI. Ne jamais utiliser
+        « Publier sur le web » sur un jeu de données réel/confidentiel — ce mode rend le rapport public sur internet ;
+        le dataset de ce portfolio est entièrement fictif.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-2 max-w-xl">
+        <input
+          className="input-field"
+          placeholder="https://app.powerbi.com/view?r=..."
+          value={valeur}
+          onChange={(e) => { setValeur(e.target.value); setMessage(''); }}
+        />
+        <button className="btn-primary shrink-0" disabled={!valide} onClick={handleSave}>Enregistrer</button>
+      </div>
+      {!valide && <p className="text-xs text-red-600 mt-2">Le lien doit être une URL https:// valide.</p>}
+      {message && <p className="text-xs text-emeraude-700 mt-2">{message}</p>}
     </div>
   );
 }
@@ -397,6 +446,8 @@ export default function Configuration() {
       </div>
 
       <DeviseSection />
+
+      <PowerBiLinkSection />
 
       <div className="bg-white border border-slate-200 rounded-lg p-5">
         <div className="flex items-start justify-between mb-1">

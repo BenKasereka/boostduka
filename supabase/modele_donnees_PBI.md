@@ -252,3 +252,25 @@ compte Microsoft/Power BI — c'est une action manuelle qui vous revient
    - **Partager** le rapport via `Partager` (lien direct) ou l'intégrer à un espace de travail d'équipe.
 
 Cette dernière étape (installation, connexion, clic sur Publier) ne peut pas être automatisée depuis cet outil : Power BI Desktop est une application de bureau Windows, et la publication authentifie votre propre compte Microsoft — deux choses hors de portée d'un agent en ligne de commande, par conception.
+
+## 8. Rendre le rapport public pour ce portfolio (« Publier sur le web »)
+
+Un rapport publié dans un espace de travail Power BI Service (étape 6) reste **privé** : un visiteur du portfolio
+qui clique sur le lien devra se connecter avec un compte Power BI ayant accès à cet espace de travail — inutilisable
+pour un lien public visible par un recruteur. Pour un lien réellement public, sans compte requis, Power BI propose
+un mode différent, **« Publier sur le web »**, qui génère une URL publique et un code d'intégration (iframe).
+
+1. Dans Power BI Service (app.powerbi.com), ouvrez le rapport déjà publié (étape 6), puis
+   `Fichier > Publier sur le web`.
+2. Power BI affiche un avertissement de confidentialité : **le rapport devient visible par quiconque possède le
+   lien, y compris via les moteurs de recherche, sans authentification.** Cochez la case de confirmation en toute
+   connaissance de cause — n'utilisez ce mode que pour un jeu de données que vous acceptez de rendre public.
+   Le dataset de ce portfolio est **entièrement fictif** (voir README « Notes sur les données »), donc adapté à
+   ce mode ; ne publiez jamais ainsi un rapport contenant des données réelles/confidentielles d'une organisation.
+3. Power BI génère deux liens : un lien direct (`https://app.powerbi.com/view?r=...`) et un code d'intégration
+   `<iframe>`. Copiez le **lien direct**.
+4. Dans l'application (module **Configuration**, section « Rapport Power BI en ligne »), collez ce lien et
+   cliquez sur Enregistrer. Un bouton « Voir le rapport Power BI en ligne » apparaît alors en haut du module
+   **Export Power BI**, visible par tout visiteur du portfolio sans compte Power BI.
+5. Si vous republiez le rapport (nouvelle version, nouvelles mesures), le lien « Publier sur le web » reste
+   valide — aucune reconfiguration nécessaire côté application.

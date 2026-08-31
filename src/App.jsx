@@ -1,6 +1,7 @@
 import { lazy, Suspense, useState } from 'react';
 import AppShell from './components/AppShell';
 import { DevisePreferenceProvider } from './lib/DevisePreferenceContext';
+import { PowerBiLinkProvider } from './lib/PowerBiLinkContext';
 
 const ListePrix = lazy(() => import('./pages/ListePrix'));
 const BaseFournisseurs = lazy(() => import('./pages/BaseFournisseurs'));
@@ -18,20 +19,22 @@ export default function App() {
 
   return (
     <DevisePreferenceProvider>
-      <AppShell activePage={activePage} onNavigate={setActivePage}>
-        <Suspense fallback={<div className="text-sm text-slate-400 py-10 text-center">Chargement…</div>}>
-          {activePage === 'liste-prix' && <ListePrix />}
-          {activePage === 'fournisseurs' && <BaseFournisseurs />}
-          {activePage === 'demande-devis' && <DemandeDevis />}
-          {activePage === 'import' && <ImportDevis />}
-          {activePage === 'synthese' && <SyntheseComparative />}
-          {activePage === 'cba' && <CBA />}
-          {activePage === 'po' && <BonDeCommande />}
-          {activePage === 'dashboard' && <Dashboard />}
-          {activePage === 'export-pbi' && <ExportPowerBI />}
-          {activePage === 'configuration' && <Configuration />}
-        </Suspense>
-      </AppShell>
+      <PowerBiLinkProvider>
+        <AppShell activePage={activePage} onNavigate={setActivePage}>
+          <Suspense fallback={<div className="text-sm text-slate-400 py-10 text-center">Chargement…</div>}>
+            {activePage === 'liste-prix' && <ListePrix />}
+            {activePage === 'fournisseurs' && <BaseFournisseurs />}
+            {activePage === 'demande-devis' && <DemandeDevis />}
+            {activePage === 'import' && <ImportDevis />}
+            {activePage === 'synthese' && <SyntheseComparative />}
+            {activePage === 'cba' && <CBA />}
+            {activePage === 'po' && <BonDeCommande />}
+            {activePage === 'dashboard' && <Dashboard />}
+            {activePage === 'export-pbi' && <ExportPowerBI />}
+            {activePage === 'configuration' && <Configuration />}
+          </Suspense>
+        </AppShell>
+      </PowerBiLinkProvider>
     </DevisePreferenceProvider>
   );
 }

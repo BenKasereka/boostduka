@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { loadTable } from '../lib/dataSource';
 import { downloadCsv } from '../lib/exportCsv';
 import { exportToExcel } from '../lib/exportExcel';
+import { usePowerBiLink } from '../lib/PowerBiLinkContext';
 
 const TABLE_META = [
   { key: 'provinces', role: 'Dimension', desc: "Référentiel des 6 provinces RDC couvertes" },
@@ -32,6 +33,37 @@ const DAX_APERCU = [
   { nom: 'Coût Évité Cumulé', formule: 'SUMX(commandes, MAX(0, RELATED(articles[prix_moyen_marche]) - commandes[prix_unitaire]) * commandes[quantite])' },
   { nom: 'Taux Utilisation Contrats-Cadres', formule: 'AVERAGE(contrats_cadres[taux_utilisation_pct])' },
 ];
+
+function RapportEnLignePanel() {
+  const { lienPowerBI } = usePowerBiLink();
+
+  if (lienPowerBI) {
+    return (
+      <div className="bg-emeraude-50 border border-emeraude-100 rounded-lg p-5 mb-6 flex items-center justify-between gap-4 flex-wrap">
+        <div>
+          <div className="text-sm font-semibold text-emeraude-700">Rapport Power BI publié</div>
+          <div className="text-xs text-emeraude-700/80 mt-0.5">Lien public — aucun compte Power BI requis pour le consulter.</div>
+        </div>
+        <a href={lienPowerBI} target="_blank" rel="noopener noreferrer" className="btn-primary">
+          Voir le rapport Power BI en ligne →
+        </a>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-or-50 border border-or-100 rounded-lg p-5 mb-6">
+      <div className="text-sm font-semibold text-or-700 mb-1">Aucun rapport Power BI publié pour l'instant</div>
+      <p className="text-xs text-or-700/90">
+        Les tables ci-dessous peuvent déjà être exportées vers Power BI Desktop. Pour proposer un rapport consultable
+        en ligne directement depuis ce portfolio (sans compte Power BI requis pour le visiteur), publiez-le en{' '}
+        <strong>« Publier sur le web (public) »</strong> puis renseignez son lien dans{' '}
+        <span className="font-medium">Configuration → Rapport Power BI en ligne</span>. Détails de la procédure dans{' '}
+        <code className="text-xs bg-white/60 px-1 py-0.5 rounded">supabase/modele_donnees_PBI.md</code> (section 7).
+      </p>
+    </div>
+  );
+}
 
 export default function ExportPowerBI() {
   const [rowCounts, setRowCounts] = useState({});
@@ -67,6 +99,8 @@ export default function ExportPowerBI() {
           Télécharger toutes les tables (Excel multi-onglets)
         </button>
       </div>
+
+      <RapportEnLignePanel />
 
       <div className="bg-white border border-slate-200 rounded-lg overflow-hidden mb-6">
         <table className="w-full border-collapse">
