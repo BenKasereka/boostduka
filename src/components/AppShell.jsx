@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { key: 'cba', label: 'CBA (Bid Analysis)', etape: 4, ready: true },
   { key: 'dashboard', label: 'Dashboard KPI', etape: 5, ready: true },
   { key: 'export-pbi', label: 'Export Power BI', etape: 6, ready: true },
+  { key: 'configuration', label: '⚙ Configuration', etape: 8, ready: true },
 ];
 
 export default function AppShell({ activePage, onNavigate, children }) {

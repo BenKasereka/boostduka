@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { loadTable, commitDevisImport } from '../lib/dataSource';
-import { parseSpreadsheetFile, validateImportRows, buildDevisTemplate } from '../lib/devisImport';
+import { parseSpreadsheetFile, validateImportRows, buildDevisTemplate, revalidateRow } from '../lib/devisImport';
 import { extractRowsFromPdf } from '../lib/pdfImport';
 import { exportToExcel } from '../lib/exportExcel';
+import { CURRENCIES, toUsd } from '../lib/currency';
 
 function addDaysIso(days) {
   const d = new Date();
@@ -59,6 +60,17 @@ export default function ImportDevis() {
     }
   }
 
+  function updateRow(index, patch) {
+    setRows((prev) => prev.map((r, i) => {
+      if (i !== index) return r;
+      const merged = { ...r, ...patch };
+      if (patch.prix_unitaire !== undefined || patch.devise !== undefined) {
+        merged.prix_unitaire_usd = isNaN(merged.prix_unitaire) ? null : toUsd(merged.prix_unitaire, merged.devise);
+      }
+      return revalidateRow(merged);
+    }));
+  }
+
   function handleDownloadTemplate() {
     exportToExcel([{ name: 'Modele devis', rows: buildDevisTemplate() }], 'VISIBA_Modele_Import_Devis.xlsx');
   }
@@ -77,8 +89,10 @@ export default function ImportDevis() {
         article_id: r.article.id,
         prix_unitaire: r.prix_unitaire,
         devise: r.devise,
+        quantite_reference: r.quantite_reference,
         delai_livraison_jours: r.delai_livraison_jours,
-        quantite_min: r.quantite_min,
+        transport_inclus: r.transport_inclus,
+        stock_disponible: r.stock_disponible ?? 1,
         validite_offre_date: r.validite_offre_date || addDaysIso(60),
         date_soumission: today,
         source_import: sourceType === 'pdf' ? 'import_pdf' : 'import_excel',
@@ -151,6 +165,7 @@ export default function ImportDevis() {
             <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100">
               <div className="text-sm font-medium text-slate-700">
                 {validRows.length} ligne(s) valide(s) · {invalidRows.length} en erreur (non importées)
+                <span className="block text-xs font-normal text-slate-400">Cliquez une cellule pour corriger une valeur avant de confirmer.</span>
               </div>
               <button className="btn-primary" onClick={handleConfirm} disabled={submitting || validRows.length === 0 || !fournisseurId}>
                 {submitting ? 'Import en cours…' : `Confirmer l'import (${validRows.length} devis)`}
@@ -165,14 +180,16 @@ export default function ImportDevis() {
                     <th className="table-th text-right">Prix</th>
                     <th className="table-th">Devise</th>
                     <th className="table-th text-right">≈ USD</th>
+                    <th className="table-th text-center">Qté</th>
                     <th className="table-th text-center">Délai (j)</th>
-                    <th className="table-th text-center">Qté min</th>
+                    <th className="table-th text-center">Transport inclus</th>
+                    <th className="table-th text-center">Qté Min-Stock</th>
                     <th className="table-th">Validité offre</th>
                     {sourceType === 'pdf' && <th className="table-th">Texte source (PDF)</th>}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {rows.map((r) => (
+                  {rows.map((r, idx) => (
                     <tr key={r.index} className={r.ok ? '' : 'bg-red-50/50'}>
                       <td className="table-td">
                         {r.ok ? (
@@ -181,13 +198,75 @@ export default function ImportDevis() {
                           <span className="badge bg-red-50 text-red-700" title={r.errors.join(', ')}>{r.errors[0]}</span>
                         )}
                       </td>
-                      <td className="table-td font-medium text-slate-800">{r.articleRaw || '—'}</td>
-                      <td className="table-td text-right">{isNaN(r.prix_unitaire) ? '—' : r.prix_unitaire}</td>
-                      <td className="table-td">{r.devise}</td>
+                      <td className="table-td">
+                        <select
+                          className="min-w-[180px] text-sm border border-slate-200 rounded px-1 py-1"
+                          value={r.article?.id ?? ''}
+                          onChange={(e) => {
+                            const art = articles.find((a) => a.id === Number(e.target.value));
+                            updateRow(idx, { article: art, articleRaw: art?.nom_article ?? r.articleRaw });
+                          }}
+                        >
+                          <option value="">{r.articleRaw ? `« ${r.articleRaw} » — non reconnu` : '— choisir —'}</option>
+                          {articles.map((a) => (<option key={a.id} value={a.id}>{a.nom_article}</option>))}
+                        </select>
+                      </td>
+                      <td className="table-td text-right">
+                        <input
+                          type="number" step="0.01" className="w-20 text-right text-sm border border-slate-200 rounded px-1 py-1"
+                          value={isNaN(r.prix_unitaire) ? '' : r.prix_unitaire}
+                          onChange={(e) => updateRow(idx, { prix_unitaire: parseFloat(e.target.value) })}
+                        />
+                      </td>
+                      <td className="table-td">
+                        <select
+                          className="text-sm border border-slate-200 rounded px-1 py-1"
+                          value={r.devise}
+                          onChange={(e) => updateRow(idx, { devise: e.target.value })}
+                        >
+                          {CURRENCIES.map((c) => (<option key={c.code} value={c.code}>{c.code}</option>))}
+                        </select>
+                      </td>
                       <td className="table-td text-right text-slate-400">{r.prix_unitaire_usd != null ? `$${r.prix_unitaire_usd.toFixed(2)}` : '—'}</td>
-                      <td className="table-td text-center">{r.delai_livraison_jours ?? '—'}</td>
-                      <td className="table-td text-center">{r.quantite_min}</td>
-                      <td className="table-td text-slate-500">{r.validite_offre_date || '—'}</td>
+                      <td className="table-td text-center">
+                        <input
+                          type="number" min="1" className="w-16 text-center text-sm border border-slate-200 rounded px-1 py-1"
+                          value={r.quantite_reference}
+                          onChange={(e) => updateRow(idx, { quantite_reference: Number(e.target.value) || 1 })}
+                        />
+                      </td>
+                      <td className="table-td text-center">
+                        <input
+                          type="number" min="0" className="w-16 text-center text-sm border border-slate-200 rounded px-1 py-1"
+                          value={r.delai_livraison_jours ?? ''}
+                          onChange={(e) => updateRow(idx, { delai_livraison_jours: e.target.value === '' ? null : Number(e.target.value) })}
+                        />
+                      </td>
+                      <td className="table-td text-center">
+                        <select
+                          className="text-sm border border-slate-200 rounded px-1 py-1"
+                          value={r.transport_inclus ? 'oui' : 'non'}
+                          onChange={(e) => updateRow(idx, { transport_inclus: e.target.value === 'oui' })}
+                        >
+                          <option value="non">Non</option>
+                          <option value="oui">Oui</option>
+                        </select>
+                      </td>
+                      <td className="table-td text-center">
+                        <input
+                          type="number" min="0" className="w-16 text-center text-sm border border-slate-200 rounded px-1 py-1"
+                          value={r.stock_disponible ?? ''}
+                          placeholder="?"
+                          onChange={(e) => updateRow(idx, { stock_disponible: e.target.value === '' ? null : Number(e.target.value) })}
+                        />
+                      </td>
+                      <td className="table-td">
+                        <input
+                          type="date" className="text-sm border border-slate-200 rounded px-1 py-1"
+                          value={r.validite_offre_date || ''}
+                          onChange={(e) => updateRow(idx, { validite_offre_date: e.target.value || null })}
+                        />
+                      </td>
                       {sourceType === 'pdf' && (
                         <td className="table-td text-[10px] text-slate-400 max-w-[220px] truncate" title={r.ligneSource}>{r.ligneSource}</td>
                       )}

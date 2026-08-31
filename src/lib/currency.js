@@ -63,3 +63,14 @@ export function formatMoney(amount, code, { decimals } = {}) {
 export function listCurrencies() {
   return CURRENCIES;
 }
+
+// Convertit un montant pour affichage selon la preference utilisateur :
+// une devise principale (toujours affichee) et, si choisie, une devise
+// secondaire de conversion affichee en complement (mode "double affichage").
+export function convertPourAffichage(amount, deviseOriginale, devisePrincipale, deviseSecondaire) {
+  const principal = convert(amount, deviseOriginale, devisePrincipale);
+  const secondaire = deviseSecondaire && deviseSecondaire !== devisePrincipale
+    ? convert(amount, deviseOriginale, deviseSecondaire)
+    : null;
+  return { principal, principalCode: devisePrincipale, secondaire, secondaireCode: deviseSecondaire };
+}

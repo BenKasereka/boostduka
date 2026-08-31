@@ -3,924 +3,1337 @@
     "id": 1,
     "categorie_id": 1,
     "nom_article": "Gants latex examen (boite 100)",
-    "unite_mesure": "boite"
+    "unite_mesure": "boite",
+    "description_specification": null
   },
   {
     "id": 2,
     "categorie_id": 1,
     "nom_article": "Seringues 5ml jetables",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 3,
     "categorie_id": 1,
     "nom_article": "Paracetamol 500mg (boite 1000cp)",
-    "unite_mesure": "boite"
+    "unite_mesure": "boite",
+    "description_specification": null
   },
   {
     "id": 4,
     "categorie_id": 1,
     "nom_article": "Kit de premiers secours complet",
-    "unite_mesure": "kit"
+    "unite_mesure": "kit",
+    "description_specification": null
   },
   {
     "id": 5,
     "categorie_id": 1,
     "nom_article": "Amoxicilline 500mg (boite 100cp)",
-    "unite_mesure": "boite"
+    "unite_mesure": "boite",
+    "description_specification": null
   },
   {
     "id": 6,
     "categorie_id": 1,
     "nom_article": "Solution de rehydratation orale (SRO)",
-    "unite_mesure": "sachet"
+    "unite_mesure": "sachet",
+    "description_specification": null
   },
   {
     "id": 7,
     "categorie_id": 1,
     "nom_article": "Thermometre digital",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 8,
     "categorie_id": 1,
     "nom_article": "Compresses steriles",
-    "unite_mesure": "paquet"
+    "unite_mesure": "paquet",
+    "description_specification": null
   },
   {
     "id": 9,
     "categorie_id": 1,
     "nom_article": "Alcool desinfectant 70% (1L)",
-    "unite_mesure": "litre"
+    "unite_mesure": "litre",
+    "description_specification": null
   },
   {
     "id": 10,
     "categorie_id": 1,
     "nom_article": "Masques chirurgicaux (boite 50)",
-    "unite_mesure": "boite"
+    "unite_mesure": "boite",
+    "description_specification": null
   },
   {
     "id": 11,
     "categorie_id": 1,
     "nom_article": "Sonde urinaire",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 12,
     "categorie_id": 1,
     "nom_article": "Kit accouchement propre",
-    "unite_mesure": "kit"
+    "unite_mesure": "kit",
+    "description_specification": null
   },
   {
     "id": 13,
     "categorie_id": 1,
     "nom_article": "Perfuseur IV",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 14,
     "categorie_id": 1,
     "nom_article": "Test de diagnostic rapide paludisme",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 15,
     "categorie_id": 1,
     "nom_article": "Glucometre + bandelettes",
-    "unite_mesure": "kit"
+    "unite_mesure": "kit",
+    "description_specification": null
   },
   {
     "id": 16,
     "categorie_id": 2,
     "nom_article": "Pastilles de purification d'eau",
-    "unite_mesure": "boite"
+    "unite_mesure": "boite",
+    "description_specification": null
   },
   {
     "id": 17,
     "categorie_id": 2,
     "nom_article": "Bidon plastique 20L",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 18,
     "categorie_id": 2,
     "nom_article": "Savon de menage (barre 200g)",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 19,
     "categorie_id": 2,
     "nom_article": "Filtre a eau ceramique",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 20,
     "categorie_id": 2,
     "nom_article": "Chlore liquide (bidon 5L)",
-    "unite_mesure": "bidon"
+    "unite_mesure": "bidon",
+    "description_specification": null
   },
   {
     "id": 21,
     "categorie_id": 2,
     "nom_article": "Kit hygiene familial",
-    "unite_mesure": "kit"
+    "unite_mesure": "kit",
+    "description_specification": null
   },
   {
     "id": 22,
     "categorie_id": 2,
     "nom_article": "Latrine mobile prefabriquee",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 23,
     "categorie_id": 2,
     "nom_article": "Seau plastique 15L avec couvercle",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 24,
     "categorie_id": 2,
     "nom_article": "Reservoir souple 5000L",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 25,
     "categorie_id": 2,
     "nom_article": "Tuyau PVC 1 pouce (rouleau 50m)",
-    "unite_mesure": "rouleau"
+    "unite_mesure": "rouleau",
+    "description_specification": null
   },
   {
     "id": 26,
     "categorie_id": 2,
     "nom_article": "Pompe manuelle a eau",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 27,
     "categorie_id": 2,
     "nom_article": "Savon liquide desinfectant (5L)",
-    "unite_mesure": "bidon"
+    "unite_mesure": "bidon",
+    "description_specification": null
   },
   {
     "id": 28,
     "categorie_id": 3,
     "nom_article": "Bache plastique renforcee 4x6m",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 29,
     "categorie_id": 3,
     "nom_article": "Couverture en laine",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 30,
     "categorie_id": 3,
     "nom_article": "Natte de couchage",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 31,
     "categorie_id": 3,
     "nom_article": "Moustiquaire impregnee",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 32,
     "categorie_id": 3,
     "nom_article": "Kit de cuisine familial",
-    "unite_mesure": "kit"
+    "unite_mesure": "kit",
+    "description_specification": null
   },
   {
     "id": 33,
     "categorie_id": 3,
     "nom_article": "Jerrican pliable 10L",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 34,
     "categorie_id": 3,
     "nom_article": "Lampe solaire portable",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 35,
     "categorie_id": 3,
     "nom_article": "Tente familiale",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 36,
     "categorie_id": 3,
     "nom_article": "Kit dignite (hygiene feminine)",
-    "unite_mesure": "kit"
+    "unite_mesure": "kit",
+    "description_specification": null
   },
   {
     "id": 37,
     "categorie_id": 3,
     "nom_article": "Set de vaisselle plastique",
-    "unite_mesure": "set"
+    "unite_mesure": "set",
+    "description_specification": null
   },
   {
     "id": 38,
     "categorie_id": 4,
     "nom_article": "Gasoil (litre)",
-    "unite_mesure": "litre"
+    "unite_mesure": "litre",
+    "description_specification": null
   },
   {
     "id": 39,
     "categorie_id": 4,
     "nom_article": "Essence sans plomb (litre)",
-    "unite_mesure": "litre"
+    "unite_mesure": "litre",
+    "description_specification": null
   },
   {
     "id": 40,
     "categorie_id": 4,
     "nom_article": "Petrole lampant (litre)",
-    "unite_mesure": "litre"
+    "unite_mesure": "litre",
+    "description_specification": null
   },
   {
     "id": 41,
     "categorie_id": 4,
     "nom_article": "Gaz butane (bouteille 12kg)",
-    "unite_mesure": "bouteille"
+    "unite_mesure": "bouteille",
+    "description_specification": null
   },
   {
     "id": 42,
     "categorie_id": 4,
     "nom_article": "Bidon carburant 200L",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 43,
     "categorie_id": 4,
     "nom_article": "Huile moteur 20W50 (5L)",
-    "unite_mesure": "bidon"
+    "unite_mesure": "bidon",
+    "description_specification": null
   },
   {
     "id": 44,
     "categorie_id": 4,
     "nom_article": "Panneau solaire 150W",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 45,
     "categorie_id": 4,
     "nom_article": "Batterie solaire 100Ah",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 46,
     "categorie_id": 4,
     "nom_article": "Filtre a carburant",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 47,
     "categorie_id": 4,
     "nom_article": "Pompe a carburant manuelle",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 48,
     "categorie_id": 5,
     "nom_article": "Batterie vehicule 12V 75Ah",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 49,
     "categorie_id": 5,
     "nom_article": "Pneu 4x4 235/85 R16",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 50,
     "categorie_id": 5,
     "nom_article": "Plaquettes de frein (jeu)",
-    "unite_mesure": "jeu"
+    "unite_mesure": "jeu",
+    "description_specification": null
   },
   {
     "id": 51,
     "categorie_id": 5,
     "nom_article": "Filtre a huile",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 52,
     "categorie_id": 5,
     "nom_article": "Filtre a air",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 53,
     "categorie_id": 5,
     "nom_article": "Courroie de distribution",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 54,
     "categorie_id": 5,
     "nom_article": "Amortisseur avant",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 55,
     "categorie_id": 5,
     "nom_article": "Radiateur moteur",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 56,
     "categorie_id": 5,
     "nom_article": "Kit embrayage",
-    "unite_mesure": "kit"
+    "unite_mesure": "kit",
+    "description_specification": null
   },
   {
     "id": 57,
     "categorie_id": 5,
     "nom_article": "Ampoule phare 12V",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 58,
     "categorie_id": 6,
     "nom_article": "Ordinateur portable standard",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 59,
     "categorie_id": 6,
     "nom_article": "Routeur Wi-Fi",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 60,
     "categorie_id": 6,
     "nom_article": "Modem satellite VSAT",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 61,
     "categorie_id": 6,
     "nom_article": "Radio VHF portable",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 62,
     "categorie_id": 6,
     "nom_article": "Disque dur externe 1To",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 63,
     "categorie_id": 6,
     "nom_article": "Onduleur 650VA",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 64,
     "categorie_id": 6,
     "nom_article": "Cable reseau UTP (rouleau 300m)",
-    "unite_mesure": "rouleau"
+    "unite_mesure": "rouleau",
+    "description_specification": null
   },
   {
     "id": 65,
     "categorie_id": 6,
     "nom_article": "Imprimante multifonction",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 66,
     "categorie_id": 6,
     "nom_article": "Carte SIM data professionnelle",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 67,
     "categorie_id": 6,
     "nom_article": "Camera de videosurveillance",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 68,
     "categorie_id": 7,
     "nom_article": "Ciment (sac 50kg)",
-    "unite_mesure": "sac"
+    "unite_mesure": "sac",
+    "description_specification": null
   },
   {
     "id": 69,
     "categorie_id": 7,
     "nom_article": "Fer a beton 12mm (barre 12m)",
-    "unite_mesure": "barre"
+    "unite_mesure": "barre",
+    "description_specification": null
   },
   {
     "id": 70,
     "categorie_id": 7,
     "nom_article": "Tole ondulee galvanisee",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 71,
     "categorie_id": 7,
     "nom_article": "Sable de construction (m3)",
-    "unite_mesure": "m3"
+    "unite_mesure": "m3",
+    "description_specification": null
   },
   {
     "id": 72,
     "categorie_id": 7,
     "nom_article": "Gravier (m3)",
-    "unite_mesure": "m3"
+    "unite_mesure": "m3",
+    "description_specification": null
   },
   {
     "id": 73,
     "categorie_id": 7,
     "nom_article": "Brique cuite",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 74,
     "categorie_id": 7,
     "nom_article": "Peinture batiment (20L)",
-    "unite_mesure": "bidon"
+    "unite_mesure": "bidon",
+    "description_specification": null
   },
   {
     "id": 75,
     "categorie_id": 7,
     "nom_article": "Contreplaque 18mm",
-    "unite_mesure": "planche"
+    "unite_mesure": "planche",
+    "description_specification": null
   },
   {
     "id": 76,
     "categorie_id": 7,
     "nom_article": "Clous de construction (kg)",
-    "unite_mesure": "kg"
+    "unite_mesure": "kg",
+    "description_specification": null
   },
   {
     "id": 77,
     "categorie_id": 7,
     "nom_article": "Tuyau PVC evacuation 100mm",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 78,
     "categorie_id": 8,
     "nom_article": "Groupe electrogene 10kVA",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 79,
     "categorie_id": 8,
     "nom_article": "Groupe electrogene 25kVA",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 80,
     "categorie_id": 8,
     "nom_article": "Groupe electrogene 60kVA",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 81,
     "categorie_id": 8,
     "nom_article": "Cable electrique 3x2.5mm (rouleau)",
-    "unite_mesure": "rouleau"
+    "unite_mesure": "rouleau",
+    "description_specification": null
   },
   {
     "id": 82,
     "categorie_id": 8,
     "nom_article": "Disjoncteur 63A",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 83,
     "categorie_id": 8,
     "nom_article": "Kit maintenance groupe electrogene",
-    "unite_mesure": "kit"
+    "unite_mesure": "kit",
+    "description_specification": null
   },
   {
     "id": 84,
     "categorie_id": 8,
     "nom_article": "Regulateur de tension AVR",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 85,
     "categorie_id": 8,
     "nom_article": "Cable de terre cuivre (rouleau)",
-    "unite_mesure": "rouleau"
+    "unite_mesure": "rouleau",
+    "description_specification": null
   },
   {
     "id": 86,
     "categorie_id": 8,
     "nom_article": "Prise industrielle 32A",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 87,
     "categorie_id": 8,
     "nom_article": "Compteur horaire groupe electrogene",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 88,
     "categorie_id": 9,
     "nom_article": "Farine de mais fortifiee (sac 25kg)",
-    "unite_mesure": "sac"
+    "unite_mesure": "sac",
+    "description_specification": null
   },
   {
     "id": 89,
     "categorie_id": 9,
     "nom_article": "Huile vegetale (bidon 5L)",
-    "unite_mesure": "bidon"
+    "unite_mesure": "bidon",
+    "description_specification": null
   },
   {
     "id": 90,
     "categorie_id": 9,
     "nom_article": "Haricots secs (sac 50kg)",
-    "unite_mesure": "sac"
+    "unite_mesure": "sac",
+    "description_specification": null
   },
   {
     "id": 91,
     "categorie_id": 9,
     "nom_article": "Riz blanc (sac 50kg)",
-    "unite_mesure": "sac"
+    "unite_mesure": "sac",
+    "description_specification": null
   },
   {
     "id": 92,
     "categorie_id": 9,
     "nom_article": "Sel iode (sac 25kg)",
-    "unite_mesure": "sac"
+    "unite_mesure": "sac",
+    "description_specification": null
   },
   {
     "id": 93,
     "categorie_id": 9,
     "nom_article": "Plumpy'nut (carton 150 sachets)",
-    "unite_mesure": "carton"
+    "unite_mesure": "carton",
+    "description_specification": null
   },
   {
     "id": 94,
     "categorie_id": 9,
     "nom_article": "Lait therapeutique F-100 (boite)",
-    "unite_mesure": "boite"
+    "unite_mesure": "boite",
+    "description_specification": null
   },
   {
     "id": 95,
     "categorie_id": 9,
     "nom_article": "Sucre (sac 50kg)",
-    "unite_mesure": "sac"
+    "unite_mesure": "sac",
+    "description_specification": null
   },
   {
     "id": 96,
     "categorie_id": 9,
     "nom_article": "Sardines en conserve (carton 50)",
-    "unite_mesure": "carton"
+    "unite_mesure": "carton",
+    "description_specification": null
   },
   {
     "id": 97,
     "categorie_id": 10,
     "nom_article": "Casque de chantier",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 98,
     "categorie_id": 10,
     "nom_article": "Gants de manutention cuir",
-    "unite_mesure": "paire"
+    "unite_mesure": "paire",
+    "description_specification": null
   },
   {
     "id": 99,
     "categorie_id": 10,
     "nom_article": "Chaussures de securite S3",
-    "unite_mesure": "paire"
+    "unite_mesure": "paire",
+    "description_specification": null
   },
   {
     "id": 100,
     "categorie_id": 10,
     "nom_article": "Gilet reflechissant",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 101,
     "categorie_id": 10,
     "nom_article": "Lunettes de protection",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 102,
     "categorie_id": 10,
     "nom_article": "Combinaison de protection",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 103,
     "categorie_id": 10,
     "nom_article": "Masque anti-poussiere FFP2",
-    "unite_mesure": "boite"
+    "unite_mesure": "boite",
+    "description_specification": null
   },
   {
     "id": 104,
     "categorie_id": 10,
     "nom_article": "Harnais de securite",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 105,
     "categorie_id": 10,
     "nom_article": "Bouchons d'oreille (boite)",
-    "unite_mesure": "boite"
+    "unite_mesure": "boite",
+    "description_specification": null
   },
   {
     "id": 106,
     "categorie_id": 11,
     "nom_article": "Bureau de travail metallique",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 107,
     "categorie_id": 11,
     "nom_article": "Chaise de bureau",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 108,
     "categorie_id": 11,
     "nom_article": "Armoire metallique 2 portes",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 109,
     "categorie_id": 11,
     "nom_article": "Table de reunion",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 110,
     "categorie_id": 11,
     "nom_article": "Ramette papier A4 (80g)",
-    "unite_mesure": "ramette"
+    "unite_mesure": "ramette",
+    "description_specification": null
   },
   {
     "id": 111,
     "categorie_id": 11,
     "nom_article": "Classeur a levier",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 112,
     "categorie_id": 11,
     "nom_article": "Cartouche imprimante",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 113,
     "categorie_id": 11,
     "nom_article": "Chaise pliante plastique",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 114,
     "categorie_id": 11,
     "nom_article": "Container de rangement metallique",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 115,
     "categorie_id": 12,
     "nom_article": "Transport routier 1 tonne / 100km",
-    "unite_mesure": "forfait"
+    "unite_mesure": "forfait",
+    "description_specification": null
   },
   {
     "id": 116,
     "categorie_id": 12,
     "nom_article": "Location camion 10 tonnes / jour",
-    "unite_mesure": "jour"
+    "unite_mesure": "jour",
+    "description_specification": null
   },
   {
     "id": 117,
     "categorie_id": 12,
     "nom_article": "Transit portuaire (conteneur 20 pieds)",
-    "unite_mesure": "conteneur"
+    "unite_mesure": "conteneur",
+    "description_specification": null
   },
   {
     "id": 118,
     "categorie_id": 12,
     "nom_article": "Transport aerien humanitaire (kg)",
-    "unite_mesure": "kg"
+    "unite_mesure": "kg",
+    "description_specification": null
   },
   {
     "id": 119,
     "categorie_id": 12,
     "nom_article": "Location vehicule 4x4 / jour",
-    "unite_mesure": "jour"
+    "unite_mesure": "jour",
+    "description_specification": null
   },
   {
     "id": 120,
     "categorie_id": 12,
     "nom_article": "Manutention entrepot (tonne)",
-    "unite_mesure": "tonne"
+    "unite_mesure": "tonne",
+    "description_specification": null
   },
   {
     "id": 121,
     "categorie_id": 12,
     "nom_article": "Assurance cargo (par expedition)",
-    "unite_mesure": "expedition"
+    "unite_mesure": "expedition",
+    "description_specification": null
   },
   {
     "id": 122,
     "categorie_id": 12,
     "nom_article": "Palette bois standard",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 123,
     "categorie_id": 12,
     "nom_article": "Sangle d'arrimage",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 124,
     "categorie_id": 12,
     "nom_article": "Bache de protection cargo",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 125,
     "categorie_id": 13,
     "nom_article": "Uniforme agent de terrain (set)",
-    "unite_mesure": "set"
+    "unite_mesure": "set",
+    "description_specification": null
   },
   {
     "id": 126,
     "categorie_id": 13,
     "nom_article": "Tissu wax (piece 6 yards)",
-    "unite_mesure": "piece"
+    "unite_mesure": "piece",
+    "description_specification": null
   },
   {
     "id": 127,
     "categorie_id": 13,
     "nom_article": "Bache de tente (m2)",
-    "unite_mesure": "m2"
+    "unite_mesure": "m2",
+    "description_specification": null
   },
   {
     "id": 128,
     "categorie_id": 13,
     "nom_article": "Sac de couchage",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 129,
     "categorie_id": 13,
     "nom_article": "Chemise professionnelle",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 130,
     "categorie_id": 13,
     "nom_article": "Veste de pluie impermeable",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 131,
     "categorie_id": 13,
     "nom_article": "Casquette brodee logo",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 132,
     "categorie_id": 13,
     "nom_article": "Bottes en caoutchouc",
-    "unite_mesure": "paire"
+    "unite_mesure": "paire",
+    "description_specification": null
   },
   {
     "id": 133,
     "categorie_id": 13,
     "nom_article": "Chapeau de brousse",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 134,
     "categorie_id": 13,
     "nom_article": "Sous-vetements thermiques",
-    "unite_mesure": "set"
+    "unite_mesure": "set",
+    "description_specification": null
   },
   {
     "id": 135,
     "categorie_id": 14,
     "nom_article": "Groupe de forage manuel",
-    "unite_mesure": "kit"
+    "unite_mesure": "kit",
+    "description_specification": null
   },
   {
     "id": 136,
     "categorie_id": 14,
     "nom_article": "Boite a outils complete",
-    "unite_mesure": "kit"
+    "unite_mesure": "kit",
+    "description_specification": null
   },
   {
     "id": 137,
     "categorie_id": 14,
     "nom_article": "Generateur portable essence 2kVA",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 138,
     "categorie_id": 14,
     "nom_article": "Pompe a eau motorisee",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 139,
     "categorie_id": 14,
     "nom_article": "Perceuse electrique",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 140,
     "categorie_id": 14,
     "nom_article": "Echelle aluminium 6m",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 141,
     "categorie_id": 14,
     "nom_article": "Brouette de chantier",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 142,
     "categorie_id": 14,
     "nom_article": "Groupe soudure portable",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 143,
     "categorie_id": 14,
     "nom_article": "Cle a molette set",
-    "unite_mesure": "set"
+    "unite_mesure": "set",
+    "description_specification": null
   },
   {
     "id": 144,
     "categorie_id": 14,
     "nom_article": "Niveau a bulle",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 145,
     "categorie_id": 15,
     "nom_article": "Eau de javel (bidon 5L)",
-    "unite_mesure": "bidon"
+    "unite_mesure": "bidon",
+    "description_specification": null
   },
   {
     "id": 146,
     "categorie_id": 15,
     "nom_article": "Detergent en poudre (sac 5kg)",
-    "unite_mesure": "sac"
+    "unite_mesure": "sac",
+    "description_specification": null
   },
   {
     "id": 147,
     "categorie_id": 15,
     "nom_article": "Papier toilette (carton 48 rouleaux)",
-    "unite_mesure": "carton"
+    "unite_mesure": "carton",
+    "description_specification": null
   },
   {
     "id": 148,
     "categorie_id": 15,
     "nom_article": "Gel hydroalcoolique (500ml)",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 149,
     "categorie_id": 15,
     "nom_article": "Balai + serpillere kit",
-    "unite_mesure": "kit"
+    "unite_mesure": "kit",
+    "description_specification": null
   },
   {
     "id": 150,
     "categorie_id": 15,
     "nom_article": "Poubelle avec couvercle 60L",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
   },
   {
     "id": 151,
     "categorie_id": 15,
     "nom_article": "Gants menagers (paire)",
-    "unite_mesure": "paire"
+    "unite_mesure": "paire",
+    "description_specification": null
   },
   {
     "id": 152,
     "categorie_id": 15,
     "nom_article": "Desinfectant surfaces (5L)",
-    "unite_mesure": "bidon"
+    "unite_mesure": "bidon",
+    "description_specification": null
   },
   {
     "id": 153,
     "categorie_id": 15,
     "nom_article": "Chiffons de nettoyage (paquet)",
-    "unite_mesure": "paquet"
+    "unite_mesure": "paquet",
+    "description_specification": null
   },
   {
     "id": 154,
     "categorie_id": 15,
     "nom_article": "Desodorisant sanitaire",
-    "unite_mesure": "unite"
+    "unite_mesure": "unite",
+    "description_specification": null
+  },
+  {
+    "id": 155,
+    "categorie_id": 16,
+    "nom_article": "Stylo a bille (boite 50)",
+    "unite_mesure": "boite",
+    "description_specification": "Encre bleue, pointe fine 0.7mm, corps plastique transparent"
+  },
+  {
+    "id": 156,
+    "categorie_id": 16,
+    "nom_article": "Crayon graphite HB (boite 50)",
+    "unite_mesure": "boite",
+    "description_specification": "Mine HB standard, bois gaine hexagonale"
+  },
+  {
+    "id": 157,
+    "categorie_id": 16,
+    "nom_article": "Marqueur permanent (boite 12)",
+    "unite_mesure": "boite",
+    "description_specification": "Pointe biseautee, encre noire resistante a l'eau"
+  },
+  {
+    "id": 158,
+    "categorie_id": 16,
+    "nom_article": "Surligneur fluorescent (boite 10)",
+    "unite_mesure": "boite",
+    "description_specification": "Couleurs assorties, pointe biseautee 1-4mm"
+  },
+  {
+    "id": 159,
+    "categorie_id": 16,
+    "nom_article": "Papier A4 80g (carton 5 ramettes)",
+    "unite_mesure": "carton",
+    "description_specification": "Blancheur 96%, format A4 210x297mm, 500 feuilles/ramette"
+  },
+  {
+    "id": 160,
+    "categorie_id": 16,
+    "nom_article": "Enveloppe A4 (paquet 100)",
+    "unite_mesure": "paquet",
+    "description_specification": "Kraft brun, fermeture auto-adhesive, format C4"
+  },
+  {
+    "id": 161,
+    "categorie_id": 16,
+    "nom_article": "Agrafeuse de bureau",
+    "unite_mesure": "unite",
+    "description_specification": "Capacite 20 feuilles, agrafes n.10"
+  },
+  {
+    "id": 162,
+    "categorie_id": 16,
+    "nom_article": "Agrafes n.10 (boite 1000)",
+    "unite_mesure": "boite",
+    "description_specification": "Standard, galvanisees"
+  },
+  {
+    "id": 163,
+    "categorie_id": 16,
+    "nom_article": "Classeur a levier (dos 8cm)",
+    "unite_mesure": "unite",
+    "description_specification": "Carton rigide plastifie, format A4"
+  },
+  {
+    "id": 164,
+    "categorie_id": 16,
+    "nom_article": "Post-it 76x76mm (paquet 12 blocs)",
+    "unite_mesure": "paquet",
+    "description_specification": "Couleurs assorties, 100 feuilles/bloc"
+  },
+  {
+    "id": 165,
+    "categorie_id": 16,
+    "nom_article": "Perforateur 2 trous",
+    "unite_mesure": "unite",
+    "description_specification": "Capacite 20 feuilles, entraxe 80mm"
+  },
+  {
+    "id": 166,
+    "categorie_id": 16,
+    "nom_article": "Cartouche encre imprimante (noir)",
+    "unite_mesure": "unite",
+    "description_specification": "Compatible imprimantes jet d'encre standard, rendement 300 pages"
+  },
+  {
+    "id": 167,
+    "categorie_id": 16,
+    "nom_article": "Calculatrice de bureau",
+    "unite_mesure": "unite",
+    "description_specification": "Ecran 12 chiffres, alimentation solaire + pile"
+  },
+  {
+    "id": 168,
+    "categorie_id": 16,
+    "nom_article": "Ciseaux de bureau",
+    "unite_mesure": "unite",
+    "description_specification": "Lame acier inoxydable, longueur 21cm"
+  },
+  {
+    "id": 169,
+    "categorie_id": 17,
+    "nom_article": "Banderole PVC brandee (m2)",
+    "unite_mesure": "m2",
+    "description_specification": "Bache PVC 440g/m2, impression numerique quadrichromie, oeillets tous les 50cm"
+  },
+  {
+    "id": 170,
+    "categorie_id": 17,
+    "nom_article": "T-shirt brande logo (unite)",
+    "unite_mesure": "unite",
+    "description_specification": "Coton 180g, impression serigraphie 1-3 couleurs, tailles S a XXL"
+  },
+  {
+    "id": 171,
+    "categorie_id": 17,
+    "nom_article": "Gilet floque visibilite (unite)",
+    "unite_mesure": "unite",
+    "description_specification": "Tissu polyester, bandes reflechissantes, logo floque poitrine/dos"
+  },
+  {
+    "id": 172,
+    "categorie_id": 17,
+    "nom_article": "Casquette brodee logo (unite)",
+    "unite_mesure": "unite",
+    "description_specification": "Coton, broderie logo avant, reglable a l'arriere"
+  },
+  {
+    "id": 173,
+    "categorie_id": 17,
+    "nom_article": "Autocollant vinyle logo (planche)",
+    "unite_mesure": "planche",
+    "description_specification": "Vinyle adhesif exterieur, decoupe a la forme, format A3"
+  },
+  {
+    "id": 174,
+    "categorie_id": 17,
+    "nom_article": "Panneau signaletique rigide (unite)",
+    "unite_mesure": "unite",
+    "description_specification": "PVC expanse 5mm, impression UV, format 60x40cm"
+  },
+  {
+    "id": 175,
+    "categorie_id": 17,
+    "nom_article": "Carte de visite (paquet 500)",
+    "unite_mesure": "paquet",
+    "description_specification": "Papier couche 350g, recto-verso quadrichromie, format standard 85x55mm"
+  },
+  {
+    "id": 176,
+    "categorie_id": 17,
+    "nom_article": "Calendrier mural brande (unite)",
+    "unite_mesure": "unite",
+    "description_specification": "Papier couche 200g, 12 pages + couverture, format A3"
+  },
+  {
+    "id": 177,
+    "categorie_id": 17,
+    "nom_article": "Roll-up publicitaire (unite)",
+    "unite_mesure": "unite",
+    "description_specification": "Structure aluminium enroulable, toile impression 85x200cm"
+  },
+  {
+    "id": 178,
+    "categorie_id": 17,
+    "nom_article": "Impression documents A4 (page)",
+    "unite_mesure": "page",
+    "description_specification": "Impression noir et blanc ou couleur, papier 80g"
+  },
+  {
+    "id": 179,
+    "categorie_id": 17,
+    "nom_article": "Badge nominatif plastifie (unite)",
+    "unite_mesure": "unite",
+    "description_specification": "PVC rigide, impression couleur, cordon inclus"
+  },
+  {
+    "id": 180,
+    "categorie_id": 18,
+    "nom_article": "Rallonge electrique 5m (unite)",
+    "unite_mesure": "unite",
+    "description_specification": "3 prises, cable 3x1.5mm2, fiche terre"
+  },
+  {
+    "id": 181,
+    "categorie_id": 18,
+    "nom_article": "Multiprise parafoudre 6 prises",
+    "unite_mesure": "unite",
+    "description_specification": "Protection surtension 250V, interrupteur lumineux"
+  },
+  {
+    "id": 182,
+    "categorie_id": 18,
+    "nom_article": "Cable electrique souple 2x1.5mm (rouleau 100m)",
+    "unite_mesure": "rouleau",
+    "description_specification": "Gaine PVC, usage interieur, norme NF"
+  },
+  {
+    "id": 183,
+    "categorie_id": 18,
+    "nom_article": "Interrupteur simple allumage",
+    "unite_mesure": "unite",
+    "description_specification": "Encastrable, 10A/250V, montage saillie ou encastre"
+  },
+  {
+    "id": 184,
+    "categorie_id": 18,
+    "nom_article": "Ampoule LED culot E27 (boite 10)",
+    "unite_mesure": "boite",
+    "description_specification": "9W equivalent 60W, lumiere blanche 6500K, 806 lumens"
+  },
+  {
+    "id": 185,
+    "categorie_id": 18,
+    "nom_article": "Ventilateur de bureau",
+    "unite_mesure": "unite",
+    "description_specification": "3 vitesses, oscillation automatique, diametre pales 30cm"
+  },
+  {
+    "id": 186,
+    "categorie_id": 18,
+    "nom_article": "Batterie rechargeable AA (paquet 4)",
+    "unite_mesure": "paquet",
+    "description_specification": "NiMH 2000mAh, rechargeable 500 cycles"
+  },
+  {
+    "id": 187,
+    "categorie_id": 18,
+    "nom_article": "Chargeur de batteries universel",
+    "unite_mesure": "unite",
+    "description_specification": "Compatible AA/AAA, alimentation secteur 220V"
+  },
+  {
+    "id": 188,
+    "categorie_id": 18,
+    "nom_article": "Adaptateur/chargeur telephone USB",
+    "unite_mesure": "unite",
+    "description_specification": "Sortie 5V/2A, connecteur USB-A, cable inclus"
+  },
+  {
+    "id": 189,
+    "categorie_id": 18,
+    "nom_article": "Regulateur de tension (stabilisateur)",
+    "unite_mesure": "unite",
+    "description_specification": "Puissance 1000VA, protection sous/sur-tension"
+  },
+  {
+    "id": 190,
+    "categorie_id": 18,
+    "nom_article": "Lampe torche rechargeable",
+    "unite_mesure": "unite",
+    "description_specification": "LED haute intensite, batterie lithium integree, port USB de charge"
+  },
+  {
+    "id": 191,
+    "categorie_id": 18,
+    "nom_article": "Prise multiple industrielle 16A",
+    "unite_mesure": "unite",
+    "description_specification": "IP44, montage mural, cable 1.5m"
   }
 ]

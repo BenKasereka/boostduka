@@ -3,10 +3,23 @@ import { listCategories, listArticlesByCategorie, listCandidatesForArticle, list
 import { computeScores, DEFAULT_WEIGHTS, CRITERES } from '../lib/scoring';
 import { listEvaluations, saveEvaluation, deleteEvaluation } from '../lib/localStore';
 import { exportToExcel } from '../lib/exportExcel';
+import { convertPourAffichage, formatMoney } from '../lib/currency';
+import { useDevisePreference } from '../lib/DevisePreferenceContext';
 
 function ScoreCell({ value }) {
   const color = value >= 75 ? 'text-emeraude-700' : value >= 50 ? 'text-or-700' : 'text-red-600';
   return <span className={`font-medium tabular-nums ${color}`}>{value.toFixed(0)}</span>;
+}
+
+function MontantAffiche({ montant, devise }) {
+  const { devisePrincipale, deviseSecondaire } = useDevisePreference();
+  const { principal, principalCode, secondaire, secondaireCode } = convertPourAffichage(montant, devise, devisePrincipale, deviseSecondaire);
+  return (
+    <>
+      {formatMoney(principal, principalCode)}
+      {secondaire != null && <div className="text-[10px] text-slate-400">≈ {formatMoney(secondaire, secondaireCode)}</div>}
+    </>
+  );
 }
 
 function AjoutArticle({ categories, onAdd }) {
@@ -141,8 +154,10 @@ function ArticleBlock({ entry, scored, criteres, onRetenuChange, onJustification
               <th className="table-th text-center">Délai (j)</th>
               <th className="table-th text-center">Score Délai</th>
               <th className="table-th text-center">Score Dispo.</th>
+              <th className="table-th text-center">Stock</th>
               <th className="table-th">Conditions</th>
               <th className="table-th text-center">Score Cond.</th>
+              <th className="table-th text-center">Transport</th>
               {criteres.map((c) => (
                 <th key={c.id} className="table-th text-center">{c.label}</th>
               ))}
@@ -151,7 +166,7 @@ function ArticleBlock({ entry, scored, criteres, onRetenuChange, onJustification
           </thead>
           <tbody className="divide-y divide-slate-100">
             {scored.length === 0 && (
-              <tr><td className="table-td text-slate-400" colSpan={11 + criteres.length}>Aucun devis disponible pour cet article.</td></tr>
+              <tr><td className="table-td text-slate-400" colSpan={13 + criteres.length}>Aucun devis disponible pour cet article.</td></tr>
             )}
             {scored.map((s, idx) => (
               <tr key={s.fournisseur_id} className={idx === 0 ? 'bg-emeraude-50/40' : ''}>
@@ -169,16 +184,25 @@ function ArticleBlock({ entry, scored, criteres, onRetenuChange, onJustification
                   <div className="text-xs text-slate-400 font-normal">{s.province_nom}</div>
                 </td>
                 <td className="table-td text-right">
-                  {s.prix_unitaire.toLocaleString('fr-FR', { minimumFractionDigits: s.devise === 'CDF' ? 0 : 2 })} {s.devise}
-                  {s.devise !== 'USD' && <div className="text-[10px] text-slate-400">≈ ${s.prix_unitaire_usd.toFixed(2)}</div>}
+                  <MontantAffiche montant={s.prix_unitaire} devise={s.devise} />
                 </td>
                 <td className="table-td text-center"><ScoreCell value={s.scores.prix} /></td>
                 <td className="table-td text-center"><ScoreCell value={s.scores.qualite} /></td>
                 <td className="table-td text-center">{s.delai_livraison_jours}</td>
                 <td className="table-td text-center"><ScoreCell value={s.scores.delai} /></td>
                 <td className="table-td text-center"><ScoreCell value={s.scores.disponibilite} /></td>
+                <td className="table-td text-center">
+                  {s.stock_disponible === 0 ? (
+                    <span className="badge bg-red-50 text-red-700">Rupture</span>
+                  ) : s.stock_disponible}
+                </td>
                 <td className="table-td text-xs text-slate-500">{s.conditions_paiement}</td>
                 <td className="table-td text-center"><ScoreCell value={s.scores.conditions} /></td>
+                <td className="table-td text-center">
+                  <span className={`badge ${s.transport_inclus ? 'bg-emeraude-50 text-emeraude-700' : 'bg-slate-100 text-slate-500'}`}>
+                    {s.transport_inclus ? 'Oui' : 'Non'}
+                  </span>
+                </td>
                 {criteres.map((c) => (
                   <td key={c.id} className="table-td text-center">
                     <input
@@ -314,8 +338,10 @@ export default function SyntheseComparative() {
           'Délai (j)': s.delai_livraison_jours,
           'Score Délai': s.scores.delai,
           'Score Disponibilité': s.scores.disponibilite,
+          'Stock disponible': s.stock_disponible,
           'Conditions paiement': s.conditions_paiement,
           'Score Conditions': s.scores.conditions,
+          'Transport inclus': s.transport_inclus ? 'Oui' : 'Non',
           ...Object.fromEntries((s.scores.personnalises || []).map((p) => [p.label, p.valeur])),
           'Score pondéré total': s.scores.total,
         })),
@@ -396,8 +422,9 @@ export default function SyntheseComparative() {
 
           <div className="text-[11px] text-slate-400 -mt-2 mb-4">
             Méthodologie : Prix et Délai normalisés entre candidats (moins cher/plus rapide = 100). Qualité = score de fiabilité fournisseur.
-            Disponibilité = fournisseur actif + offre encore valide. Conditions de paiement = grille de notation fixe. Les critères
-            personnalisés sont notés manuellement (0-100) par l'analyste, selon les spécifications du demandeur.
+            Disponibilité = fournisseur actif + stock non nul + offre encore valide (rupture de stock = score fortement pénalisé,
+            quel que soit le reste). Conditions de paiement = grille de notation fixe. Les critères personnalisés sont notés
+            manuellement (0-100) par l'analyste, selon les spécifications du demandeur.
           </div>
 
           <div className="bg-white border border-slate-200 rounded-lg p-4 mb-4 flex items-center gap-3">

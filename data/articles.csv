@@ -1,155 +1,192 @@
-id,categorie_id,nom_article,unite_mesure
-1,1,Gants latex examen (boite 100),boite
-2,1,Seringues 5ml jetables,unite
-3,1,Paracetamol 500mg (boite 1000cp),boite
-4,1,Kit de premiers secours complet,kit
-5,1,Amoxicilline 500mg (boite 100cp),boite
-6,1,Solution de rehydratation orale (SRO),sachet
-7,1,Thermometre digital,unite
-8,1,Compresses steriles,paquet
-9,1,Alcool desinfectant 70% (1L),litre
-10,1,Masques chirurgicaux (boite 50),boite
-11,1,Sonde urinaire,unite
-12,1,Kit accouchement propre,kit
-13,1,Perfuseur IV,unite
-14,1,Test de diagnostic rapide paludisme,unite
-15,1,Glucometre + bandelettes,kit
-16,2,Pastilles de purification d'eau,boite
-17,2,Bidon plastique 20L,unite
-18,2,Savon de menage (barre 200g),unite
-19,2,Filtre a eau ceramique,unite
-20,2,Chlore liquide (bidon 5L),bidon
-21,2,Kit hygiene familial,kit
-22,2,Latrine mobile prefabriquee,unite
-23,2,Seau plastique 15L avec couvercle,unite
-24,2,Reservoir souple 5000L,unite
-25,2,Tuyau PVC 1 pouce (rouleau 50m),rouleau
-26,2,Pompe manuelle a eau,unite
-27,2,Savon liquide desinfectant (5L),bidon
-28,3,Bache plastique renforcee 4x6m,unite
-29,3,Couverture en laine,unite
-30,3,Natte de couchage,unite
-31,3,Moustiquaire impregnee,unite
-32,3,Kit de cuisine familial,kit
-33,3,Jerrican pliable 10L,unite
-34,3,Lampe solaire portable,unite
-35,3,Tente familiale,unite
-36,3,Kit dignite (hygiene feminine),kit
-37,3,Set de vaisselle plastique,set
-38,4,Gasoil (litre),litre
-39,4,Essence sans plomb (litre),litre
-40,4,Petrole lampant (litre),litre
-41,4,Gaz butane (bouteille 12kg),bouteille
-42,4,Bidon carburant 200L,unite
-43,4,Huile moteur 20W50 (5L),bidon
-44,4,Panneau solaire 150W,unite
-45,4,Batterie solaire 100Ah,unite
-46,4,Filtre a carburant,unite
-47,4,Pompe a carburant manuelle,unite
-48,5,Batterie vehicule 12V 75Ah,unite
-49,5,Pneu 4x4 235/85 R16,unite
-50,5,Plaquettes de frein (jeu),jeu
-51,5,Filtre a huile,unite
-52,5,Filtre a air,unite
-53,5,Courroie de distribution,unite
-54,5,Amortisseur avant,unite
-55,5,Radiateur moteur,unite
-56,5,Kit embrayage,kit
-57,5,Ampoule phare 12V,unite
-58,6,Ordinateur portable standard,unite
-59,6,Routeur Wi-Fi,unite
-60,6,Modem satellite VSAT,unite
-61,6,Radio VHF portable,unite
-62,6,Disque dur externe 1To,unite
-63,6,Onduleur 650VA,unite
-64,6,Cable reseau UTP (rouleau 300m),rouleau
-65,6,Imprimante multifonction,unite
-66,6,Carte SIM data professionnelle,unite
-67,6,Camera de videosurveillance,unite
-68,7,Ciment (sac 50kg),sac
-69,7,Fer a beton 12mm (barre 12m),barre
-70,7,Tole ondulee galvanisee,unite
-71,7,Sable de construction (m3),m3
-72,7,Gravier (m3),m3
-73,7,Brique cuite,unite
-74,7,Peinture batiment (20L),bidon
-75,7,Contreplaque 18mm,planche
-76,7,Clous de construction (kg),kg
-77,7,Tuyau PVC evacuation 100mm,unite
-78,8,Groupe electrogene 10kVA,unite
-79,8,Groupe electrogene 25kVA,unite
-80,8,Groupe electrogene 60kVA,unite
-81,8,Cable electrique 3x2.5mm (rouleau),rouleau
-82,8,Disjoncteur 63A,unite
-83,8,Kit maintenance groupe electrogene,kit
-84,8,Regulateur de tension AVR,unite
-85,8,Cable de terre cuivre (rouleau),rouleau
-86,8,Prise industrielle 32A,unite
-87,8,Compteur horaire groupe electrogene,unite
-88,9,Farine de mais fortifiee (sac 25kg),sac
-89,9,Huile vegetale (bidon 5L),bidon
-90,9,Haricots secs (sac 50kg),sac
-91,9,Riz blanc (sac 50kg),sac
-92,9,Sel iode (sac 25kg),sac
-93,9,Plumpy'nut (carton 150 sachets),carton
-94,9,Lait therapeutique F-100 (boite),boite
-95,9,Sucre (sac 50kg),sac
-96,9,Sardines en conserve (carton 50),carton
-97,10,Casque de chantier,unite
-98,10,Gants de manutention cuir,paire
-99,10,Chaussures de securite S3,paire
-100,10,Gilet reflechissant,unite
-101,10,Lunettes de protection,unite
-102,10,Combinaison de protection,unite
-103,10,Masque anti-poussiere FFP2,boite
-104,10,Harnais de securite,unite
-105,10,Bouchons d'oreille (boite),boite
-106,11,Bureau de travail metallique,unite
-107,11,Chaise de bureau,unite
-108,11,Armoire metallique 2 portes,unite
-109,11,Table de reunion,unite
-110,11,Ramette papier A4 (80g),ramette
-111,11,Classeur a levier,unite
-112,11,Cartouche imprimante,unite
-113,11,Chaise pliante plastique,unite
-114,11,Container de rangement metallique,unite
-115,12,Transport routier 1 tonne / 100km,forfait
-116,12,Location camion 10 tonnes / jour,jour
-117,12,Transit portuaire (conteneur 20 pieds),conteneur
-118,12,Transport aerien humanitaire (kg),kg
-119,12,Location vehicule 4x4 / jour,jour
-120,12,Manutention entrepot (tonne),tonne
-121,12,Assurance cargo (par expedition),expedition
-122,12,Palette bois standard,unite
-123,12,Sangle d'arrimage,unite
-124,12,Bache de protection cargo,unite
-125,13,Uniforme agent de terrain (set),set
-126,13,Tissu wax (piece 6 yards),piece
-127,13,Bache de tente (m2),m2
-128,13,Sac de couchage,unite
-129,13,Chemise professionnelle,unite
-130,13,Veste de pluie impermeable,unite
-131,13,Casquette brodee logo,unite
-132,13,Bottes en caoutchouc,paire
-133,13,Chapeau de brousse,unite
-134,13,Sous-vetements thermiques,set
-135,14,Groupe de forage manuel,kit
-136,14,Boite a outils complete,kit
-137,14,Generateur portable essence 2kVA,unite
-138,14,Pompe a eau motorisee,unite
-139,14,Perceuse electrique,unite
-140,14,Echelle aluminium 6m,unite
-141,14,Brouette de chantier,unite
-142,14,Groupe soudure portable,unite
-143,14,Cle a molette set,set
-144,14,Niveau a bulle,unite
-145,15,Eau de javel (bidon 5L),bidon
-146,15,Detergent en poudre (sac 5kg),sac
-147,15,Papier toilette (carton 48 rouleaux),carton
-148,15,Gel hydroalcoolique (500ml),unite
-149,15,Balai + serpillere kit,kit
-150,15,Poubelle avec couvercle 60L,unite
-151,15,Gants menagers (paire),paire
-152,15,Desinfectant surfaces (5L),bidon
-153,15,Chiffons de nettoyage (paquet),paquet
-154,15,Desodorisant sanitaire,unite
+id,categorie_id,nom_article,unite_mesure,description_specification
+1,1,Gants latex examen (boite 100),boite,
+2,1,Seringues 5ml jetables,unite,
+3,1,Paracetamol 500mg (boite 1000cp),boite,
+4,1,Kit de premiers secours complet,kit,
+5,1,Amoxicilline 500mg (boite 100cp),boite,
+6,1,Solution de rehydratation orale (SRO),sachet,
+7,1,Thermometre digital,unite,
+8,1,Compresses steriles,paquet,
+9,1,Alcool desinfectant 70% (1L),litre,
+10,1,Masques chirurgicaux (boite 50),boite,
+11,1,Sonde urinaire,unite,
+12,1,Kit accouchement propre,kit,
+13,1,Perfuseur IV,unite,
+14,1,Test de diagnostic rapide paludisme,unite,
+15,1,Glucometre + bandelettes,kit,
+16,2,Pastilles de purification d'eau,boite,
+17,2,Bidon plastique 20L,unite,
+18,2,Savon de menage (barre 200g),unite,
+19,2,Filtre a eau ceramique,unite,
+20,2,Chlore liquide (bidon 5L),bidon,
+21,2,Kit hygiene familial,kit,
+22,2,Latrine mobile prefabriquee,unite,
+23,2,Seau plastique 15L avec couvercle,unite,
+24,2,Reservoir souple 5000L,unite,
+25,2,Tuyau PVC 1 pouce (rouleau 50m),rouleau,
+26,2,Pompe manuelle a eau,unite,
+27,2,Savon liquide desinfectant (5L),bidon,
+28,3,Bache plastique renforcee 4x6m,unite,
+29,3,Couverture en laine,unite,
+30,3,Natte de couchage,unite,
+31,3,Moustiquaire impregnee,unite,
+32,3,Kit de cuisine familial,kit,
+33,3,Jerrican pliable 10L,unite,
+34,3,Lampe solaire portable,unite,
+35,3,Tente familiale,unite,
+36,3,Kit dignite (hygiene feminine),kit,
+37,3,Set de vaisselle plastique,set,
+38,4,Gasoil (litre),litre,
+39,4,Essence sans plomb (litre),litre,
+40,4,Petrole lampant (litre),litre,
+41,4,Gaz butane (bouteille 12kg),bouteille,
+42,4,Bidon carburant 200L,unite,
+43,4,Huile moteur 20W50 (5L),bidon,
+44,4,Panneau solaire 150W,unite,
+45,4,Batterie solaire 100Ah,unite,
+46,4,Filtre a carburant,unite,
+47,4,Pompe a carburant manuelle,unite,
+48,5,Batterie vehicule 12V 75Ah,unite,
+49,5,Pneu 4x4 235/85 R16,unite,
+50,5,Plaquettes de frein (jeu),jeu,
+51,5,Filtre a huile,unite,
+52,5,Filtre a air,unite,
+53,5,Courroie de distribution,unite,
+54,5,Amortisseur avant,unite,
+55,5,Radiateur moteur,unite,
+56,5,Kit embrayage,kit,
+57,5,Ampoule phare 12V,unite,
+58,6,Ordinateur portable standard,unite,
+59,6,Routeur Wi-Fi,unite,
+60,6,Modem satellite VSAT,unite,
+61,6,Radio VHF portable,unite,
+62,6,Disque dur externe 1To,unite,
+63,6,Onduleur 650VA,unite,
+64,6,Cable reseau UTP (rouleau 300m),rouleau,
+65,6,Imprimante multifonction,unite,
+66,6,Carte SIM data professionnelle,unite,
+67,6,Camera de videosurveillance,unite,
+68,7,Ciment (sac 50kg),sac,
+69,7,Fer a beton 12mm (barre 12m),barre,
+70,7,Tole ondulee galvanisee,unite,
+71,7,Sable de construction (m3),m3,
+72,7,Gravier (m3),m3,
+73,7,Brique cuite,unite,
+74,7,Peinture batiment (20L),bidon,
+75,7,Contreplaque 18mm,planche,
+76,7,Clous de construction (kg),kg,
+77,7,Tuyau PVC evacuation 100mm,unite,
+78,8,Groupe electrogene 10kVA,unite,
+79,8,Groupe electrogene 25kVA,unite,
+80,8,Groupe electrogene 60kVA,unite,
+81,8,Cable electrique 3x2.5mm (rouleau),rouleau,
+82,8,Disjoncteur 63A,unite,
+83,8,Kit maintenance groupe electrogene,kit,
+84,8,Regulateur de tension AVR,unite,
+85,8,Cable de terre cuivre (rouleau),rouleau,
+86,8,Prise industrielle 32A,unite,
+87,8,Compteur horaire groupe electrogene,unite,
+88,9,Farine de mais fortifiee (sac 25kg),sac,
+89,9,Huile vegetale (bidon 5L),bidon,
+90,9,Haricots secs (sac 50kg),sac,
+91,9,Riz blanc (sac 50kg),sac,
+92,9,Sel iode (sac 25kg),sac,
+93,9,Plumpy'nut (carton 150 sachets),carton,
+94,9,Lait therapeutique F-100 (boite),boite,
+95,9,Sucre (sac 50kg),sac,
+96,9,Sardines en conserve (carton 50),carton,
+97,10,Casque de chantier,unite,
+98,10,Gants de manutention cuir,paire,
+99,10,Chaussures de securite S3,paire,
+100,10,Gilet reflechissant,unite,
+101,10,Lunettes de protection,unite,
+102,10,Combinaison de protection,unite,
+103,10,Masque anti-poussiere FFP2,boite,
+104,10,Harnais de securite,unite,
+105,10,Bouchons d'oreille (boite),boite,
+106,11,Bureau de travail metallique,unite,
+107,11,Chaise de bureau,unite,
+108,11,Armoire metallique 2 portes,unite,
+109,11,Table de reunion,unite,
+110,11,Ramette papier A4 (80g),ramette,
+111,11,Classeur a levier,unite,
+112,11,Cartouche imprimante,unite,
+113,11,Chaise pliante plastique,unite,
+114,11,Container de rangement metallique,unite,
+115,12,Transport routier 1 tonne / 100km,forfait,
+116,12,Location camion 10 tonnes / jour,jour,
+117,12,Transit portuaire (conteneur 20 pieds),conteneur,
+118,12,Transport aerien humanitaire (kg),kg,
+119,12,Location vehicule 4x4 / jour,jour,
+120,12,Manutention entrepot (tonne),tonne,
+121,12,Assurance cargo (par expedition),expedition,
+122,12,Palette bois standard,unite,
+123,12,Sangle d'arrimage,unite,
+124,12,Bache de protection cargo,unite,
+125,13,Uniforme agent de terrain (set),set,
+126,13,Tissu wax (piece 6 yards),piece,
+127,13,Bache de tente (m2),m2,
+128,13,Sac de couchage,unite,
+129,13,Chemise professionnelle,unite,
+130,13,Veste de pluie impermeable,unite,
+131,13,Casquette brodee logo,unite,
+132,13,Bottes en caoutchouc,paire,
+133,13,Chapeau de brousse,unite,
+134,13,Sous-vetements thermiques,set,
+135,14,Groupe de forage manuel,kit,
+136,14,Boite a outils complete,kit,
+137,14,Generateur portable essence 2kVA,unite,
+138,14,Pompe a eau motorisee,unite,
+139,14,Perceuse electrique,unite,
+140,14,Echelle aluminium 6m,unite,
+141,14,Brouette de chantier,unite,
+142,14,Groupe soudure portable,unite,
+143,14,Cle a molette set,set,
+144,14,Niveau a bulle,unite,
+145,15,Eau de javel (bidon 5L),bidon,
+146,15,Detergent en poudre (sac 5kg),sac,
+147,15,Papier toilette (carton 48 rouleaux),carton,
+148,15,Gel hydroalcoolique (500ml),unite,
+149,15,Balai + serpillere kit,kit,
+150,15,Poubelle avec couvercle 60L,unite,
+151,15,Gants menagers (paire),paire,
+152,15,Desinfectant surfaces (5L),bidon,
+153,15,Chiffons de nettoyage (paquet),paquet,
+154,15,Desodorisant sanitaire,unite,
+155,16,Stylo a bille (boite 50),boite,"Encre bleue, pointe fine 0.7mm, corps plastique transparent"
+156,16,Crayon graphite HB (boite 50),boite,"Mine HB standard, bois gaine hexagonale"
+157,16,Marqueur permanent (boite 12),boite,"Pointe biseautee, encre noire resistante a l'eau"
+158,16,Surligneur fluorescent (boite 10),boite,"Couleurs assorties, pointe biseautee 1-4mm"
+159,16,Papier A4 80g (carton 5 ramettes),carton,"Blancheur 96%, format A4 210x297mm, 500 feuilles/ramette"
+160,16,Enveloppe A4 (paquet 100),paquet,"Kraft brun, fermeture auto-adhesive, format C4"
+161,16,Agrafeuse de bureau,unite,"Capacite 20 feuilles, agrafes n.10"
+162,16,Agrafes n.10 (boite 1000),boite,"Standard, galvanisees"
+163,16,Classeur a levier (dos 8cm),unite,"Carton rigide plastifie, format A4"
+164,16,Post-it 76x76mm (paquet 12 blocs),paquet,"Couleurs assorties, 100 feuilles/bloc"
+165,16,Perforateur 2 trous,unite,"Capacite 20 feuilles, entraxe 80mm"
+166,16,Cartouche encre imprimante (noir),unite,"Compatible imprimantes jet d'encre standard, rendement 300 pages"
+167,16,Calculatrice de bureau,unite,"Ecran 12 chiffres, alimentation solaire + pile"
+168,16,Ciseaux de bureau,unite,"Lame acier inoxydable, longueur 21cm"
+169,17,Banderole PVC brandee (m2),m2,"Bache PVC 440g/m2, impression numerique quadrichromie, oeillets tous les 50cm"
+170,17,T-shirt brande logo (unite),unite,"Coton 180g, impression serigraphie 1-3 couleurs, tailles S a XXL"
+171,17,Gilet floque visibilite (unite),unite,"Tissu polyester, bandes reflechissantes, logo floque poitrine/dos"
+172,17,Casquette brodee logo (unite),unite,"Coton, broderie logo avant, reglable a l'arriere"
+173,17,Autocollant vinyle logo (planche),planche,"Vinyle adhesif exterieur, decoupe a la forme, format A3"
+174,17,Panneau signaletique rigide (unite),unite,"PVC expanse 5mm, impression UV, format 60x40cm"
+175,17,Carte de visite (paquet 500),paquet,"Papier couche 350g, recto-verso quadrichromie, format standard 85x55mm"
+176,17,Calendrier mural brande (unite),unite,"Papier couche 200g, 12 pages + couverture, format A3"
+177,17,Roll-up publicitaire (unite),unite,"Structure aluminium enroulable, toile impression 85x200cm"
+178,17,Impression documents A4 (page),page,"Impression noir et blanc ou couleur, papier 80g"
+179,17,Badge nominatif plastifie (unite),unite,"PVC rigide, impression couleur, cordon inclus"
+180,18,Rallonge electrique 5m (unite),unite,"3 prises, cable 3x1.5mm2, fiche terre"
+181,18,Multiprise parafoudre 6 prises,unite,"Protection surtension 250V, interrupteur lumineux"
+182,18,Cable electrique souple 2x1.5mm (rouleau 100m),rouleau,"Gaine PVC, usage interieur, norme NF"
+183,18,Interrupteur simple allumage,unite,"Encastrable, 10A/250V, montage saillie ou encastre"
+184,18,Ampoule LED culot E27 (boite 10),boite,"9W equivalent 60W, lumiere blanche 6500K, 806 lumens"
+185,18,Ventilateur de bureau,unite,"3 vitesses, oscillation automatique, diametre pales 30cm"
+186,18,Batterie rechargeable AA (paquet 4),paquet,"NiMH 2000mAh, rechargeable 500 cycles"
+187,18,Chargeur de batteries universel,unite,"Compatible AA/AAA, alimentation secteur 220V"
+188,18,Adaptateur/chargeur telephone USB,unite,"Sortie 5V/2A, connecteur USB-A, cable inclus"
+189,18,Regulateur de tension (stabilisateur),unite,"Puissance 1000VA, protection sous/sur-tension"
+190,18,Lampe torche rechargeable,unite,"LED haute intensite, batterie lithium integree, port USB de charge"
+191,18,Prise multiple industrielle 16A,unite,"IP44, montage mural, cable 1.5m"

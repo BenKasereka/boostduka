@@ -71,6 +71,17 @@ function detectDevise(line) {
   return undefined;
 }
 
+// Best-effort : cherche une mention explicite d'inclusion/exclusion du
+// transport. Sans mention, valeur laissee indeterminee (false par defaut
+// cote validation, l'hypothese la plus courante en pratique).
+function detectTransportInclus(line) {
+  if (/transport\s+(non\s+)?inclus|hors\s+transport|transport\s+en\s+sus/i.test(line)) {
+    return !/non\s+inclus|hors\s+transport|en\s+sus/i.test(line);
+  }
+  if (/(port|livraison|fret)\s+compris/i.test(line)) return true;
+  return undefined;
+}
+
 // Retourne { formatted, raw } pour pouvoir a la fois afficher la date ISO
 // et retirer sa correspondance brute de la ligne avant de chercher le prix
 // (sinon les nombres d'une date comme "2026-12-31" sont pris pour un prix).
@@ -93,9 +104,12 @@ function escapeRegex(s) {
 
 // Transforme des lignes de texte en "rawRows" au format canonique attendu
 // par validateImportRows() de devisImport.js (memes cles que les alias
-// d'en-tete Excel : article, prix_unitaire, devise, delai_livraison_jours,
-// quantite_min, validite_offre_date) — permet de reutiliser exactement le
-// meme pipeline de validation/apercu que l'import Excel/CSV.
+// d'en-tete Excel : article, prix_unitaire, devise, quantite_reference,
+// delai_livraison_jours, transport_inclus, validite_offre_date) — permet de
+// reutiliser exactement le meme pipeline de validation/apercu que l'import
+// Excel/CSV. Le stock_disponible n'est pas devine depuis un PDF (trop
+// ambigu de distinguer une quantite de reference d'un stock disponible sur
+// une seule ligne de texte) : laisse a completer manuellement au besoin.
 export function parseQuoteLinesToRawRows(lines, articles) {
   const articlesTries = [...articles].sort((a, b) => b.nom_article.length - a.nom_article.length);
 
@@ -143,8 +157,9 @@ export function parseQuoteLinesToRawRows(lines, articles) {
         article: article.nom_article,
         prix_unitaire: prix,
         devise: detectDevise(line),
+        quantite_reference: quantite,
         delai_livraison_jours: delai,
-        quantite_min: quantite,
+        transport_inclus: detectTransportInclus(line),
         validite_offre_date: dateInfo?.formatted,
         _ligneSource: line,
       };

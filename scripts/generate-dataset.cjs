@@ -110,8 +110,8 @@ let articleAutoId = 1;
 const articles = [];
 CATEGORIES.forEach((c) => {
   const categorie_id = categorieIdByNom[c.nom];
-  c.articles.forEach(([nom_article, unite_mesure]) => {
-    articles.push({ id: articleAutoId++, categorie_id, nom_article, unite_mesure });
+  c.articles.forEach(([nom_article, unite_mesure, description_specification]) => {
+    articles.push({ id: articleAutoId++, categorie_id, nom_article, unite_mesure, description_specification: description_specification || null });
   });
 });
 const articlesByCategorie = {};
@@ -226,6 +226,9 @@ const PRIX_BASE_PAR_CATEGORIE = {
   'Textile / Uniformes': [4, 60],
   'Outillage / Equipement technique': [10, 600],
   "Produits d'hygiene / Nettoyage": [1, 40],
+  'Fourniture de Bureau': [1, 60],
+  "Service d'Impression et Visibilite": [2, 250],
+  'Materiels Electronique et Electrique': [3, 200],
 };
 
 function prixBaseArticle(article) {
@@ -271,14 +274,21 @@ articles.forEach((article) => {
       const prixUnitaire = devise === 'CDF'
         ? Math.round(prixUnitaireUsd * CDF_PER_USD)
         : Math.round(prixUnitaireUsd * 100) / 100;
+      // Transport inclus : plus frequent chez les fournisseurs premium (prix
+      // tout compris) que chez les economiques (prix nu, transport a part).
+      const probaTransportInclus = f.profil_prix === 'premium' ? 0.75 : f.profil_prix === 'standard' ? 0.45 : 0.2;
+
       devis.push({
         id: uuid(),
         fournisseur_id: f.id,
         article_id: article.id,
         prix_unitaire: prixUnitaire,
         devise,
+        quantite_reference: pick([1, 5, 10, 20, 50, 100]),
         delai_livraison_jours: delaiLivraisonProfil(f.profil_prix),
-        quantite_min: pick([1, 1, 5, 10, 20, 50]),
+        transport_inclus: chance(probaTransportInclus),
+        // Stock disponible chez le fournisseur au moment du devis (0 = rupture)
+        stock_disponible: chance(0.06) ? 0 : pick([5, 10, 20, 50, 100, 200, 500]),
         validite_offre_date: fmt(addDays(dateSoumission, randInt(30, 90))),
         date_soumission: fmt(dateSoumission),
         source_import: 'dataset_fictif',

@@ -1,6 +1,6 @@
 [
   {
-    "id": "0e0a982e-e2d6-401b-b86c-9af6ccb63233",
+    "id": "6c8c88ca-aceb-4288-94ce-a7ed669adb0e",
     "nom": "Esengo Logistics",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -15,7 +15,7 @@
     "date_enregistrement": "2024-01-30"
   },
   {
-    "id": "ed28973f-e804-4763-b307-19c9456d41e0",
+    "id": "901e2da3-6277-4470-8e19-764eec09fff4",
     "nom": "Mont Ngaliema Enterprises",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -30,7 +30,7 @@
     "date_enregistrement": "2020-10-24"
   },
   {
-    "id": "5be21ce5-62b1-4728-8aa7-c1137266ce68",
+    "id": "e8245e8d-3dc5-4a86-bc52-ee7304ab7922",
     "nom": "Lokole Multiservices",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -45,7 +45,7 @@
     "date_enregistrement": "2022-11-30"
   },
   {
-    "id": "cf511785-f907-4baa-9600-cc29a8d369e7",
+    "id": "c3bc350e-fb2b-46bf-bff7-d2d1c5c8c990",
     "nom": "Nzuri Distribution",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -60,7 +60,7 @@
     "date_enregistrement": "2024-05-14"
   },
   {
-    "id": "845a7e7a-2509-41fe-80b2-7d1da505955b",
+    "id": "29347df2-d178-4631-8e94-be6cfee7d178",
     "nom": "Boyoma Logistics",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -75,7 +75,7 @@
     "date_enregistrement": "2022-08-07"
   },
   {
-    "id": "ea9c09fd-b9a0-475d-bc81-a35547b24556",
+    "id": "abc636f3-df1a-41c3-ba3f-3b09c4bd842b",
     "nom": "Amani Services SARL",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -90,7 +90,7 @@
     "date_enregistrement": "2024-05-15"
   },
   {
-    "id": "991dc4b6-08b9-42e3-a9a2-4413e46e5e26",
+    "id": "a155e73e-6443-4688-b212-7d17cd1e308b",
     "nom": "Nzuri General Merchandise",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -105,7 +105,7 @@
     "date_enregistrement": "2021-08-25"
   },
   {
-    "id": "f277c2c1-bc3c-47b9-a164-dba979311684",
+    "id": "0eb29852-7607-4e34-932b-290051e42232",
     "nom": "Zamani Import-Export",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -120,7 +120,7 @@
     "date_enregistrement": "2021-08-01"
   },
   {
-    "id": "312ae8a1-1e93-47d8-84fe-7dd909b0e00d",
+    "id": "28911ed4-4064-4b5f-9c9f-3741a96d2dd8",
     "nom": "Congo Group SARL",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -135,7 +135,7 @@
     "date_enregistrement": "2024-01-14"
   },
   {
-    "id": "5b5cb032-bcb4-4e20-9df6-1e0e66b4f0d6",
+    "id": "4de4e653-7f6f-4e20-bb78-a939c581c129",
     "nom": "Congo Trading SPRL",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -150,7 +150,7 @@
     "date_enregistrement": "2025-01-01"
   },
   {
-    "id": "5b91061a-7430-4127-a4d5-a578817c0d7c",
+    "id": "5f05214e-c392-4167-9a83-b8348b6adc06",
     "nom": "Zamani Business Group",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -165,7 +165,7 @@
     "date_enregistrement": "2023-02-14"
   },
   {
-    "id": "a7f6214b-f04a-4da5-8ca0-520e1ea9e472",
+    "id": "aa5f5c2d-d1ff-41a0-95a7-d125465bf42d",
     "nom": "Nzuri Import-Export",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -180,7 +180,7 @@
     "date_enregistrement": "2021-05-08"
   },
   {
-    "id": "a17e5271-820e-4c6e-92b4-4bd109c60d27",
+    "id": "ea88f3bc-27a6-41b3-9230-94fd47bbcc2e",
     "nom": "Zamani Enterprises",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -195,7 +195,7 @@
     "date_enregistrement": "2020-03-23"
   },
   {
-    "id": "ddb507c6-7c41-4027-bf46-dee06e458cb7",
+    "id": "6c31db69-5aae-4fbb-997f-49561fe81085",
     "nom": "Malaika Commercial House",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -210,7 +210,7 @@
     "date_enregistrement": "2024-08-05"
   },
   {
-    "id": "cc141381-86f5-4777-a10f-87941999b04d",
+    "id": "9740a634-0de1-46e9-bb87-8bfeb7589940",
     "nom": "Mbote Trading SPRL",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -225,7 +225,7 @@
     "date_enregistrement": "2023-07-09"
   },
   {
-    "id": "93dcbfe8-ed77-4ec4-935f-f1a2240ba7c4",
+    "id": "89905aa8-53df-4667-944e-1b84b495717f",
     "nom": "Nzuri Freight & Supply",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -240,7 +240,7 @@
     "date_enregistrement": "2023-12-10"
   },
   {
-    "id": "309121c4-a374-43b3-92e5-a2a321816170",
+    "id": "6e8b5c5f-b473-4da7-9458-08c8af363dda",
     "nom": "Uzima Commercial House",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -255,7 +255,7 @@
     "date_enregistrement": "2022-03-01"
   },
   {
-    "id": "6ddb19c1-837f-43af-91b7-6335e905a1a2",
+    "id": "8e69a20e-c8f3-456c-aef5-93503060648c",
     "nom": "Mbote Freight & Supply",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -270,7 +270,7 @@
     "date_enregistrement": "2022-05-18"
   },
   {
-    "id": "94a69aa3-865f-4c60-b54b-595ed610efe7",
+    "id": "f88c2747-38d1-429e-ab69-c52c3546ef71",
     "nom": "Bakuba Services SARL",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -285,7 +285,7 @@
     "date_enregistrement": "2023-10-29"
   },
   {
-    "id": "e9e5c7af-5072-48f7-a4fc-11c95b71994c",
+    "id": "bc555e94-8abb-48d0-8ce2-6d4c29488a0f",
     "nom": "Tembo Logistics",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -300,7 +300,7 @@
     "date_enregistrement": "2022-12-30"
   },
   {
-    "id": "b333e8aa-ad18-4abf-9c53-9ace926a283b",
+    "id": "f498c088-d3a6-48c7-b24f-8c895e84ec8a",
     "nom": "Bomoko General Merchandise",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -315,7 +315,7 @@
     "date_enregistrement": "2022-01-28"
   },
   {
-    "id": "ba868ffb-5487-446d-8121-e1cdb4146a15",
+    "id": "571caff7-7942-4bc9-a8e2-31a80bb28a74",
     "nom": "Tembo Group SARL",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -330,7 +330,7 @@
     "date_enregistrement": "2024-11-07"
   },
   {
-    "id": "a8752895-2aeb-4978-9f7b-cef9caecf1e6",
+    "id": "c2946f6b-4f2a-4060-9de5-8f6b8b0099ba",
     "nom": "Ruwenzori Freight & Supply",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -345,7 +345,7 @@
     "date_enregistrement": "2020-04-06"
   },
   {
-    "id": "98390bdc-1e93-4618-8e29-ce8ed6a4aed8",
+    "id": "69578c2c-c1d3-4e69-afb7-06f07d728d85",
     "nom": "Virunga Distribution",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -360,7 +360,7 @@
     "date_enregistrement": "2025-04-17"
   },
   {
-    "id": "f303955c-611e-4ac0-8927-9872c330f511",
+    "id": "98117f2e-8943-4a26-ab3c-81d8889e166c",
     "nom": "Esengo Commercial House",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -375,7 +375,7 @@
     "date_enregistrement": "2022-11-11"
   },
   {
-    "id": "424fdf4e-e069-4526-83a1-c89d0185cdd4",
+    "id": "d604fcc0-93ad-402f-bbac-ddf50e9a7911",
     "nom": "Boyoma Business Group",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -390,7 +390,7 @@
     "date_enregistrement": "2020-04-15"
   },
   {
-    "id": "084092b1-5493-4cad-b86b-704b24f9a40c",
+    "id": "d69fff5b-d0e8-49b0-ae6a-27b8a7303f50",
     "nom": "Bonsomi Trading SPRL",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -405,7 +405,7 @@
     "date_enregistrement": "2023-10-26"
   },
   {
-    "id": "e46c25a1-05f4-493c-a89e-938d1791b3d2",
+    "id": "48a8b220-5d2e-4061-b645-19bb88186eb4",
     "nom": "Tembo Enterprises",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -420,7 +420,7 @@
     "date_enregistrement": "2021-03-17"
   },
   {
-    "id": "65c02af0-837c-45f5-91bd-6ad4308cb818",
+    "id": "1ba78f4c-1f22-4ee1-95c1-942ded28dd2a",
     "nom": "Bomoko Import-Export",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -435,7 +435,7 @@
     "date_enregistrement": "2020-05-16"
   },
   {
-    "id": "bbad2cc4-4ca4-49de-a7ad-9aedb833182e",
+    "id": "8ea74857-3b6c-4223-a0da-728525137a17",
     "nom": "Mbote Supply Co",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -450,7 +450,7 @@
     "date_enregistrement": "2020-08-24"
   },
   {
-    "id": "ca1e6af0-ea5c-4952-a3d7-0e31919758b1",
+    "id": "d9feed5d-d042-47d7-8274-b8adcd3db1f9",
     "nom": "Simba Group SARL",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -465,7 +465,7 @@
     "date_enregistrement": "2021-11-28"
   },
   {
-    "id": "d12c1c4b-c6e6-42fa-8a67-917383e19cdb",
+    "id": "18e2f617-a53c-42c0-a207-9da3892a3049",
     "nom": "Mont Ngaliema Multiservices",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -480,7 +480,7 @@
     "date_enregistrement": "2022-04-19"
   },
   {
-    "id": "9bb3c213-0e9d-45eb-8a53-e57212022972",
+    "id": "0662ece0-7144-4b08-9f5e-62ea9dd37452",
     "nom": "Bakuba Freight & Supply",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -495,7 +495,7 @@
     "date_enregistrement": "2020-03-24"
   },
   {
-    "id": "38c992e5-31f4-482c-8b98-64f368b058d2",
+    "id": "b00576ad-97ba-4e16-8462-71945956fcbd",
     "nom": "Boyoma & Fils",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -510,7 +510,7 @@
     "date_enregistrement": "2024-02-25"
   },
   {
-    "id": "ab8fb3bc-bd18-4f72-8155-d44cabad14e2",
+    "id": "a9ea1798-2fa7-490f-a0bd-4e0c91d07944",
     "nom": "Congo Services SARL",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -525,7 +525,7 @@
     "date_enregistrement": "2023-03-20"
   },
   {
-    "id": "105011ac-2ee0-4e9f-9ae8-95f646d37a65",
+    "id": "63c6aa7e-94df-48a7-9212-eec71c2118a5",
     "nom": "Kasai Freight & Supply",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -540,7 +540,7 @@
     "date_enregistrement": "2023-06-17"
   },
   {
-    "id": "0cce90f0-eef2-49a4-8655-7cf84beedd5a",
+    "id": "90627199-7e0b-43f0-bc09-6d2c7f71aaff",
     "nom": "Uzima Distribution",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -555,7 +555,7 @@
     "date_enregistrement": "2025-06-16"
   },
   {
-    "id": "1a873014-f873-4054-894e-8bf644612067",
+    "id": "9fe68714-7e09-4051-94fd-e0cf9d5b2867",
     "nom": "Virunga Services SARL",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -570,7 +570,7 @@
     "date_enregistrement": "2021-11-02"
   },
   {
-    "id": "c596e75e-f0a2-42e1-801f-bc9859582dc2",
+    "id": "580e2999-25b4-4140-b5d7-be91f1ea49c0",
     "nom": "Bonsomi Enterprises",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -585,7 +585,7 @@
     "date_enregistrement": "2024-12-20"
   },
   {
-    "id": "bd78e129-6007-46b3-89c4-44bf91d38bc2",
+    "id": "8aee00fa-6def-461a-b50b-fab094a76a5b",
     "nom": "Salongo Services SARL",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -600,7 +600,7 @@
     "date_enregistrement": "2022-02-06"
   },
   {
-    "id": "822a4728-f57f-4877-a54b-af8a3b060c70",
+    "id": "b8fcca3f-f366-47aa-930d-52de975e7cb4",
     "nom": "Lokole Freight & Supply",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -615,7 +615,7 @@
     "date_enregistrement": "2025-01-02"
   },
   {
-    "id": "edc06193-34c0-4385-9baa-404ab7a67986",
+    "id": "2f6e9c76-5740-477d-9297-257f1f53affe",
     "nom": "Bakuba Business Group",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -630,7 +630,7 @@
     "date_enregistrement": "2021-02-19"
   },
   {
-    "id": "afa25e1d-9614-4325-939a-28c9c516deaa",
+    "id": "e4b551ef-c278-42bd-af80-e1ed30c5b9c2",
     "nom": "Kasai Business Group",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -645,7 +645,7 @@
     "date_enregistrement": "2020-08-12"
   },
   {
-    "id": "53ff205a-4503-4ea8-83fc-7151adfe475c",
+    "id": "6594b6d5-e07c-4dd4-88cf-14fe68cbd334",
     "nom": "Virunga Logistics",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -660,7 +660,7 @@
     "date_enregistrement": "2022-12-29"
   },
   {
-    "id": "5494dc42-ee22-4ee1-a74c-b4fc97439873",
+    "id": "bdb7990a-89f4-42c1-bd34-1f9b77287507",
     "nom": "Malaika Freight & Supply",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -675,7 +675,7 @@
     "date_enregistrement": "2022-04-13"
   },
   {
-    "id": "83dde059-513e-4073-ac2a-fa13a3a1e575",
+    "id": "f7f1c6b6-08cc-46f1-b33d-0d37132245d8",
     "nom": "Bakuba Group SARL",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -690,7 +690,7 @@
     "date_enregistrement": "2020-04-01"
   },
   {
-    "id": "9f9edf6f-deea-4916-baa9-bd33204ad5ab",
+    "id": "dbb0d22b-f965-482a-916e-e03e3d4f504b",
     "nom": "Simba Freight & Supply",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -705,7 +705,7 @@
     "date_enregistrement": "2024-04-28"
   },
   {
-    "id": "4d5bf674-1703-4bc1-8286-b8b139630aa8",
+    "id": "10318424-c596-4f80-b733-0845e5445f94",
     "nom": "Zamani Logistics",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -720,7 +720,7 @@
     "date_enregistrement": "2023-03-29"
   },
   {
-    "id": "bfd258a1-15d6-405e-80cd-4cf9ed5b730d",
+    "id": "4d15211a-70c6-4e2b-982b-5d2a6a265696",
     "nom": "Congo Business Group",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -735,7 +735,7 @@
     "date_enregistrement": "2025-01-05"
   },
   {
-    "id": "7b92bc34-7a3f-41ee-8916-2ec40d301890",
+    "id": "a43ef3ba-d3ba-451d-8e8c-157bf676fb56",
     "nom": "Kasai Services SARL",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -750,7 +750,7 @@
     "date_enregistrement": "2020-12-21"
   },
   {
-    "id": "92c68032-42cf-4d97-b0b3-1586b5b4e6b1",
+    "id": "1e0751b2-7574-429f-98aa-a33a1c8940fc",
     "nom": "Lualaba Business Group",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -765,7 +765,7 @@
     "date_enregistrement": "2021-05-31"
   },
   {
-    "id": "0d531816-c82c-4586-bfbc-4ebbe28b7d40",
+    "id": "7e65590a-a63e-4ffe-b582-8b23f62467f6",
     "nom": "Fleuve Freight & Supply",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -780,7 +780,7 @@
     "date_enregistrement": "2023-08-21"
   },
   {
-    "id": "833d445f-a8a6-41ba-9fde-63c65c37bdd3",
+    "id": "4b201102-60e4-4f86-a299-25952b39aa49",
     "nom": "Nzuri Supply Co",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -795,7 +795,7 @@
     "date_enregistrement": "2023-03-05"
   },
   {
-    "id": "31961624-4156-4dd1-a888-4970f9baeaf6",
+    "id": "398e61cf-c0e5-4cca-89db-aa99a759df94",
     "nom": "Mont Ngaliema Import-Export",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -810,7 +810,7 @@
     "date_enregistrement": "2020-10-26"
   },
   {
-    "id": "00ab9818-5274-4d3b-b16c-68b4f0e95292",
+    "id": "a81e1a93-bc62-4910-a6b9-af51887f25bb",
     "nom": "Uzima Logistics",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -825,7 +825,7 @@
     "date_enregistrement": "2020-08-13"
   },
   {
-    "id": "9a24fb50-00fd-415d-9cf4-263b606218e0",
+    "id": "351c6fe3-94f1-474e-aebe-eaee06dc7318",
     "nom": "Tembo Commercial House",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -840,7 +840,7 @@
     "date_enregistrement": "2023-07-03"
   },
   {
-    "id": "30b648e7-ced0-442b-bcd3-dda7eba08e81",
+    "id": "884bf527-abde-49df-aa77-abf47c411f48",
     "nom": "Katanga Plus Group SARL",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -855,7 +855,7 @@
     "date_enregistrement": "2024-10-04"
   },
   {
-    "id": "2697403b-cac8-4ddf-9326-a087358c5122",
+    "id": "34152bd1-cce5-4e4b-bab5-39265f7a6491",
     "nom": "Lomami Trading Co",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -870,7 +870,7 @@
     "date_enregistrement": "2020-03-13"
   },
   {
-    "id": "bc5b55fa-f576-4627-a4df-94b9c031ffc3",
+    "id": "7d417b1f-6d68-4d84-a4ca-a6f92c605541",
     "nom": "Mbote Services SARL",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -885,7 +885,7 @@
     "date_enregistrement": "2025-02-27"
   },
   {
-    "id": "d6e548ef-bc03-4a1f-b3b5-8e0c168b19ca",
+    "id": "56d4addb-1f69-4769-9e40-e0a895849b28",
     "nom": "Ruwenzori Commercial House",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -900,7 +900,7 @@
     "date_enregistrement": "2022-09-04"
   },
   {
-    "id": "5de62164-c59b-4907-ae96-7a63b4cddbb2",
+    "id": "9edbed83-03e6-4554-924e-c1036341b1ae",
     "nom": "Lokole Business Group",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -915,7 +915,7 @@
     "date_enregistrement": "2021-03-14"
   },
   {
-    "id": "c4e0701e-3e92-47c1-8df5-3b6a15b8f13d",
+    "id": "35fc6806-24e7-45c5-92e9-bb28c2094058",
     "nom": "Uzima Freight & Supply",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -930,7 +930,7 @@
     "date_enregistrement": "2023-11-29"
   },
   {
-    "id": "f60eac5c-0c9f-4c5f-9b76-c268e04d77ba",
+    "id": "dfb2a753-de0f-4d48-838e-aa0364c7c674",
     "nom": "Nzuri Business Group",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -945,7 +945,7 @@
     "date_enregistrement": "2022-02-17"
   },
   {
-    "id": "f6959aba-abe6-4414-a493-f533fcc9b0ab",
+    "id": "23a42d16-992e-4531-9ad6-e1c800a5bba4",
     "nom": "Congo Commercial House",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -960,7 +960,7 @@
     "date_enregistrement": "2021-07-30"
   },
   {
-    "id": "50c1784a-9dd7-49d3-a367-b49e81d4fcc9",
+    "id": "4a7852ec-c015-40da-8569-bd2e4958ac41",
     "nom": "Virunga Trading SPRL",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -975,7 +975,7 @@
     "date_enregistrement": "2023-12-24"
   },
   {
-    "id": "556076a7-4eaa-4ff0-aee1-103e2fb43bb9",
+    "id": "efc54d20-c48b-4fd3-b807-7da072f9a2cf",
     "nom": "Lualaba Distribution",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -990,7 +990,7 @@
     "date_enregistrement": "2023-02-03"
   },
   {
-    "id": "d0f9719d-ce72-492d-9f7d-f9616ebc9227",
+    "id": "8cb61f92-0640-4cad-9834-eee2bcb77bfe",
     "nom": "Salongo Freight & Supply",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -1005,7 +1005,7 @@
     "date_enregistrement": "2022-12-12"
   },
   {
-    "id": "53ed2c7c-db6b-44bc-97dc-41f2e27a58af",
+    "id": "489f9035-264c-47c5-98c5-e8aabb3f3517",
     "nom": "Nzuri Trading Co",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -1020,7 +1020,7 @@
     "date_enregistrement": "2024-07-01"
   },
   {
-    "id": "1613efa3-4f0b-4713-a9d9-eca2162168d0",
+    "id": "51ad5e0b-32cf-4aaa-a25a-1c683c8f43c9",
     "nom": "Malaika General Merchandise",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -1035,7 +1035,7 @@
     "date_enregistrement": "2023-10-09"
   },
   {
-    "id": "971f4ee5-01c3-407e-ba39-7f1c5467a3fa",
+    "id": "a0d104b0-338c-485b-8ce5-43e9fb252e7d",
     "nom": "Lokole Services SARL",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1050,7 +1050,7 @@
     "date_enregistrement": "2022-12-16"
   },
   {
-    "id": "d2e0a39b-31b3-4c7e-98cc-450466fb6a32",
+    "id": "bc775366-ffd5-4166-8f4d-cc58b84fc4da",
     "nom": "Esengo Multiservices",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1065,7 +1065,7 @@
     "date_enregistrement": "2023-05-28"
   },
   {
-    "id": "14e13be0-90c7-4e0e-b6f8-9792e15ebc20",
+    "id": "37155e64-0d0e-4312-a056-b4ead857bef9",
     "nom": "Zamani Freight & Supply",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -1080,7 +1080,7 @@
     "date_enregistrement": "2023-05-03"
   },
   {
-    "id": "4b0da602-5f61-4d55-be93-470463212538",
+    "id": "2ee38c51-dc4d-4573-80b7-6496227d4b9b",
     "nom": "Congo Distribution",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -1095,7 +1095,7 @@
     "date_enregistrement": "2020-03-09"
   },
   {
-    "id": "e5bbc3e5-aaf9-4785-8411-495e76439a19",
+    "id": "344df5fc-fda2-4c73-8f0e-dc8484e5e7db",
     "nom": "Elikya Multiservices",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -1110,7 +1110,7 @@
     "date_enregistrement": "2024-05-03"
   },
   {
-    "id": "407d77ef-d535-4c56-964d-914caca299ef",
+    "id": "c06d7535-67e5-48bf-a031-b45557014db9",
     "nom": "Kivu & Fils",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -1125,7 +1125,7 @@
     "date_enregistrement": "2025-07-06"
   },
   {
-    "id": "d23df9a6-4e64-466d-b736-917e9627f7c2",
+    "id": "df17a1cd-a101-41f7-9d82-c4462c0c0d6a",
     "nom": "Lac Kivu Trading SPRL",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -1140,7 +1140,7 @@
     "date_enregistrement": "2020-07-07"
   },
   {
-    "id": "2b00fc0c-0608-4168-b9e2-82ed521d1c75",
+    "id": "5b849bab-4020-498f-9cfc-4fc3c418b0a8",
     "nom": "Lokole Enterprises",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -1155,7 +1155,7 @@
     "date_enregistrement": "2021-10-06"
   },
   {
-    "id": "c106dccf-771b-4f01-96ff-07fc03b9ec80",
+    "id": "a8030042-f007-4a2a-9fc3-8200d6d1ba7e",
     "nom": "Katanga Plus Multiservices",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -1170,7 +1170,7 @@
     "date_enregistrement": "2020-09-11"
   },
   {
-    "id": "37deeaa4-12c2-4e52-aad3-94555efb23f9",
+    "id": "3c6aecce-99e3-4ab6-a5fa-1cebae2232b9",
     "nom": "Lomami Services SARL",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -1185,7 +1185,7 @@
     "date_enregistrement": "2024-05-27"
   },
   {
-    "id": "4c414f3e-f0f0-432a-8c5f-74b77ecb5828",
+    "id": "3014f461-d60a-41e7-93d9-e44badc1b439",
     "nom": "Uzima Multiservices",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -1200,7 +1200,7 @@
     "date_enregistrement": "2022-06-08"
   },
   {
-    "id": "87d82af0-297c-48d8-b9bb-0d0df1927534",
+    "id": "6d3a8f7f-bb86-4028-8cf0-58abe8203f2a",
     "nom": "Nzuri Commercial House",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -1215,7 +1215,7 @@
     "date_enregistrement": "2020-09-25"
   },
   {
-    "id": "98ac7ba3-6167-4556-81bd-92b16919c9ca",
+    "id": "4454936e-25cc-46fa-8ee8-a76e4bc5a34c",
     "nom": "Nzuri Trading SPRL",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -1230,7 +1230,7 @@
     "date_enregistrement": "2024-07-10"
   },
   {
-    "id": "33fc75f5-fb71-4328-834e-165d37140647",
+    "id": "ea2cd775-8601-4417-b85e-b9d0ae0df2db",
     "nom": "Salongo & Fils",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -1245,7 +1245,7 @@
     "date_enregistrement": "2023-06-19"
   },
   {
-    "id": "bd3e241f-f501-4299-ba40-37a61386691f",
+    "id": "2ee77a79-eff5-4add-9dab-ecf2a844c3b8",
     "nom": "Elikya Enterprises",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -1260,7 +1260,7 @@
     "date_enregistrement": "2022-06-05"
   },
   {
-    "id": "c594d23a-fd74-4e3b-877c-79b8f4c6139d",
+    "id": "7b6f6094-37f5-477d-b038-75c76cfcfa48",
     "nom": "Simba Supply Co",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -1275,7 +1275,7 @@
     "date_enregistrement": "2025-03-28"
   },
   {
-    "id": "36ddc887-6df4-4129-b6b2-5106f5e0328b",
+    "id": "15301a32-abc7-4aab-8ef6-71cd6f038e2a",
     "nom": "Kivu Multiservices",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -1290,7 +1290,7 @@
     "date_enregistrement": "2025-06-07"
   },
   {
-    "id": "82c6ba60-8224-461a-951d-8a4e71090f87",
+    "id": "f195dd3c-0bee-4489-a349-3340d3846d9c",
     "nom": "Elikya Import-Export",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -1305,7 +1305,7 @@
     "date_enregistrement": "2023-09-06"
   },
   {
-    "id": "9906fb3f-de24-4d7f-a907-2d31c10147ec",
+    "id": "f918ebdf-5a46-4ea1-b175-ff23fc06e0e5",
     "nom": "Simba Distribution",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -1320,7 +1320,7 @@
     "date_enregistrement": "2021-05-30"
   },
   {
-    "id": "bdb1f396-3e57-46de-8d83-9e76208091cc",
+    "id": "47fafa7a-7f34-4f96-a499-bd650437b5dd",
     "nom": "Salongo Trading SPRL",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1335,7 +1335,7 @@
     "date_enregistrement": "2021-12-05"
   },
   {
-    "id": "e62c2c04-1277-440a-8b88-e465e31f7939",
+    "id": "e800f00a-ae08-4f0d-a066-1447f9bc6099",
     "nom": "Kivu Distribution",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -1350,7 +1350,7 @@
     "date_enregistrement": "2020-08-30"
   },
   {
-    "id": "55213633-bc98-4df4-98fe-250bd5cc76ce",
+    "id": "463e8ebb-90df-4419-b124-a3e2e2c7c142",
     "nom": "Elikya Trading Co",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -1365,7 +1365,7 @@
     "date_enregistrement": "2020-11-13"
   },
   {
-    "id": "e4b497a2-4b2e-4c1c-8bb5-dfdabd33779b",
+    "id": "fe66651e-6ac2-47e4-aed9-6fd5a3d7b7e1",
     "nom": "Fleuve Logistics",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -1380,7 +1380,7 @@
     "date_enregistrement": "2024-09-20"
   },
   {
-    "id": "1ddae68a-860d-4f23-9aca-415d47393a0f",
+    "id": "c91bb87c-2480-47e4-a6d5-e71d8f177d5e",
     "nom": "Fleuve Commercial House",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -1395,7 +1395,7 @@
     "date_enregistrement": "2022-10-11"
   },
   {
-    "id": "38d5069e-3dbd-485e-86b7-ecbb8bbd2207",
+    "id": "69d88b31-86e3-4278-909f-4b4b2b9e0677",
     "nom": "Simba Trading SPRL",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -1410,7 +1410,7 @@
     "date_enregistrement": "2022-06-06"
   },
   {
-    "id": "232eb202-5f79-4535-a0c6-04314b19685c",
+    "id": "b28a5305-7a36-47df-b3fd-f3168e593f6a",
     "nom": "Kivu Enterprises",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1425,7 +1425,7 @@
     "date_enregistrement": "2022-09-23"
   },
   {
-    "id": "803183ef-ac9d-4222-84d6-6bc7d435fc61",
+    "id": "c2b586be-434c-4d9a-823f-3df613e0e907",
     "nom": "Fleuve Supply Co",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -1440,7 +1440,7 @@
     "date_enregistrement": "2024-09-28"
   },
   {
-    "id": "b851354a-28e7-49f5-a104-ad902f5bda28",
+    "id": "c2ee3871-2c29-4f10-b24c-9c55ce76e383",
     "nom": "Boyoma Distribution",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -1455,7 +1455,7 @@
     "date_enregistrement": "2023-04-15"
   },
   {
-    "id": "f9d0244f-b0de-4cb4-9ae4-55a44b4abb74",
+    "id": "88be3466-594f-4765-8081-6c97809e05ed",
     "nom": "Kivu Import-Export",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -1470,7 +1470,7 @@
     "date_enregistrement": "2022-09-16"
   },
   {
-    "id": "a60a399f-6dc2-43b0-86af-0b691911039a",
+    "id": "de8d843f-946e-4afc-ad48-0375e258c660",
     "nom": "Uzima Business Group",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -1485,7 +1485,7 @@
     "date_enregistrement": "2022-02-18"
   },
   {
-    "id": "2bfdf093-ad3c-481e-a90b-325afce73553",
+    "id": "bcd0aa5f-4a17-4ce2-a9a6-167ccdabe6af",
     "nom": "Tumaini & Fils",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -1500,7 +1500,7 @@
     "date_enregistrement": "2025-06-30"
   },
   {
-    "id": "a42c50e1-e7d1-4a84-95a4-095680d78ab4",
+    "id": "9ea59647-61d2-4511-86c7-a62125206693",
     "nom": "Elikya & Fils",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1515,7 +1515,7 @@
     "date_enregistrement": "2020-10-21"
   },
   {
-    "id": "5a131d9a-320b-4460-b554-997bcd47bfd0",
+    "id": "6286c376-d2ac-41d7-8471-2ed5d7add1e0",
     "nom": "Mbote Logistics",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -1530,7 +1530,7 @@
     "date_enregistrement": "2021-12-04"
   },
   {
-    "id": "2e046788-aa07-4595-8d13-bda912cb3837",
+    "id": "3f76030e-0c89-4791-bb75-faad15e9906e",
     "nom": "Lokole & Fils",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -1545,7 +1545,7 @@
     "date_enregistrement": "2021-12-26"
   },
   {
-    "id": "eb0bd6d1-4f0a-4fa7-b419-2410f4535aa7",
+    "id": "ad5bcfc1-9861-429c-989f-218d293c2eed",
     "nom": "Salongo Supply Co",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -1560,7 +1560,7 @@
     "date_enregistrement": "2020-11-02"
   },
   {
-    "id": "2a06c39f-15ac-4e41-95b7-204e4854f829",
+    "id": "f62d15a1-1df7-4445-b27b-118dce02eed4",
     "nom": "Esengo Trading SPRL",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -1575,7 +1575,7 @@
     "date_enregistrement": "2025-01-11"
   },
   {
-    "id": "c8db7681-fcca-421a-a31f-b94c4edbb479",
+    "id": "d870a627-8448-4a11-a84e-791accd9625c",
     "nom": "Lomami Group SARL",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1590,7 +1590,7 @@
     "date_enregistrement": "2022-06-28"
   },
   {
-    "id": "9a6f40c5-41c3-4f2b-a7ab-e42a48773101",
+    "id": "8032863d-923a-4b4a-be4e-35812e118855",
     "nom": "Boyoma Group SARL",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1605,7 +1605,7 @@
     "date_enregistrement": "2025-01-02"
   },
   {
-    "id": "3b1969c1-9c37-4323-bd5d-5b5318e34733",
+    "id": "caa8ce7a-2c93-4361-8853-206611c3d1ea",
     "nom": "Salongo Import-Export",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -1620,7 +1620,7 @@
     "date_enregistrement": "2025-04-06"
   },
   {
-    "id": "77ad32c8-2e7a-4441-ba6f-5539ebe4560b",
+    "id": "9fd3a520-0e67-47b9-a331-af93c1746224",
     "nom": "Amani Multiservices",
     "province_id": 2,
     "province_nom": "Nord-Kivu",
@@ -1635,7 +1635,7 @@
     "date_enregistrement": "2023-08-11"
   },
   {
-    "id": "c63d80ac-cb95-4bcc-a75a-1812b8f14a40",
+    "id": "1871f66d-7cee-4ed5-bde3-6b81f604f0fc",
     "nom": "Lokole Commercial House",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1650,7 +1650,7 @@
     "date_enregistrement": "2024-08-10"
   },
   {
-    "id": "7ba3e208-0af4-4e72-ad44-8158cc01b6c4",
+    "id": "6e06cb96-2ada-426f-8ac6-3c25229e9f00",
     "nom": "Congo General Merchandise",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1665,7 +1665,7 @@
     "date_enregistrement": "2020-07-13"
   },
   {
-    "id": "ce8c11a2-7764-4c69-9d3d-6efc6283c1a9",
+    "id": "29ca35b2-6655-4e2f-963b-b2b9f25d63e3",
     "nom": "Katanga Plus & Fils",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1680,7 +1680,7 @@
     "date_enregistrement": "2023-08-11"
   },
   {
-    "id": "08bbc964-d812-43ef-88bc-1b75de877890",
+    "id": "36b92f83-5ed9-40c7-83a4-c48ce324533a",
     "nom": "Mont Ngaliema Services SARL",
     "province_id": 3,
     "province_nom": "Sud-Kivu",
@@ -1695,7 +1695,7 @@
     "date_enregistrement": "2022-09-17"
   },
   {
-    "id": "f70162d2-4a8d-4d4d-9446-bb766f3e1c37",
+    "id": "34bf9996-917e-494d-a31e-11bbc14f7a5c",
     "nom": "Salongo Enterprises",
     "province_id": 5,
     "province_nom": "Ituri",
@@ -1710,7 +1710,7 @@
     "date_enregistrement": "2024-02-11"
   },
   {
-    "id": "387413d8-2f51-4f7e-9c4d-d483caa3d19d",
+    "id": "2c9ae662-bfb3-4060-89d3-520c303c9a85",
     "nom": "Ruwenzori Trading SPRL",
     "province_id": 6,
     "province_nom": "Kasai-Central",
@@ -1725,7 +1725,7 @@
     "date_enregistrement": "2020-11-02"
   },
   {
-    "id": "1b9d31e8-58e9-410c-97a5-1dba9298c645",
+    "id": "dee82e54-8d39-407a-92c4-acb08e2b7cde",
     "nom": "Nzuri Group SARL",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -1740,7 +1740,7 @@
     "date_enregistrement": "2021-09-26"
   },
   {
-    "id": "a75b28b3-26ec-4fca-a7e0-421624813c54",
+    "id": "77c818bc-697c-4da1-bbbf-f2bce75c228e",
     "nom": "Malaika Multiservices",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1755,7 +1755,7 @@
     "date_enregistrement": "2025-07-12"
   },
   {
-    "id": "7a95f5a9-dbad-4e44-b6b2-a2dd3f6c31f1",
+    "id": "7edd5e0a-9dc3-423f-9f5b-59f549874a2b",
     "nom": "Malaika Group SARL",
     "province_id": 4,
     "province_nom": "Haut-Katanga",
@@ -1770,7 +1770,7 @@
     "date_enregistrement": "2020-05-23"
   },
   {
-    "id": "312001eb-b07b-4489-a048-16c8b02784fe",
+    "id": "cd3e4c18-1f86-41a2-aa2b-5bc28900e21f",
     "nom": "Lomami Supply Co",
     "province_id": 1,
     "province_nom": "Kinshasa",
@@ -1785,7 +1785,7 @@
     "date_enregistrement": "2024-10-26"
   },
   {
-    "id": "25c15a4f-911e-48d6-96f4-00a87fe01dee",
+    "id": "3ccf1d1b-75b1-4037-afa2-eec5b5d24595",
     "nom": "Boyoma Enterprises",
     "province_id": 1,
     "province_nom": "Kinshasa",

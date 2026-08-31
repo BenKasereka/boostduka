@@ -67,10 +67,11 @@ comment on table categories_articles is 'Familles d''achats (Médical, WASH, NFI
 -- TABLE: articles (catalogue d''articles par catégorie, 10-20 / catégorie)
 -- ---------------------------------------------------------------------
 create table articles (
-    id              serial primary key,
-    categorie_id    smallint not null references categories_articles(id),
-    nom_article     text not null,
-    unite_mesure    text not null,           -- ex: pièce, carton, litre, kg, unité
+    id                          serial primary key,
+    categorie_id                smallint not null references categories_articles(id),
+    nom_article                 text not null,
+    unite_mesure                text not null,           -- ex: pièce, carton, litre, kg, unité
+    description_specification   text,                    -- details libres (marque, norme, dimensions...) pour identifier l'article sans ambiguite lors du choix
     unique (categorie_id, nom_article)
 );
 
@@ -130,8 +131,10 @@ create table devis (
     article_id              integer not null references articles(id),
     prix_unitaire           numeric(12,2) not null check (prix_unitaire > 0),
     devise                  devise_type not null default 'USD',
+    quantite_reference      integer not null default 1 check (quantite_reference >= 1), -- quantite demandee sur laquelle porte ce prix_unitaire
     delai_livraison_jours   integer not null check (delai_livraison_jours >= 0),
-    quantite_min            integer not null default 1 check (quantite_min >= 1),
+    transport_inclus        boolean not null default false, -- le cout de transport est-il inclus dans prix_unitaire ?
+    stock_disponible        integer not null default 1 check (stock_disponible >= 0), -- quantite que le fournisseur peut livrer immediatement
     validite_offre_date     date not null,
     date_soumission         date not null,
     source_import           text default 'dataset_fictif', -- 'dataset_fictif' | 'import_excel' | 'import_pdf'

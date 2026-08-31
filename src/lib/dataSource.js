@@ -8,7 +8,26 @@ import {
   addFournisseur,
   addFournisseursBulk,
   patchFournisseur,
+  getDeletedFournisseurIds,
+  markFournisseurDeleted,
 } from './fournisseurStore';
+import {
+  getNewCategories,
+  addCategorie,
+  getCategoriePatches,
+  patchCategorie,
+  getDeletedCategorieIds,
+  markCategorieDeleted,
+} from './categorieStore';
+import {
+  getNewArticles,
+  addArticle,
+  getArticlePatches,
+  patchArticle,
+  getDeletedArticleIds,
+  markArticleDeleted,
+} from './articleStore';
+import { listEvaluations } from './localStore';
 
 // =====================================================================
 // Couche d'acces aux donnees.
@@ -71,10 +90,24 @@ export async function loadTable(table) {
     if (table === 'fournisseurs' && !isSupabaseConfigured()) {
       const patches = getFournisseurPatches();
       const applyPatch = (f) => (patches[f.id] ? { ...f, ...patches[f.id] } : f);
-      return rows.concat(getNewFournisseurs()).map(applyPatch);
+      const deleted = new Set(getDeletedFournisseurIds());
+      return rows.concat(getNewFournisseurs()).filter((f) => !deleted.has(f.id)).map(applyPatch);
     }
     if (table === 'fournisseur_categories' && !isSupabaseConfigured()) {
-      return rows.concat(getNewFournisseurCategories());
+      const deleted = new Set(getDeletedFournisseurIds());
+      return rows.concat(getNewFournisseurCategories()).filter((fc) => !deleted.has(fc.fournisseur_id));
+    }
+    if (table === 'categories_articles' && !isSupabaseConfigured()) {
+      const patches = getCategoriePatches();
+      const applyPatch = (c) => (patches[c.id] ? { ...c, ...patches[c.id] } : c);
+      const deleted = new Set(getDeletedCategorieIds());
+      return rows.concat(getNewCategories()).filter((c) => !deleted.has(c.id)).map(applyPatch);
+    }
+    if (table === 'articles' && !isSupabaseConfigured()) {
+      const patches = getArticlePatches();
+      const applyPatch = (a) => (patches[a.id] ? { ...a, ...patches[a.id] } : a);
+      const deleted = new Set(getDeletedArticleIds());
+      return rows.concat(getNewArticles()).filter((a) => !deleted.has(a.id)).map(applyPatch);
     }
     return rows;
   })();
@@ -143,6 +176,184 @@ export async function commitFournisseurPatch(fournisseurId, patch) {
     patchFournisseur(fournisseurId, patch);
   }
   cache.delete('fournisseurs');
+}
+
+// Compte l'historique d'un fournisseur (devis/commandes/contrats-cadres) —
+// sert a decider si une suppression definitive est possible sans casser
+// l'integrite referentielle de l'application.
+export async function getFournisseurHistoryCounts(fournisseurId) {
+  const [devis, commandes, contrats] = await Promise.all([
+    loadTable('devis'),
+    loadTable('commandes'),
+    loadTable('contrats_cadres'),
+  ]);
+  return {
+    devis: devis.filter((d) => d.fournisseur_id === fournisseurId).length,
+    commandes: commandes.filter((c) => c.fournisseur_id === fournisseurId).length,
+    contrats: contrats.filter((c) => c.fournisseur_id === fournisseurId).length,
+  };
+}
+
+// Supprime definitivement un fournisseur — refuse s'il a le moindre
+// historique (devis/commandes/contrats-cadres), pour ne jamais casser une
+// reference existante ailleurs dans l'application. Dans ce cas, invite a
+// utiliser le statut "blackliste"/"suspendu" a la place (voir
+// commitFournisseurPatch), qui prevoit exactement ce cas.
+export async function commitSupprimerFournisseur(fournisseurId) {
+  const counts = await getFournisseurHistoryCounts(fournisseurId);
+  const total = counts.devis + counts.commandes + counts.contrats;
+  if (total > 0) {
+    const err = new Error(
+      `Suppression impossible : ce fournisseur a un historique (${counts.devis} devis, ${counts.commandes} commande(s), ${counts.contrats} contrat(s)-cadre). ` +
+      'Utilisez le statut "suspendu" ou "blackliste" pour l\'exclure sans casser cet historique.'
+    );
+    err.code = 'HAS_HISTORY';
+    throw err;
+  }
+  if (isSupabaseConfigured()) {
+    await supabase.from('fournisseur_categories').delete().eq('fournisseur_id', fournisseurId);
+    const { error } = await supabase.from('fournisseurs').delete().eq('id', fournisseurId);
+    if (error) throw new Error(`Supabase[fournisseurs delete]: ${error.message}`);
+  } else {
+    markFournisseurDeleted(fournisseurId);
+  }
+  cache.delete('fournisseurs');
+  cache.delete('fournisseur_categories');
+}
+
+// ---------------------------------------------------------------------
+// Module Configuration — gestion des catégories d'achats
+// ---------------------------------------------------------------------
+export async function commitNouvelleCategorie(nomCategorie, description) {
+  const categories = await loadTable('categories_articles');
+  const maxId = categories.reduce((m, c) => Math.max(m, c.id), 0);
+  const categorie = { id: maxId + 1, nom_categorie: nomCategorie, description: description || null };
+  if (isSupabaseConfigured()) {
+    const { error } = await supabase.from('categories_articles').insert([categorie]);
+    if (error) throw new Error(`Supabase[categories_articles insert]: ${error.message}`);
+  } else {
+    addCategorie(categorie);
+  }
+  cache.delete('categories_articles');
+  return categorie;
+}
+
+export async function commitCategoriePatch(categorieId, patch) {
+  if (isSupabaseConfigured()) {
+    const { error } = await supabase.from('categories_articles').update(patch).eq('id', categorieId);
+    if (error) throw new Error(`Supabase[categories_articles update]: ${error.message}`);
+  } else {
+    patchCategorie(categorieId, patch);
+  }
+  cache.delete('categories_articles');
+}
+
+// Compte les references a une categorie (articles du catalogue, fournisseurs
+// qui la couvrent, besoins de section, contrats-cadres) — sert a decider si
+// une suppression est possible sans casser l'integrite referentielle.
+export async function getCategorieHistoryCounts(categorieId) {
+  const [articles, fournisseurCategories, sectionBesoins, contrats] = await Promise.all([
+    loadTable('articles'),
+    loadTable('fournisseur_categories'),
+    loadTable('section_besoins'),
+    loadTable('contrats_cadres'),
+  ]);
+  return {
+    articles: articles.filter((a) => a.categorie_id === categorieId).length,
+    fournisseurs: fournisseurCategories.filter((fc) => fc.categorie_id === categorieId).length,
+    besoins: sectionBesoins.filter((sb) => sb.categorie_id === categorieId).length,
+    contrats: contrats.filter((c) => c.categorie_id === categorieId).length,
+  };
+}
+
+export async function commitSupprimerCategorie(categorieId) {
+  const counts = await getCategorieHistoryCounts(categorieId);
+  const total = counts.articles + counts.fournisseurs + counts.besoins + counts.contrats;
+  if (total > 0) {
+    const err = new Error(
+      `Suppression impossible : ${counts.articles} article(s) du catalogue, ${counts.fournisseurs} lien(s) fournisseur, ` +
+      `${counts.besoins} besoin(s) de section et ${counts.contrats} contrat(s)-cadre référencent encore cette catégorie. ` +
+      'Réaffectez ou supprimez ces éléments avant de supprimer la catégorie.'
+    );
+    err.code = 'HAS_HISTORY';
+    throw err;
+  }
+  if (isSupabaseConfigured()) {
+    const { error } = await supabase.from('categories_articles').delete().eq('id', categorieId);
+    if (error) throw new Error(`Supabase[categories_articles delete]: ${error.message}`);
+  } else {
+    markCategorieDeleted(categorieId);
+  }
+  cache.delete('categories_articles');
+}
+
+// ---------------------------------------------------------------------
+// Module Configuration — gestion du catalogue d'articles
+// ---------------------------------------------------------------------
+export async function commitNouvelArticle(categorieId, nomArticle, uniteMesure, descriptionSpecification) {
+  const articles = await loadTable('articles');
+  const maxId = articles.reduce((m, a) => Math.max(m, a.id), 0);
+  const article = {
+    id: maxId + 1,
+    categorie_id: categorieId,
+    nom_article: nomArticle,
+    unite_mesure: uniteMesure,
+    description_specification: descriptionSpecification || null,
+  };
+  if (isSupabaseConfigured()) {
+    const { error } = await supabase.from('articles').insert([article]);
+    if (error) throw new Error(`Supabase[articles insert]: ${error.message}`);
+  } else {
+    addArticle(article);
+  }
+  cache.delete('articles');
+  return article;
+}
+
+export async function commitArticlePatch(articleId, patch) {
+  if (isSupabaseConfigured()) {
+    const { error } = await supabase.from('articles').update(patch).eq('id', articleId);
+    if (error) throw new Error(`Supabase[articles update]: ${error.message}`);
+  } else {
+    patchArticle(articleId, patch);
+  }
+  cache.delete('articles');
+}
+
+// Compte les references a un article (devis, commandes, lignes d'evaluation
+// de synthese comparative) — sert a decider si une suppression est possible.
+export async function getArticleHistoryCounts(articleId) {
+  const [devis, commandes] = await Promise.all([loadTable('devis'), loadTable('commandes')]);
+  const evaluations = listEvaluations();
+  const evaluationLignes = evaluations.reduce(
+    (n, ev) => n + (ev.articles || []).filter((a) => a.article_id === articleId).length,
+    0
+  );
+  return {
+    devis: devis.filter((d) => d.article_id === articleId).length,
+    commandes: commandes.filter((c) => c.article_id === articleId).length,
+    evaluations: evaluationLignes,
+  };
+}
+
+export async function commitSupprimerArticle(articleId) {
+  const counts = await getArticleHistoryCounts(articleId);
+  const total = counts.devis + counts.commandes + counts.evaluations;
+  if (total > 0) {
+    const err = new Error(
+      `Suppression impossible : ${counts.devis} devis, ${counts.commandes} commande(s) et ${counts.evaluations} ` +
+      'synthèse(s) comparative(s) référencent encore cet article. Supprimez ou réaffectez ces éléments d\'abord.'
+    );
+    err.code = 'HAS_HISTORY';
+    throw err;
+  }
+  if (isSupabaseConfigured()) {
+    const { error } = await supabase.from('articles').delete().eq('id', articleId);
+    if (error) throw new Error(`Supabase[articles delete]: ${error.message}`);
+  } else {
+    markArticleDeleted(articleId);
+  }
+  cache.delete('articles');
 }
 
 export async function loadAllTables() {
@@ -222,10 +433,13 @@ export async function listPriceRows(filters = {}) {
       article_id: article?.id,
       article_nom: article?.nom_article ?? 'Article inconnu',
       unite_mesure: article?.unite_mesure,
+      description_specification: article?.description_specification,
       prix_unitaire: d.prix_unitaire,
       devise: d.devise,
+      quantite_reference: d.quantite_reference,
       delai_livraison_jours: d.delai_livraison_jours,
-      quantite_min: d.quantite_min,
+      transport_inclus: d.transport_inclus,
+      stock_disponible: d.stock_disponible,
       date_soumission: d.date_soumission,
       validite_offre_date: d.validite_offre_date,
       conditions_paiement: fournisseur?.conditions_paiement ?? '—',
@@ -293,8 +507,10 @@ export async function listCandidatesForArticle(articleId) {
       prix_unitaire: d.prix_unitaire,
       devise: d.devise,
       prix_unitaire_usd: toUsd(d.prix_unitaire, d.devise),
+      quantite_reference: d.quantite_reference,
       delai_livraison_jours: d.delai_livraison_jours,
-      quantite_min: d.quantite_min,
+      transport_inclus: d.transport_inclus,
+      stock_disponible: d.stock_disponible,
       validite_offre_date: d.validite_offre_date,
       date_soumission: d.date_soumission,
     };

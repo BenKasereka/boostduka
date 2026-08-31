@@ -1,6 +1,6 @@
 [
   {
-    "id": "9afefdbb-119c-4425-8535-6fec5127f4b6",
+    "id": "349011bf-fbdb-47ba-8a36-8354b630bec2",
     "nom_base": "Base VISIBA Kinshasa",
     "province_id": 1,
     "nom_responsable": "Guelord Kasongo",
@@ -9,7 +9,7 @@
     "date_ouverture_base": "2022-03-25"
   },
   {
-    "id": "233431b7-94e1-4972-835b-5ab9bc49f081",
+    "id": "a19ab1a6-bc34-488b-b8ac-377a38678c10",
     "nom_base": "Base VISIBA Goma",
     "province_id": 2,
     "nom_responsable": "Clarisse Mukendi",
@@ -18,7 +18,7 @@
     "date_ouverture_base": "2023-06-18"
   },
   {
-    "id": "ae000a4f-dbc2-4247-b4b4-3635d5f0ab1c",
+    "id": "1cd2c6b1-c863-428e-83bc-780231b993f8",
     "nom_base": "Base VISIBA Bukavu",
     "province_id": 3,
     "nom_responsable": "Serge Nkulu",
@@ -27,7 +27,7 @@
     "date_ouverture_base": "2022-04-21"
   },
   {
-    "id": "47412352-fa9b-4881-bdd6-aa37fbcc2ce3",
+    "id": "daf9c629-c2e6-492f-9695-27a659be3b09",
     "nom_base": "Base VISIBA Lubumbashi",
     "province_id": 4,
     "nom_responsable": "Jean-Pierre Bakajika",
@@ -36,7 +36,7 @@
     "date_ouverture_base": "2021-09-03"
   },
   {
-    "id": "82563cbe-1a9f-4aeb-b31a-d18aac64d91f",
+    "id": "bd667f81-c0b9-4d30-9e89-4f2078d9570e",
     "nom_base": "Base VISIBA Bunia",
     "province_id": 5,
     "nom_responsable": "Prisca Bofasa",
@@ -45,7 +45,7 @@
     "date_ouverture_base": "2023-06-05"
   },
   {
-    "id": "20036399-853f-4275-81f5-a1af194fd3fd",
+    "id": "7b57af07-7d79-443d-aaeb-fd81bc7175c9",
     "nom_base": "Base VISIBA Kananga",
     "province_id": 6,
     "nom_responsable": "Guelord Kazadi",

@@ -14,11 +14,18 @@ const HEADER_ALIASES = {
   article: ['article', 'nom_article', 'produit', 'item', 'designation'],
   prix_unitaire: ['prix unitaire', 'prix_unitaire', 'prix', 'unit price', 'price'],
   devise: ['devise', 'currency'],
+  quantite_reference: ['qte', 'quantite', 'quantite reference', 'quantite_reference', 'qty', 'quantity'],
   delai_livraison_jours: [
     'delai livraison (jours)', 'delai_livraison_jours', 'delai', 'delai livraison',
     'lead time', 'lead time (days)', 'lead time (jours)',
   ],
-  quantite_min: ['quantite min', 'quantite_min', 'qte min', 'min order qty', 'moq'],
+  transport_inclus: ['transport inclus', 'transport_inclus', 'transport compris', 'freight included'],
+  // "quantite_min"/"moq" sont les anciens intitules de ce champ ; conserves
+  // en alias pour la compatibilite avec d'anciens fichiers deja remplis.
+  stock_disponible: [
+    'qte min-stock', 'qte min stock', 'stock disponible', 'stock_disponible',
+    'quantite min-stock', 'quantite_min', 'qte min', 'min order qty', 'moq',
+  ],
   validite_offre_date: ['validite offre', 'validite_offre_date', 'date validite offre', 'valid until', 'validite'],
 };
 
@@ -34,8 +41,18 @@ export function normalizeText(s) {
 
 export async function parseSpreadsheetFile(file) {
   const XLSX = await import('xlsx');
-  const buffer = await file.arrayBuffer();
-  const workbook = XLSX.read(buffer, { type: 'array', cellDates: true });
+  const estTexte = /\.(csv|txt)$/i.test(file.name);
+  let workbook;
+  if (estTexte) {
+    // Les fichiers texte (CSV) doivent etre decodes explicitement en UTF-8 :
+    // laisser XLSX deviner l'encodage a partir d'octets bruts corrompt les
+    // en-tetes accentues ("Délai", "Qté") sans erreur visible.
+    const texte = new TextDecoder('utf-8').decode(await file.arrayBuffer());
+    workbook = XLSX.read(texte, { type: 'string', cellDates: true });
+  } else {
+    const buffer = await file.arrayBuffer();
+    workbook = XLSX.read(buffer, { type: 'array', cellDates: true });
+  }
   const sheet = workbook.Sheets[workbook.SheetNames[0]];
   return XLSX.utils.sheet_to_json(sheet, { defval: '' });
 }
@@ -66,6 +83,11 @@ function parseDate(value) {
   return isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
 }
 
+function parseBoolean(value) {
+  const s = (value ?? '').toString().trim().toLowerCase();
+  return ['oui', 'yes', 'true', '1', 'vrai'].includes(s);
+}
+
 export function validateImportRows(rawRows, articles) {
   if (rawRows.length === 0) return [];
   const headerMap = buildHeaderMap(rawRows[0]);
@@ -92,8 +114,13 @@ export function validateImportRows(rawRows, articles) {
     const delaiValide = row.delai_livraison_jours !== undefined && row.delai_livraison_jours !== '' && !isNaN(delai) && delai >= 0;
     if (!delaiValide) errors.push('Délai de livraison invalide');
 
-    let quantiteMin = Number(row.quantite_min);
-    if (!quantiteMin || quantiteMin < 1) quantiteMin = 1;
+    let quantiteReference = Number(row.quantite_reference);
+    if (!quantiteReference || quantiteReference < 1) quantiteReference = 1;
+
+    // null = non renseigne (ex: non detecte dans un PDF) plutot que 0, pour
+    // ne pas afficher a tort une "rupture de stock" non confirmee.
+    let stockDisponible = row.stock_disponible === undefined || row.stock_disponible === '' ? null : Number(row.stock_disponible);
+    if (stockDisponible !== null && (isNaN(stockDisponible) || stockDisponible < 0)) stockDisponible = null;
 
     return {
       index,
@@ -102,8 +129,10 @@ export function validateImportRows(rawRows, articles) {
       prix_unitaire: prixUnitaire,
       devise,
       prix_unitaire_usd: isNaN(prixUnitaire) ? null : toUsd(prixUnitaire, devise),
+      quantite_reference: quantiteReference,
       delai_livraison_jours: delaiValide ? delai : null,
-      quantite_min: quantiteMin,
+      transport_inclus: parseBoolean(row.transport_inclus),
+      stock_disponible: stockDisponible,
       validite_offre_date: parseDate(row.validite_offre_date),
       ligneSource: rawRow._ligneSource,
       ok: errors.length === 0,
@@ -112,14 +141,33 @@ export function validateImportRows(rawRows, articles) {
   });
 }
 
+// Reevalue une ligne apres une correction manuelle dans l'apercu (ImportDevis.jsx) :
+// memes regles que validateImportRows, mais appliquees directement sur les
+// champs deja types de la ligne plutot que sur un texte brut d'en-tete.
+export function revalidateRow(row) {
+  const errors = [];
+  if (!row.article) errors.push(row.articleRaw ? 'Article inconnu du catalogue' : 'Article manquant');
+  const prix = Number(row.prix_unitaire);
+  if (row.prix_unitaire === undefined || row.prix_unitaire === null || row.prix_unitaire === '' || isNaN(prix) || prix <= 0) {
+    errors.push('Prix unitaire invalide');
+  }
+  const delai = Number(row.delai_livraison_jours);
+  if (row.delai_livraison_jours === undefined || row.delai_livraison_jours === null || row.delai_livraison_jours === '' || isNaN(delai) || delai < 0) {
+    errors.push('Délai de livraison invalide');
+  }
+  return { ...row, ok: errors.length === 0, errors };
+}
+
 export function buildDevisTemplate() {
   return [
     {
       Article: 'Gants latex examen (boite 100)',
+      Qté: 10,
       'Prix unitaire': 12.5,
       Devise: 'USD',
       'Délai livraison (jours)': 7,
-      'Quantité min': 10,
+      'Transport inclus': 'Non',
+      'Qté Min-Stock': 200,
       'Validité offre': '2026-12-31',
     },
   ];

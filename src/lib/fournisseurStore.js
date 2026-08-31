@@ -6,13 +6,15 @@
 //  - "patches" (statut, score_fiabilite, conditions_paiement...) appliques
 //    a N'IMPORTE QUEL fournisseur, y compris ceux du dataset de base —
 //    cela sert de suppression "douce" (passage en suspendu/blackliste)
-//    plutot qu'une suppression definitive qui casserait l'integrite
-//    referentielle avec les devis/commandes deja lies.
+//    quand un fournisseur a deja un historique (devis/commandes/contrats)
+//  - suppression definitive (uniquement autorisee par dataSource.js quand
+//    aucun historique n'existe pour ce fournisseur)
 // =====================================================================
 
 const NEW_KEY = 'visiba_fournisseurs_nouveaux';
 const NEW_CATS_KEY = 'visiba_fournisseur_categories_nouveaux';
 const PATCHES_KEY = 'visiba_fournisseurs_patches';
+const DELETED_KEY = 'visiba_fournisseurs_supprimes';
 
 function readJson(key) {
   try {
@@ -59,4 +61,16 @@ export function patchFournisseur(fournisseurId, patch) {
   const patches = getFournisseurPatches();
   patches[fournisseurId] = { ...(patches[fournisseurId] || {}), ...patch };
   localStorage.setItem(PATCHES_KEY, JSON.stringify(patches));
+}
+
+export function getDeletedFournisseurIds() {
+  return readJson(DELETED_KEY) || [];
+}
+
+export function markFournisseurDeleted(fournisseurId) {
+  const ids = getDeletedFournisseurIds();
+  if (!ids.includes(fournisseurId)) {
+    ids.push(fournisseurId);
+    localStorage.setItem(DELETED_KEY, JSON.stringify(ids));
+  }
 }

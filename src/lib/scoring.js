@@ -6,8 +6,11 @@
 //  - Prix            : normalise sur les candidats (moins cher = 100)
 //  - Qualite         : proxy = fournisseurs.score_fiabilite (0-100 direct)
 //  - Delai           : normalise sur les candidats (plus rapide = 100)
-//  - Disponibilite   : fournisseur actif + offre encore valide = 100,
-//                      actif mais offre expiree = 60, non actif = 0
+//  - Disponibilite   : fournisseur actif + stock disponible + offre encore
+//                      valide = 100 ; en rupture de stock = 20 (quel que
+//                      soit le reste, une commande n'est pas livrable) ;
+//                      actif, en stock, mais offre expiree = 60 ; fournisseur
+//                      non actif = 0
 //  - Conditions paiement : grille de notation fixe (voir PAYMENT_TERMS_SCORE),
 //                      plus le credit accorde a l'acheteur est long, plus
 //                      la note est haute
@@ -35,6 +38,8 @@ export const PAYMENT_TERMS_SCORE = {
   'Net 45': 85,
   'Net 30 apres reception facture': 75,
   'Net 30': 70,
+  'Paiement apres la livraison entre 15 - 30 jours': 65,
+  'Paiement apres la livraison inferieur ou egal a 15 jours': 55,
   '30% avance / 70% a 30 jours': 45,
   'Paiement comptant a la livraison': 30,
   '50% avance / 50% a la livraison': 20,
@@ -75,7 +80,9 @@ export function computeScores(candidats, weights = DEFAULT_WEIGHTS, options = {}
       const scoreQualite = c.score_fiabilite;
       const scoreDelai = normalize(delais, c.delai_livraison_jours, false);
       const offreValide = !c.validite_offre_date || new Date(c.validite_offre_date) >= today;
-      const scoreDisponibilite = c.fournisseur_statut !== 'actif' ? 0 : offreValide ? 100 : 60;
+      const enRupture = c.stock_disponible === 0;
+      const scoreDisponibilite =
+        c.fournisseur_statut !== 'actif' ? 0 : enRupture ? 20 : offreValide ? 100 : 60;
       const scoreConditions = scorePaymentTerms(c.conditions_paiement);
 
       const scoresPerso = criteresPersonnalises.map((crit) => ({

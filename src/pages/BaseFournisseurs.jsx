@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import {
   listFournisseurRows, listProvinces, listCategories, getFournisseurDetail,
   commitNouveauFournisseur, commitFournisseurPatch, commitNouveauxFournisseurs,
+  commitSupprimerFournisseur,
 } from '../lib/dataSource';
 import { exportToExcel } from '../lib/exportExcel';
 import { parseSpreadsheetFile, validateFournisseurRows, buildFournisseurTemplate } from '../lib/fournisseurImport';
@@ -20,6 +21,8 @@ const CONDITIONS_PAIEMENT_OPTIONS = [
   '30% avance / 70% a 30 jours',
   'Paiement comptant a la livraison',
   'Net 30 apres reception facture',
+  'Paiement apres la livraison entre 15 - 30 jours',
+  'Paiement apres la livraison inferieur ou egal a 15 jours',
 ];
 
 function ScoreBar({ score }) {
@@ -277,11 +280,15 @@ function ImportFournisseursForm({ provinces, categories, onCancel, onImported })
   );
 }
 
-function StatutEditor({ detail, onSaved }) {
+function StatutEditor({ detail, onSaved, onDeleted }) {
   const [statut, setStatut] = useState(detail.statut);
   const [scoreFiabilite, setScoreFiabilite] = useState(detail.score_fiabilite);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
+
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState('');
 
   const dirty = statut !== detail.statut || Number(scoreFiabilite) !== detail.score_fiabilite;
 
@@ -300,6 +307,20 @@ function StatutEditor({ detail, onSaved }) {
       setMessage(`Erreur : ${err.message}`);
     } finally {
       setSaving(false);
+    }
+  }
+
+  async function handleDelete() {
+    setDeleting(true);
+    setDeleteError('');
+    try {
+      await commitSupprimerFournisseur(detail.id);
+      onDeleted();
+    } catch (err) {
+      setDeleteError(err.message);
+      setConfirmDelete(false);
+    } finally {
+      setDeleting(false);
     }
   }
 
@@ -327,11 +348,38 @@ function StatutEditor({ detail, onSaved }) {
         {saving ? 'Enregistrement…' : 'Enregistrer les modifications'}
       </button>
       {message && <span className="text-xs text-slate-500 ml-2">{message}</span>}
-      <p className="text-[11px] text-slate-400 mt-2">
-        Aucune suppression définitive n'est proposée : cela casserait l'historique des devis/commandes déjà
-        rattachés à ce fournisseur. Passez-le en <strong>suspendu</strong> ou <strong>blacklisté</strong> pour
-        l'exclure des futures consultations et imports.
-      </p>
+
+      <div className="mt-3 pt-3 border-t border-slate-100">
+        {!confirmDelete && (
+          <button
+            className="text-xs text-red-600 hover:underline"
+            onClick={() => { setConfirmDelete(true); setDeleteError(''); }}
+          >
+            Supprimer définitivement ce fournisseur
+          </button>
+        )}
+        {confirmDelete && (
+          <div className="text-xs">
+            <p className="text-slate-600 mb-2">
+              Confirmez-vous la suppression définitive de <strong>{detail.nom}</strong> ? Cette action est
+              irréversible. Elle sera refusée si ce fournisseur a déjà des devis, commandes ou contrats-cadres.
+            </p>
+            <div className="flex gap-2">
+              <button className="btn-secondary !text-red-700 !border-red-300" onClick={handleDelete} disabled={deleting}>
+                {deleting ? 'Suppression…' : 'Oui, supprimer'}
+              </button>
+              <button className="btn-secondary" onClick={() => setConfirmDelete(false)} disabled={deleting}>Annuler</button>
+            </div>
+          </div>
+        )}
+        {deleteError && (
+          <p className="text-[11px] text-red-600 bg-red-50 border border-red-200 rounded-md p-2 mt-2">{deleteError}</p>
+        )}
+        <p className="text-[11px] text-slate-400 mt-2">
+          Un fournisseur avec historique ne peut pas être supprimé (intégrité des données) — passez-le en{' '}
+          <strong>suspendu</strong> ou <strong>blacklisté</strong> ci-dessus pour l'exclure des futures consultations et imports.
+        </p>
+      </div>
     </div>
   );
 }
@@ -625,7 +673,15 @@ export default function BaseFournisseurs() {
                 </ul>
               </div>
 
-              <StatutEditor key={detail.id} detail={detail} onSaved={() => setRefreshKey((k) => k + 1)} />
+              <StatutEditor
+                key={detail.id}
+                detail={detail}
+                onSaved={() => setRefreshKey((k) => k + 1)}
+                onDeleted={() => {
+                  setSelectedId(null);
+                  setRefreshKey((k) => k + 1);
+                }}
+              />
             </div>
           )}
         </div>

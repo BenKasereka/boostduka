@@ -1,9 +1,22 @@
 import { useEffect, useState } from 'react';
 import { listEvaluations, saveEvaluation } from '../lib/localStore';
 import { CRITERES } from '../lib/scoring';
+import { convertPourAffichage, formatMoney } from '../lib/currency';
+import { useDevisePreference } from '../lib/DevisePreferenceContext';
 
 function refFromId(id) {
   return `CBA-${id.slice(0, 8).toUpperCase()}`;
+}
+
+function MontantAffiche({ montant, devise }) {
+  const { devisePrincipale, deviseSecondaire } = useDevisePreference();
+  const { principal, principalCode, secondaire, secondaireCode } = convertPourAffichage(montant, devise, devisePrincipale, deviseSecondaire);
+  return (
+    <>
+      {formatMoney(principal, principalCode)}
+      {secondaire != null && <span className="text-slate-400 text-[10px]"> (≈{formatMoney(secondaire, secondaireCode)})</span>}
+    </>
+  );
 }
 
 export default function CBA() {
@@ -127,6 +140,8 @@ export default function CBA() {
                     <th className="text-left py-1.5 font-semibold text-slate-600">Province</th>
                     <th className="text-right py-1.5 font-semibold text-slate-600">Prix</th>
                     <th className="text-center py-1.5 font-semibold text-slate-600">Délai (j)</th>
+                    <th className="text-center py-1.5 font-semibold text-slate-600">Transport</th>
+                    <th className="text-center py-1.5 font-semibold text-slate-600">Stock</th>
                     <th className="text-left py-1.5 font-semibold text-slate-600">Conditions paiement</th>
                     <th className="text-center py-1.5 font-semibold text-slate-600">Score total</th>
                   </tr>
@@ -139,12 +154,11 @@ export default function CBA() {
                         <td className="py-1.5">{l.fournisseur_nom}{retenu && ' ✓'}</td>
                         <td className="py-1.5 text-slate-500">{l.province_nom}</td>
                         <td className="py-1.5 text-right">
-                          {l.prix_unitaire.toLocaleString('fr-FR', { minimumFractionDigits: l.devise === 'CDF' ? 0 : 2 })} {l.devise}
-                          {l.devise !== 'USD' && l.prix_unitaire_usd != null && (
-                            <span className="text-slate-400 text-[10px]"> (≈${l.prix_unitaire_usd.toFixed(2)})</span>
-                          )}
+                          <MontantAffiche montant={l.prix_unitaire} devise={l.devise} />
                         </td>
                         <td className="py-1.5 text-center">{l.delai_livraison_jours}</td>
+                        <td className="py-1.5 text-center">{l.transport_inclus ? 'Oui' : 'Non'}</td>
+                        <td className="py-1.5 text-center">{l.stock_disponible === 0 ? 'Rupture' : l.stock_disponible}</td>
                         <td className="py-1.5 text-xs text-slate-500">{l.conditions_paiement}</td>
                         <td className="py-1.5 text-center font-semibold text-marine-700">{l.scores.total.toFixed(1)}</td>
                       </tr>

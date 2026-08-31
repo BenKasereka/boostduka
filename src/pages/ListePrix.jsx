@@ -1,8 +1,23 @@
 import { useEffect, useMemo, useState } from 'react';
 import { listPriceRows, listProvinces, listCategories } from '../lib/dataSource';
 import { exportToExcel } from '../lib/exportExcel';
+import { convertPourAffichage, formatMoney } from '../lib/currency';
+import { useDevisePreference } from '../lib/DevisePreferenceContext';
 
 const PAGE_SIZE = 25;
+
+function MontantAffiche({ montant, devise }) {
+  const { devisePrincipale, deviseSecondaire } = useDevisePreference();
+  const { principal, principalCode, secondaire, secondaireCode } = convertPourAffichage(montant, devise, devisePrincipale, deviseSecondaire);
+  return (
+    <>
+      {formatMoney(principal, principalCode)}
+      {secondaire != null && (
+        <div className="text-[10px] text-slate-400 font-normal">≈ {formatMoney(secondaire, secondaireCode)}</div>
+      )}
+    </>
+  );
+}
 
 export default function ListePrix() {
   const [rows, setRows] = useState([]);
@@ -60,11 +75,14 @@ export default function ListePrix() {
             Province: r.province_nom,
             Catégorie: r.categorie_nom,
             Article: r.article_nom,
+            'Description & Spécification': r.description_specification || '',
             Unité: r.unite_mesure,
+            'Qté (référence prix)': r.quantite_reference,
             'Prix unitaire': r.prix_unitaire,
             Devise: r.devise,
             'Délai livraison (j)': r.delai_livraison_jours,
-            'Qté min': r.quantite_min,
+            'Transport inclus': r.transport_inclus ? 'Oui' : 'Non',
+            'Qté Min-Stock': r.stock_disponible,
             'Date soumission': r.date_soumission,
             'Validité offre': r.validite_offre_date,
             'Modalité de paiement': r.conditions_paiement,
@@ -130,9 +148,11 @@ export default function ListePrix() {
                 <th className="table-th">Catégorie</th>
                 <th className="table-th">Fournisseur</th>
                 <th className="table-th">Province</th>
+                <th className="table-th text-center">Qté</th>
                 <th className="table-th text-right">Prix unitaire</th>
                 <th className="table-th">Délai (j)</th>
-                <th className="table-th">Qté min</th>
+                <th className="table-th text-center">Transport inclus</th>
+                <th className="table-th text-center">Qté Min-Stock</th>
                 <th className="table-th">Validité offre</th>
                 <th className="table-th">Modalité paiement</th>
                 <th className="table-th">Soumis le</th>
@@ -140,25 +160,35 @@ export default function ListePrix() {
             </thead>
             <tbody className="divide-y divide-slate-100">
               {loading && (
-                <tr><td className="table-td text-slate-400" colSpan={10}>Chargement…</td></tr>
+                <tr><td className="table-td text-slate-400" colSpan={12}>Chargement…</td></tr>
               )}
               {!loading && pageRows.length === 0 && (
-                <tr><td className="table-td text-slate-400" colSpan={10}>Aucun devis ne correspond aux filtres.</td></tr>
+                <tr><td className="table-td text-slate-400" colSpan={12}>Aucun devis ne correspond aux filtres.</td></tr>
               )}
               {!loading && pageRows.map((r) => (
                 <tr key={r.devis_id} className="hover:bg-slate-50">
-                  <td className="table-td font-medium text-slate-800">{r.article_nom}</td>
+                  <td className="table-td font-medium text-slate-800" title={r.description_specification || undefined}>
+                    {r.article_nom}
+                    {r.description_specification && <span className="text-slate-300 ml-1" title={r.description_specification}>ⓘ</span>}
+                  </td>
                   <td className="table-td text-slate-500">{r.categorie_nom}</td>
                   <td className="table-td">{r.fournisseur_nom}</td>
                   <td className="table-td text-slate-500">{r.province_nom}</td>
+                  <td className="table-td text-center">{r.quantite_reference}</td>
                   <td className="table-td text-right font-medium">
-                    {r.prix_unitaire.toLocaleString('fr-FR', { minimumFractionDigits: r.devise === 'CDF' ? 0 : 2 })} {r.devise}
-                    {r.devise !== 'USD' && (
-                      <div className="text-[10px] text-slate-400 font-normal">≈ ${r.prix_unitaire_usd.toFixed(2)}</div>
-                    )}
+                    <MontantAffiche montant={r.prix_unitaire} devise={r.devise} />
                   </td>
                   <td className="table-td text-center">{r.delai_livraison_jours}</td>
-                  <td className="table-td text-center">{r.quantite_min}</td>
+                  <td className="table-td text-center">
+                    <span className={`badge ${r.transport_inclus ? 'bg-emeraude-50 text-emeraude-700' : 'bg-slate-100 text-slate-500'}`}>
+                      {r.transport_inclus ? 'Oui' : 'Non'}
+                    </span>
+                  </td>
+                  <td className="table-td text-center">
+                    {r.stock_disponible === 0 ? (
+                      <span className="badge bg-red-50 text-red-700">Rupture</span>
+                    ) : r.stock_disponible}
+                  </td>
                   <td className="table-td text-slate-500">{r.validite_offre_date}</td>
                   <td className="table-td text-slate-500 text-xs">{r.conditions_paiement}</td>
                   <td className="table-td text-slate-500">{r.date_soumission}</td>

@@ -58,5 +58,17 @@
   {
     "id": 15,
     "nom_categorie": "Produits d'hygiene / Nettoyage"
+  },
+  {
+    "id": 16,
+    "nom_categorie": "Fourniture de Bureau"
+  },
+  {
+    "id": 17,
+    "nom_categorie": "Service d'Impression et Visibilite"
+  },
+  {
+    "id": 18,
+    "nom_categorie": "Materiels Electronique et Electrique"
   }
 ]
