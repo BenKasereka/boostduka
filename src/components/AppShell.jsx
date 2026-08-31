@@ -3,9 +3,11 @@ import { dataMode } from '../lib/dataSource';
 const NAV_ITEMS = [
   { key: 'liste-prix', label: 'Liste de Prix', etape: 2, ready: true },
   { key: 'fournisseurs', label: 'Base Fournisseurs', etape: 2, ready: true },
+  { key: 'demande-devis', label: 'Demande de devis (RFQ)', etape: 7, ready: true },
   { key: 'import', label: 'Import de devis', etape: 7, ready: true },
   { key: 'synthese', label: 'Synthèse comparative', etape: 3, ready: true },
   { key: 'cba', label: 'CBA (Bid Analysis)', etape: 4, ready: true },
+  { key: 'po', label: 'Bon de Commande (PO)', etape: 4, ready: true },
   { key: 'dashboard', label: 'Dashboard KPI', etape: 5, ready: true },
   { key: 'export-pbi', label: 'Export Power BI', etape: 6, ready: true },
   { key: 'configuration', label: '⚙ Configuration', etape: 8, ready: true },

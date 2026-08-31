@@ -28,6 +28,7 @@ import {
   markArticleDeleted,
 } from './articleStore';
 import { listEvaluations } from './localStore';
+import { getNewCommandes, addCommandesBulk } from './commandeStore';
 
 // =====================================================================
 // Couche d'acces aux donnees.
@@ -108,6 +109,9 @@ export async function loadTable(table) {
       const applyPatch = (a) => (patches[a.id] ? { ...a, ...patches[a.id] } : a);
       const deleted = new Set(getDeletedArticleIds());
       return rows.concat(getNewArticles()).filter((a) => !deleted.has(a.id)).map(applyPatch);
+    }
+    if (table === 'commandes' && !isSupabaseConfigured()) {
+      return rows.concat(getNewCommandes());
     }
     return rows;
   })();
@@ -599,4 +603,18 @@ export async function getFournisseurDetail(fournisseurId) {
     .map((c) => ({ ...c, categorie_nom: categoriesById[c.categorie_id]?.nom_categorie ?? '—' }));
 
   return { ...fournisseur, devis: devisFournisseur, contrats: contratsFournisseur };
+}
+
+// ---------------------------------------------------------------------
+// Module Bon de Commande (PO) — genere le PR->PO a partir d'un dossier
+// CBA valide. Une commande par ligne d'article/fournisseur retenu.
+// ---------------------------------------------------------------------
+export async function commitCreerCommandes(rows) {
+  if (isSupabaseConfigured()) {
+    const { error } = await supabase.from('commandes').insert(rows);
+    if (error) throw new Error(`Supabase[commandes insert]: ${error.message}`);
+  } else {
+    addCommandesBulk(rows);
+  }
+  cache.delete('commandes');
 }

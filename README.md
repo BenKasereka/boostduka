@@ -41,9 +41,11 @@ Cet outil répond aux quatre à la fois, à partir d'un unique dataset de devis 
 |---|---|
 | **Liste de Prix** | Comparateur Fournisseur × Catégorie × Article × Prix, filtrable par province/catégorie, export Excel |
 | **Base Fournisseurs** | Fiche complète par fournisseur (score de fiabilité, catégories couvertes, conditions de paiement, contrats-cadres), export Excel |
+| **Demande de devis (RFQ)** | Sélection d'articles + fournisseurs à consulter, génération d'un modèle Excel et d'un document imprimable adressé à chaque fournisseur |
 | **Import de devis** | Import Excel/CSV d'une quotation fournisseur, avec validation ligne par ligne et matching au catalogue d'articles |
 | **Synthèse comparative** | Scoring pondéré multicritères (Prix / Qualité / Délai / Disponibilité / Conditions de paiement) pour sélectionner un fournisseur, avec justification en texte libre |
 | **CBA (Comparative Bid Analysis)** | Document d'audit imprimable généré à partir d'une synthèse validée — prêt à signer et archiver |
+| **Bon de Commande (PO)** | Généré depuis un CBA validé (un PO par fournisseur retenu), écrit dans l'historique des commandes |
 | **Dashboard KPI** | 7 phases du cycle procurement (Needs Assessment → Sourcing → Award/CBA → Contrats-cadres → Livraison → Performance fournisseur → Financier), filtrable par section/province/catégorie/période |
 | **Export Power BI** | Tables nettoyées (CSV/Excel), modèle relationnel documenté (schéma en étoile) et mesures DAX suggérées |
 
