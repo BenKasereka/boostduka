@@ -34,19 +34,17 @@ const DAX_APERCU = [
   { nom: 'Taux Utilisation Contrats-Cadres', formule: 'AVERAGE(contrats_cadres[taux_utilisation_pct])' },
 ];
 
-function RapportEnLignePanel() {
+// Bandeau d'état sous les boutons d'action — informatif uniquement : les
+// actions (voir le dashboard, télécharger) vivent toutes dans l'en-tête,
+// dans l'ordre, pour éviter un bouton dupliqué ici.
+function RapportEnLigneStatus() {
   const { lienPowerBI } = usePowerBiLink();
 
   if (lienPowerBI) {
     return (
-      <div className="bg-emeraude-50 border border-emeraude-100 rounded-lg p-5 mb-6 flex items-center justify-between gap-4 flex-wrap">
-        <div>
-          <div className="text-sm font-semibold text-emeraude-700">Rapport Power BI publié</div>
-          <div className="text-xs text-emeraude-700/80 mt-0.5">Lien public — aucun compte Power BI requis pour le consulter.</div>
-        </div>
-        <a href={lienPowerBI} target="_blank" rel="noopener noreferrer" className="btn-primary">
-          Voir le rapport Power BI en ligne →
-        </a>
+      <div className="bg-emeraude-50 border border-emeraude-100 rounded-lg px-4 py-2.5 mb-6 text-xs text-emeraude-700">
+        Rapport Power BI publié — lien public, aucun compte Power BI requis pour le consulter.
+        Modifiable dans <span className="font-medium">Configuration → Rapport Power BI en ligne</span>.
       </div>
     );
   }
@@ -66,6 +64,7 @@ function RapportEnLignePanel() {
 }
 
 export default function ExportPowerBI() {
+  const { lienPowerBI } = usePowerBiLink();
   const [rowCounts, setRowCounts] = useState({});
   const [tables, setTables] = useState({});
   const [loading, setLoading] = useState(true);
@@ -95,12 +94,19 @@ export default function ExportPowerBI() {
             Tables nettoyées, prêtes à être connectées dans Power BI Desktop (Get Data → Excel/CSV).
           </p>
         </div>
-        <button className="btn-primary" onClick={handleDownloadAll} disabled={loading}>
-          Télécharger toutes les tables (Excel multi-onglets)
-        </button>
+        <div className="flex items-center gap-2 flex-wrap">
+          {lienPowerBI && (
+            <a href={lienPowerBI} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              Voir le Dashboard en ligne →
+            </a>
+          )}
+          <button className={lienPowerBI ? 'btn-secondary' : 'btn-primary'} onClick={handleDownloadAll} disabled={loading}>
+            Télécharger toutes les tables (Excel multi-onglets)
+          </button>
+        </div>
       </div>
 
-      <RapportEnLignePanel />
+      <RapportEnLigneStatus />
 
       <div className="bg-white border border-slate-200 rounded-lg overflow-hidden mb-6">
         <table className="w-full border-collapse">
