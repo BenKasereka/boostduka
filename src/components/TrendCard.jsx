@@ -26,7 +26,11 @@ export default function TrendCard({ label, value, suffix, deltaPct, sparkline, s
       <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
         <div className="flex items-start justify-between gap-3 mb-1">
           <div className="text-[13px] font-semibold text-slate-600 tracking-wide">{label}</div>
-          {DeltaBadge}
+          {DeltaBadge || (
+            <div className="text-[10px] text-slate-300" title="Historique insuffisant sur la période précédente pour une comparaison fiable">
+              vs période précédente : n/d
+            </div>
+          )}
         </div>
         <div className="text-3xl font-bold text-slate-800 tabular-nums tracking-tight mb-2">
           {value}

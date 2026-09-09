@@ -89,8 +89,18 @@ function shiftedRange(dateFrom, dateTo) {
   return { dateFrom: prevFrom.toISOString().slice(0, 10), dateTo: prevTo.toISOString().slice(0, 10) };
 }
 
-function improvementPct(current, previous, higherIsBetter) {
+// Ratio minimum (echantillon periode precedente / periode courante) en-dessous
+// duquel une comparaison n'a pas de sens statistique : le dataset ne couvre
+// qu'une fenetre glissante de ~12 mois, donc la "periode precedente" du
+// filtre par defaut (12 derniers mois) tombe presque entierement avant le
+// debut reel des donnees (quelques dizaines de commandes contre plusieurs
+// centaines) — un delta calcule sur un si petit echantillon serait trompeur
+// plutot qu'informatif (ex: +16900% releve sur un cout evite cumulatif).
+const MIN_ECHANTILLON_RATIO = 0.25;
+
+function improvementPct(current, previous, higherIsBetter, { curSample, prevSample } = {}) {
   if (!previous) return null;
+  if (curSample != null && prevSample != null && prevSample < curSample * MIN_ECHANTILLON_RATIO) return null;
   const raw = ((current - previous) / previous) * 100;
   return higherIsBetter ? raw : -raw;
 }
@@ -193,14 +203,14 @@ export default function Dashboard() {
               label="Lead time moyen"
               value={kpis.livraison.leadTimeMoyen.toFixed(1)}
               suffix="j"
-              deltaPct={improvementPct(kpis.livraison.leadTimeMoyen, prevKpis?.livraison.leadTimeMoyen, false)}
+              deltaPct={improvementPct(kpis.livraison.leadTimeMoyen, prevKpis?.livraison.leadTimeMoyen, false, { curSample: kpis.needsAssessment.nbPR, prevSample: prevKpis?.needsAssessment.nbPR })}
               sparkline={kpis.livraison.leadTimeParMois.map((m) => m.leadTime)}
             />
             <TrendCard
               size="lg"
               label="Coût évité cumulé"
               value={fmtUsdShort(kpis.financier.coutEvite)}
-              deltaPct={improvementPct(kpis.financier.coutEvite, prevKpis?.financier.coutEvite, true)}
+              deltaPct={improvementPct(kpis.financier.coutEvite, prevKpis?.financier.coutEvite, true, { curSample: kpis.needsAssessment.nbPR, prevSample: prevKpis?.needsAssessment.nbPR })}
               sparkline={kpis.financier.coutEviteParMois.map((m) => m.montant)}
             />
           </div>
