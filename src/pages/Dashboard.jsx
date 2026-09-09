@@ -147,8 +147,8 @@ export default function Dashboard() {
   return (
     <div className="max-w-7xl mx-auto">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Dashboard KPI Procurement</h1>
-        <p className="text-sm text-slate-400 mt-1">Needs Assessment → Sourcing → Award/CBA → Contrats-cadres → Livraison → Performance → Financier</p>
+        <h1 className="text-2xl font-bold text-white tracking-tight">Dashboard KPI Procurement</h1>
+        <p className="text-sm text-slate-300 mt-1">Needs Assessment → Sourcing → Award/CBA → Contrats-cadres → Livraison → Performance → Financier</p>
       </div>
 
       <div className="bg-white rounded-2xl border border-slate-100 p-4 mb-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] grid grid-cols-1 sm:grid-cols-4 gap-3">
@@ -181,11 +181,31 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {loading && <div className="text-sm text-slate-400 py-16 text-center">Calcul des indicateurs…</div>}
+      {loading && <div className="text-sm text-slate-300 py-16 text-center">Calcul des indicateurs…</div>}
 
       {!loading && kpis && (
         <>
-          {/* Rangée héro — cartes KPI a badges icones */}
+          {/* Rangée héro — les tendances (courbes) en tout premier, pour que la
+              dynamique du dashboard se voie avant les chiffres bruts. */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
+            <TrendCard
+              size="lg"
+              label="Lead time moyen"
+              value={kpis.livraison.leadTimeMoyen.toFixed(1)}
+              suffix="j"
+              deltaPct={improvementPct(kpis.livraison.leadTimeMoyen, prevKpis?.livraison.leadTimeMoyen, false)}
+              sparkline={kpis.livraison.leadTimeParMois.map((m) => m.leadTime)}
+            />
+            <TrendCard
+              size="lg"
+              label="Coût évité cumulé"
+              value={fmtUsdShort(kpis.financier.coutEvite)}
+              deltaPct={improvementPct(kpis.financier.coutEvite, prevKpis?.financier.coutEvite, true)}
+              sparkline={kpis.financier.coutEviteParMois.map((m) => m.montant)}
+            />
+          </div>
+
+          {/* Cartes KPI a badges icones — support des courbes ci-dessus */}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-3.5 mb-6">
             <KpiCard icon={IconClock} color="marine" label="Lead time moyen" value={kpis.livraison.leadTimeMoyen.toFixed(1)} suffix="j" />
             <KpiCard icon={IconCheckCircle} color="emeraude" label="Livraison à temps" value={fmtPct(kpis.livraison.tauxLivraisonATemps)} />
@@ -247,48 +267,32 @@ export default function Dashboard() {
             </Panel>
           </div>
 
-          {/* Tendances + echeances */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mb-6">
-            <TrendCard
-              label="Lead time moyen"
-              value={kpis.livraison.leadTimeMoyen.toFixed(1)}
-              suffix="j"
-              deltaPct={improvementPct(kpis.livraison.leadTimeMoyen, prevKpis?.livraison.leadTimeMoyen, false)}
-              sparkline={kpis.livraison.leadTimeParMois.map((m) => m.leadTime)}
-            />
-            <TrendCard
-              label="Coût évité cumulé"
-              value={fmtUsdShort(kpis.financier.coutEvite)}
-              deltaPct={improvementPct(kpis.financier.coutEvite, prevKpis?.financier.coutEvite, true)}
-              sparkline={kpis.financier.coutEviteParMois.map((m) => m.montant)}
-            />
-            <Panel title="Échéances contrats-cadres" subtitle="90 prochains jours" className="lg:col-span-2">
-              {kpis.contratsCadres.echeancesProches.length === 0 ? (
-                <p className="text-xs text-slate-400 py-2">Aucune échéance dans les 90 prochains jours.</p>
-              ) : (
-                <div className="max-h-[168px] overflow-y-auto -mr-2 pr-2">
-                  {kpis.contratsCadres.echeancesProches.map((e, i) => {
-                    const jours = Math.round((new Date(e.date_fin) - new Date()) / (1000 * 60 * 60 * 24));
-                    const urgent = jours <= 30;
-                    return (
-                      <div key={i} className="flex items-center justify-between gap-3 py-1.5 border-b border-slate-50 last:border-0">
-                        <div className="flex items-center gap-2 min-w-0">
-                          <span className={`w-2 h-2 rounded-full shrink-0 ${urgent ? 'bg-red-600' : 'bg-or-600'}`} />
-                          <div className="min-w-0">
-                            <div className="text-[12px] font-medium text-slate-700 truncate">{e.fournisseur_nom}</div>
-                            <div className="text-[10px] text-slate-400 truncate">{e.categorie_nom}</div>
-                          </div>
+          <Panel title="Échéances contrats-cadres" subtitle="90 prochains jours" className="mb-6">
+            {kpis.contratsCadres.echeancesProches.length === 0 ? (
+              <p className="text-xs text-slate-400 py-2">Aucune échéance dans les 90 prochains jours.</p>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6">
+                {kpis.contratsCadres.echeancesProches.map((e, i) => {
+                  const jours = Math.round((new Date(e.date_fin) - new Date()) / (1000 * 60 * 60 * 24));
+                  const urgent = jours <= 30;
+                  return (
+                    <div key={i} className="flex items-center justify-between gap-3 py-1.5 border-b border-slate-50 last:border-0">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className={`w-2 h-2 rounded-full shrink-0 ${urgent ? 'bg-red-600' : 'bg-or-600'}`} />
+                        <div className="min-w-0">
+                          <div className="text-[12px] font-medium text-slate-700 truncate">{e.fournisseur_nom}</div>
+                          <div className="text-[10px] text-slate-400 truncate">{e.categorie_nom}</div>
                         </div>
-                        <span className={`badge shrink-0 ${urgent ? 'bg-red-50 text-red-700' : 'bg-or-50 text-or-700'}`}>{jours} j</span>
                       </div>
-                    );
-                  })}
-                </div>
-              )}
-            </Panel>
-          </div>
+                      <span className={`badge shrink-0 ${urgent ? 'bg-red-50 text-red-700' : 'bg-or-50 text-or-700'}`}>{jours} j</span>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </Panel>
 
-          {/* Rangee basse : sourcing / top fournisseurs / gauge contrats */}
+          {/* Rangée basse : sourcing / top fournisseurs / gauge contrats */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             <Panel title="Sourcing par catégorie" subtitle="Fournisseurs consultés, top 6">
               {kpis.sourcing.parCategorieChart.slice(0, 6).map((c) => (

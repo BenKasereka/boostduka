@@ -33,6 +33,17 @@
   .badge {
     @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
   }
+
+  /* Fond du Dashboard KPI : degrade sombre melangeant les 3 couleurs de
+     marque (marine/emeraude/or) pour un rendu "BI premium" — les cartes
+     restent blanches et inchangees, seul le fond derriere elles change. */
+  .dashboard-backdrop {
+    background:
+      radial-gradient(1100px circle at 12% -10%, rgba(4, 120, 87, 0.30), transparent 55%),
+      radial-gradient(900px circle at 105% 15%, rgba(180, 83, 9, 0.24), transparent 50%),
+      radial-gradient(1000px circle at 45% 115%, rgba(59, 95, 192, 0.32), transparent 55%),
+      linear-gradient(160deg, #0F1C42 0%, #172C68 55%, #0F1C42 100%);
+  }
 }
 
 /* Impression "propre" : masque toute la navigation applicative, ne laisse

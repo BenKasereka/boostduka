@@ -52,7 +52,7 @@ export default function AppShell({ activePage, onNavigate, children }) {
             Portfolio Demo
           </div>
         </header>
-        <div className="app-main-scroll flex-1 min-w-0 p-6 overflow-auto">{children}</div>
+        <div className={`app-main-scroll flex-1 min-w-0 p-6 overflow-auto ${activePage === 'dashboard' ? 'dashboard-backdrop' : ''}`}>{children}</div>
       </main>
     </div>
   );
