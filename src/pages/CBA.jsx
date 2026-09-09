@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react';
-import { listEvaluations, saveEvaluation } from '../lib/localStore';
+import { listEvaluations, saveEvaluation, refFromEvaluation } from '../lib/localStore';
 import { CRITERES } from '../lib/scoring';
 import { convertPourAffichage, formatMoney } from '../lib/currency';
 import { useDevisePreference } from '../lib/DevisePreferenceContext';
-
-function refFromId(id) {
-  return `CBA-${id.slice(0, 8).toUpperCase()}`;
-}
 
 function MontantAffiche({ montant, devise }) {
   const { devisePrincipale, deviseSecondaire } = useDevisePreference();
@@ -67,7 +63,7 @@ export default function CBA() {
               const noms = (e.articles || []).map((a) => a.article_nom).join(', ') || 'Dossier vide';
               return (
                 <option key={e.id} value={e.id}>
-                  {noms} ({new Date(e.created_at).toLocaleDateString('fr-FR')})
+                  {refFromEvaluation(e)} — {noms} ({new Date(e.created_at).toLocaleDateString('fr-FR')})
                 </option>
               );
             })}
@@ -85,7 +81,7 @@ export default function CBA() {
             <div>
               <div className="text-xs uppercase tracking-widest text-slate-400">VISIBA Logistics Group</div>
               <h2 className="text-lg font-bold text-marine-700 mt-1">Comparative Bid Analysis (CBA)</h2>
-              <div className="text-xs text-slate-500 mt-1">Réf. {refFromId(evaluation.id)}</div>
+              <div className="text-xs text-slate-500 mt-1">Réf. {refFromEvaluation(evaluation)}</div>
             </div>
             <div className="text-right">
               <span className={`badge ${evaluation.statut === 'valide' ? 'bg-emeraude-50 text-emeraude-700' : 'bg-or-50 text-or-700'}`}>

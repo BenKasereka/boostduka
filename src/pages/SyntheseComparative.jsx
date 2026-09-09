@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { listCategories, listArticlesByCategorie, listCandidatesForArticle, listSections } from '../lib/dataSource';
 import { computeScores, DEFAULT_WEIGHTS, CRITERES } from '../lib/scoring';
-import { listEvaluations, saveEvaluation, deleteEvaluation } from '../lib/localStore';
+import { listEvaluations, saveEvaluation, deleteEvaluation, refFromEvaluation } from '../lib/localStore';
+import { listRFQs, refFromRFQ } from '../lib/rfqStore';
+import { refCBA } from '../lib/refNumbering';
 import { exportToExcel } from '../lib/exportExcel';
 import { convertPourAffichage, formatMoney } from '../lib/currency';
 import { useDevisePreference } from '../lib/DevisePreferenceContext';
@@ -240,6 +242,8 @@ export default function SyntheseComparative() {
   const [categories, setCategories] = useState([]);
   const [sections, setSections] = useState([]);
   const [sectionId, setSectionId] = useState('');
+  const [rfqs, setRfqs] = useState([]);
+  const [rfqId, setRfqId] = useState('');
 
   const [weights, setWeights] = useState(DEFAULT_WEIGHTS);
   const [criteres, setCriteres] = useState([]);
@@ -252,7 +256,14 @@ export default function SyntheseComparative() {
     listCategories().then(setCategories);
     listSections().then(setSections);
     setSavedEvaluations(listEvaluations());
+    setRfqs(listRFQs());
   }, []);
+
+  function handleSelectRfq(id) {
+    setRfqId(id);
+    const rfq = rfqs.find((r) => r.id === id);
+    if (rfq?.section_id) setSectionId(rfq.section_id);
+  }
 
   const scoredEntries = useMemo(
     () => articleEntries.map((entry) => ({
@@ -353,8 +364,11 @@ export default function SyntheseComparative() {
   function handleSaveDossier() {
     if (articleEntries.length === 0) return;
     const section = sections.find((s) => s.id === sectionId);
+    const rfq = rfqs.find((r) => r.id === rfqId);
     const evaluation = {
       id: crypto.randomUUID(),
+      sequence: rfq?.sequence || null,
+      rfq_id: rfqId || null,
       section_id: sectionId || null,
       section_nom: section?.nom_base || null,
       ponderation: weights,
@@ -385,12 +399,26 @@ export default function SyntheseComparative() {
         </p>
       </div>
 
-      <div className="bg-white border border-slate-200 rounded-lg p-4 mb-4">
-        <label className="text-xs font-medium text-slate-500 mb-1 block">Section demandeuse (optionnel, s'applique à tout le dossier)</label>
-        <select className="input-field max-w-sm" value={sectionId} onChange={(e) => setSectionId(e.target.value)}>
-          <option value="">Non spécifiée</option>
-          {sections.map((s) => (<option key={s.id} value={s.id}>{s.nom_base}</option>))}
-        </select>
+      <div className="bg-white border border-slate-200 rounded-lg p-4 mb-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className="text-xs font-medium text-slate-500 mb-1 block">Demande de devis liée (optionnel — trace le dossier jusqu'à l'IR d'origine)</label>
+          <select className="input-field" value={rfqId} onChange={(e) => handleSelectRfq(e.target.value)}>
+            <option value="">Aucune (dossier autonome)</option>
+            {rfqs.map((r) => (
+              <option key={r.id} value={r.id}>{refFromRFQ(r)} — {(r.lignes || []).map((l) => l.article_nom).join(', ').slice(0, 60)}</option>
+            ))}
+          </select>
+          {rfqId && rfqs.find((r) => r.id === rfqId)?.sequence && (
+            <div className="text-[11px] text-emeraude-700 mt-1">Le dossier portera la référence {refCBA(rfqs.find((r) => r.id === rfqId).sequence)}.</div>
+          )}
+        </div>
+        <div>
+          <label className="text-xs font-medium text-slate-500 mb-1 block">Section demandeuse (optionnel, s'applique à tout le dossier)</label>
+          <select className="input-field" value={sectionId} onChange={(e) => setSectionId(e.target.value)}>
+            <option value="">Non spécifiée</option>
+            {sections.map((s) => (<option key={s.id} value={s.id}>{s.nom_base}</option>))}
+          </select>
+        </div>
       </div>
 
       <AjoutArticle categories={categories} onAdd={handleAddArticle} />
@@ -441,7 +469,8 @@ export default function SyntheseComparative() {
             {savedEvaluations.slice(0, 10).map((ev) => (
               <li key={ev.id} className="py-2 flex items-center justify-between text-sm gap-3">
                 <div className="min-w-0">
-                  <span className="font-medium">{(ev.articles || []).map((a) => a.article_nom).join(', ') || '—'}</span>
+                  <span className="font-medium">{refFromEvaluation(ev)}</span>
+                  <span className="text-slate-500 ml-2">{(ev.articles || []).map((a) => a.article_nom).join(', ') || '—'}</span>
                   <span className="text-slate-400 ml-2 text-xs">{new Date(ev.created_at).toLocaleString('fr-FR')} · {(ev.articles || []).length} article(s)</span>
                 </div>
                 <button

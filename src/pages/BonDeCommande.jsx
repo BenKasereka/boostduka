@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { listSections, listFournisseurRows, commitCreerCommandes } from '../lib/dataSource';
-import { listEvaluations, saveEvaluation } from '../lib/localStore';
+import { listEvaluations, saveEvaluation, refFromEvaluation } from '../lib/localStore';
+import { refPO } from '../lib/refNumbering';
 import { toUsd, convertPourAffichage, formatMoney } from '../lib/currency';
 import { useDevisePreference } from '../lib/DevisePreferenceContext';
 
@@ -109,8 +110,13 @@ export default function BonDeCommande() {
 
   async function handleConfirmer() {
     if (!group || !sectionId) return;
+    // Attribution scindee = plusieurs PO pour un meme dossier (un par
+    // fournisseur) : suffixe A/B/... pour rester unique tout en gardant la
+    // meme sequence que le dossier CBA (donc la meme que l'IR d'origine).
+    const groupIndex = groups.findIndex((g) => g.fournisseur_id === group.fournisseur_id);
+    const suffixeLettre = groups.length > 1 ? String.fromCharCode(65 + groupIndex) : null;
     const poId = crypto.randomUUID();
-    const reference = `PO-${poId.slice(0, 8).toUpperCase()}`;
+    const reference = evaluation.sequence ? refPO(evaluation.sequence, suffixeLettre) : `PO-${poId.slice(0, 8).toUpperCase()}`;
     const rows = group.lignes.map((l) => ({
       id: crypto.randomUUID(),
       section_id: sectionId,
@@ -125,6 +131,9 @@ export default function BonDeCommande() {
       date_livraison_reelle: null,
       statut: 'en_cours',
       ecart_jours: null,
+      po_reference: reference,
+      sequence: evaluation.sequence || null,
+      po_suffixe: suffixeLettre,
     }));
     await commitCreerCommandes(rows);
     const updated = {
@@ -161,7 +170,7 @@ export default function BonDeCommande() {
           <select className="input-field !w-auto min-w-[240px]" value={evaluationId} onChange={(e) => setEvaluationId(e.target.value)}>
             {evaluations.map((e) => {
               const noms = (e.articles || []).map((a) => a.article_nom).join(', ') || 'Dossier vide';
-              return (<option key={e.id} value={e.id}>{noms} ({new Date(e.created_at).toLocaleDateString('fr-FR')})</option>);
+              return (<option key={e.id} value={e.id}>{refFromEvaluation(e)} — {noms} ({new Date(e.created_at).toLocaleDateString('fr-FR')})</option>);
             })}
           </select>
           {groups.length > 1 && (
@@ -192,6 +201,7 @@ export default function BonDeCommande() {
                 <div className="text-xs uppercase tracking-widest text-slate-400">VISIBA Logistics Group</div>
                 <h2 className="text-lg font-bold text-marine-700 mt-1">Bon de Commande (Purchase Order)</h2>
                 <div className="text-xs text-slate-500 mt-1">Réf. {dejaGenere?.reference || 'Non enregistré — brouillon'}</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Dossier CBA : {refFromEvaluation(evaluation)}</div>
               </div>
               <div className="text-right">
                 <span className={`badge ${dejaGenere ? 'bg-emeraude-50 text-emeraude-700' : 'bg-or-50 text-or-700'}`}>

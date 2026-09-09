@@ -7,6 +7,8 @@
 // fournisseur retenu (attribution scindee).
 // =====================================================================
 
+import { refCBA } from './refNumbering';
+
 const STORAGE_KEY = 'visiba_evaluations_comparatives';
 
 function readAll() {
@@ -51,4 +53,11 @@ export function saveEvaluation(evaluation) {
 
 export function deleteEvaluation(id) {
   writeAll(readAll().filter((e) => e.id !== id));
+}
+
+// Reference bout-en-bout : reprend le numero de sequence de la RFQ liee
+// (elle-meme reprise de la Demande Interne d'origine) — sinon repli sur
+// une reference derivee de l'id, pour un dossier autonome sans RFQ liee.
+export function refFromEvaluation(evaluation) {
+  return evaluation?.sequence ? refCBA(evaluation.sequence) : `CBA-${evaluation.id.slice(0, 8).toUpperCase()}`;
 }

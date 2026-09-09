@@ -7,8 +7,12 @@
 // pour generer une Demande de devis (RFQ) adressee aux fournisseurs.
 // =====================================================================
 
+import { getNextSequence, refIR } from './refNumbering';
+
 const STORAGE_KEY = 'visiba_demandes_internes';
 const PENDING_RFQ_KEY = 'visiba_pr_en_attente_rfq';
+
+export { getNextSequence };
 
 function readAll() {
   try {
@@ -50,6 +54,14 @@ export function deletePR(id) {
 
 export function refFromPRId(id) {
   return `PR-${id.slice(0, 8).toUpperCase()}`;
+}
+
+// Reference de suivi bout-en-bout (IR-000001...) — presente sur toute
+// demande finalisee depuis l'ajout de la numerotation sequentielle.
+// Repli sur l'ancienne reference derivee de l'id pour les demandes
+// enregistrees avant ce changement (pas de "sequence" stockee).
+export function refFromPR(pr) {
+  return pr?.sequence ? refIR(pr.sequence) : refFromPRId(pr.id);
 }
 
 // Pont PR -> RFQ : la demande interne finalisee "attend" d'etre transformee

@@ -6,6 +6,8 @@
 // (chacun recoit sa propre copie du modele Excel / document imprimable).
 // =====================================================================
 
+import { refRFQ } from './refNumbering';
+
 const STORAGE_KEY = 'visiba_demandes_devis';
 
 function readAll() {
@@ -48,4 +50,11 @@ export function deleteRFQ(id) {
 
 export function refFromRFQId(id) {
   return `RFQ-${id.slice(0, 8).toUpperCase()}`;
+}
+
+// Reference bout-en-bout : reprend le numero de sequence de la Demande
+// Interne (IR) d'origine, si cette RFQ en decoule — sinon repli sur
+// l'ancienne reference derivee de l'id (RFQ creee sans IR prealable).
+export function refFromRFQ(rfq) {
+  return rfq?.sequence ? refRFQ(rfq.sequence) : refFromRFQId(rfq.id);
 }

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { listCategories, listArticlesByCategorie, listSections } from '../lib/dataSource';
-import { listPRs, savePR, deletePR, refFromPRId, markPRPourRFQ } from '../lib/prStore';
+import { listPRs, savePR, deletePR, refFromPR, markPRPourRFQ, getNextSequence } from '../lib/prStore';
 import { parseSpreadsheetFile } from '../lib/devisImport';
 import { validatePRImportRows, revalidatePRRow, buildPRTemplate } from '../lib/prImport';
 import { exportToExcel } from '../lib/exportExcel';
@@ -184,6 +184,7 @@ export default function DemandeInterne({ onNavigate }) {
     const section = sections.find((s) => s.id === sectionId);
     const pr = {
       id: crypto.randomUUID(),
+      sequence: getNextSequence(),
       section_id: sectionId,
       section_nom: section?.nom_base || null,
       demandeur: demandeur.trim() || null,
@@ -196,7 +197,7 @@ export default function DemandeInterne({ onNavigate }) {
     const all = listPRs();
     setSavedPRs(all);
     setActiveId(pr.id);
-    setSaveMessage(`Demande interne ${refFromPRId(pr.id)} finalisée (${lignes.length} article(s)).`);
+    setSaveMessage(`Demande interne ${refFromPR(pr)} finalisée (${lignes.length} article(s)).`);
     handleReset();
   }
 
@@ -378,7 +379,7 @@ export default function DemandeInterne({ onNavigate }) {
           <div className="flex items-center justify-between flex-wrap gap-3">
             <div>
               <div className="text-sm font-semibold text-emeraude-800">
-                {refFromPRId(activePR.id)} finalisée — {(activePR.lignes || []).length} article(s)
+                {refFromPR(activePR)} finalisée — {(activePR.lignes || []).length} article(s)
               </div>
               <div className="text-xs text-emeraude-700/80 mt-0.5">
                 {activePR.section_nom || 'Section non spécifiée'}{activePR.demandeur ? ` · ${activePR.demandeur}` : ''}
@@ -405,7 +406,7 @@ export default function DemandeInterne({ onNavigate }) {
             {savedPRs.map((p) => (
               <li key={p.id} className="py-2 flex items-center justify-between text-sm gap-3">
                 <div className="min-w-0">
-                  <span className="font-medium">{refFromPRId(p.id)}</span>
+                  <span className="font-medium">{refFromPR(p)}</span>
                   <span className="text-slate-500 ml-2">{(p.lignes || []).length} article(s)</span>
                   <span className="text-slate-400 ml-2 text-xs">{p.section_nom || '—'} · {new Date(p.created_at).toLocaleString('fr-FR')}</span>
                   <span className={`badge ml-2 text-[10px] ${p.statut === 'rfq_generee' ? 'bg-emeraude-50 text-emeraude-700' : 'bg-or-50 text-or-700'}`}>

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { listCategories, listArticlesByCategorie, listSections, listFournisseurRows } from '../lib/dataSource';
-import { listRFQs, saveRFQ, deleteRFQ, refFromRFQId } from '../lib/rfqStore';
+import { listRFQs, saveRFQ, deleteRFQ, refFromRFQ } from '../lib/rfqStore';
 import { consumePRPourRFQ, getPR } from '../lib/prStore';
 import { exportToExcel } from '../lib/exportExcel';
 
@@ -85,7 +85,7 @@ function DocumentPanel({ rfq, onMarquerEnvoyee }) {
             className="btn-secondary"
             onClick={() => exportToExcel(
               [{ name: 'Devis à compléter', rows: buildTemplateRows(rfq.lignes) }],
-              `${refFromRFQId(rfq.id)}_${slug(fournisseur.nom)}.xlsx`
+              `${refFromRFQ(rfq)}_${slug(fournisseur.nom)}.xlsx`
             )}
           >
             Télécharger le modèle Excel
@@ -102,7 +102,7 @@ function DocumentPanel({ rfq, onMarquerEnvoyee }) {
           <div>
             <div className="text-xs uppercase tracking-widest text-slate-400">VISIBA Logistics Group</div>
             <h2 className="text-lg font-bold text-marine-700 mt-1">Demande de devis (RFQ)</h2>
-            <div className="text-xs text-slate-500 mt-1">Réf. {refFromRFQId(rfq.id)}</div>
+            <div className="text-xs text-slate-500 mt-1">Réf. {refFromRFQ(rfq)}</div>
           </div>
           <div className="text-right">
             <span className={`badge ${rfq.statut === 'envoyee' ? 'bg-emeraude-50 text-emeraude-700' : 'bg-or-50 text-or-700'}`}>
@@ -207,6 +207,7 @@ export default function DemandeDevis() {
   const [savedRFQs, setSavedRFQs] = useState([]);
   const [activeId, setActiveId] = useState('');
   const [saveMessage, setSaveMessage] = useState('');
+  const [prSequence, setPrSequence] = useState(null);
 
   useEffect(() => {
     listCategories().then(setCategories);
@@ -221,6 +222,7 @@ export default function DemandeDevis() {
       const pr = getPR(prId);
       if (pr) {
         setSectionId(pr.section_id || '');
+        setPrSequence(pr.sequence || null);
         setLignes((pr.lignes || []).map((l) => ({
           article_id: l.article_id,
           article_nom: l.article_nom,
@@ -280,6 +282,7 @@ export default function DemandeDevis() {
     setSectionId('');
     setDateLimite('');
     setNotes('');
+    setPrSequence(null);
   }
 
   function handleSave() {
@@ -287,6 +290,7 @@ export default function DemandeDevis() {
     const section = sections.find((s) => s.id === sectionId);
     const rfq = {
       id: crypto.randomUUID(),
+      sequence: prSequence || null,
       section_id: sectionId || null,
       section_nom: section?.nom_base || null,
       date_limite_reponse: dateLimite || null,
@@ -428,7 +432,7 @@ export default function DemandeDevis() {
             {savedRFQs.map((r) => (
               <li key={r.id} className="py-2 flex items-center justify-between text-sm gap-3">
                 <div className="min-w-0">
-                  <span className="font-medium">{refFromRFQId(r.id)}</span>
+                  <span className="font-medium">{refFromRFQ(r)}</span>
                   <span className="text-slate-500 ml-2">{(r.lignes || []).length} article(s) · {(r.fournisseurs || []).length} fournisseur(s)</span>
                   <span className="text-slate-400 ml-2 text-xs">{new Date(r.created_at).toLocaleString('fr-FR')}</span>
                   <span className={`badge ml-2 text-[10px] ${r.statut === 'envoyee' ? 'bg-emeraude-50 text-emeraude-700' : 'bg-or-50 text-or-700'}`}>
