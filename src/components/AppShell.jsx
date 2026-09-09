@@ -36,20 +36,20 @@ export default function AppShell({ activePage, onNavigate, children }) {
             l'en-tete juste a cote — sans ca, la jonction des deux blocs de
             couleur est un choc plutot qu'une transition. */}
         <div
-          className="px-5 py-6 border-b border-white/10 relative"
+          className="px-5 py-4 border-b border-white/10 relative"
           style={activePage === 'dashboard' ? { background: 'linear-gradient(135deg, rgba(5,150,105,0.35) 0%, transparent 70%)' } : undefined}
         >
           <div className="text-xs uppercase tracking-widest text-marine-100/70">VISIBA Logistics Group</div>
           <div className="text-lg font-semibold leading-tight mt-1">BoostDuka</div>
         </div>
-        <nav className="flex-1 py-4">
+        <nav className="flex-1 py-2">
           {NAV_ITEMS.map((item) => {
             const isActive = activePage === item.key;
             return (
               <button
                 key={item.key}
                 onClick={() => onNavigate(item.key)}
-                className={`w-full text-left px-5 py-2.5 text-sm flex items-center justify-between gap-2 transition-colors
+                className={`w-full text-left px-5 py-2 text-sm flex items-center justify-between gap-2 transition-colors
                   ${isActive ? 'bg-white/10 text-white font-medium border-l-4 border-or-600' : 'text-marine-100/85 hover:bg-white/5 border-l-4 border-transparent'}`}
               >
                 <span>{item.label}</span>
@@ -60,7 +60,7 @@ export default function AppShell({ activePage, onNavigate, children }) {
             );
           })}
         </nav>
-        <div className="px-5 py-4 border-t border-white/10 text-[11px] text-marine-100/60">
+        <div className="px-5 py-3 border-t border-white/10 text-[11px] text-marine-100/60">
           Source de données : <span className="font-medium text-marine-100">{dataMode()}</span>
         </div>
       </aside>

@@ -9,6 +9,19 @@
   body {
     @apply bg-slate-50 text-slate-800 antialiased;
   }
+
+  /* Cache la barre de defilement native (bouton fleche haut/bas compris) sur
+     les zones scrollables de l'app-shell — le scroll reste actif (molette,
+     glisser, clavier), seule la barre elle-meme n'est plus dessinee. */
+  .app-main-scroll,
+  .app-shell-root aside {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Edge/IE legacy */
+  }
+  .app-main-scroll::-webkit-scrollbar,
+  .app-shell-root aside::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Edge Chromium */
+  }
 }
 
 @layer components {
