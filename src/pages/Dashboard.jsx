@@ -29,9 +29,10 @@ function fmtUsdShort(v) {
 function Panel({ title, subtitle, action, children, className = '' }) {
   return (
     <div
-      className={`dash-card p-5 ${className}`}
-      style={{ background: `radial-gradient(220px circle at 100% -20%, rgba(30,58,138,0.05), transparent 65%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)` }}
+      className={`dash-card p-5 pt-[22px] ${className}`}
+      style={{ background: `radial-gradient(260px circle at 100% -20%, rgba(30,58,138,0.14), transparent 60%), linear-gradient(165deg, #FFFFFF 0%, #F1F5F9 100%)` }}
     >
+      <div className="absolute inset-x-0 top-0 h-[3px]" style={{ background: 'linear-gradient(90deg, #1E3A8A 0%, #047857 50%, #B45309 100%)' }} />
       <div className="flex items-start justify-between mb-4 gap-3">
         <div>
           <h3 className="text-[13px] font-semibold text-slate-800 tracking-wide">{title}</h3>
@@ -265,7 +266,7 @@ export default function Dashboard() {
             />
             <TrendCard
               size="lg"
-              label="Coût évité cumulé"
+              label="Cost Saving Cumulé"
               value={fmtUsdShort(kpis.financier.coutEvite)}
               deltaPct={improvementPct(kpis.financier.coutEvite, prevKpis?.financier.coutEvite, true, { curSample: kpis.needsAssessment.nbPR, prevSample: prevKpis?.needsAssessment.nbPR })}
               sparkline={kpis.financier.coutEviteParMois.map((m) => ({ mois: m.mois, value: m.montant }))}
@@ -278,7 +279,7 @@ export default function Dashboard() {
             <KpiCard icon={IconClock} color="marine" label="Lead time moyen" value={kpis.livraison.leadTimeMoyen.toFixed(1)} suffix="j" />
             <KpiCard icon={IconCheckCircle} color="emeraude" label="Livraison à temps" value={fmtPct(kpis.livraison.tauxLivraisonATemps)} />
             <KpiCard icon={IconTag} color="or" label="Écart prix vs marché" value={fmtPct(kpis.award.ecartPrixMoyen)} hint="Positif = sous le prix moyen" />
-            <KpiCard icon={IconWallet} color="noir" label="Coût évité cumulé" value={fmtUsdShort(kpis.financier.coutEvite)} />
+            <KpiCard icon={IconWallet} color="noir" label="Cost Saving Cumulé" value={fmtUsdShort(kpis.financier.coutEvite)} />
             <KpiCard icon={IconFileCheck} color="rouge" label="Utilisation contrats-cadres" value={fmtPct(kpis.contratsCadres.tauxUtilisationMoyen)} />
             <KpiCard icon={IconUsers} color="marine" label="Mise en concurrence" value={fmtPct(kpis.sourcing.tauxMiseEnConcurrence)} hint="Articles avec ≥3 devis" />
           </div>

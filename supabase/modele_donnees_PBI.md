@@ -204,7 +204,7 @@ Taux Livraison à Temps (par fournisseur) = [Taux Livraison à Temps]
 ```dax
 Exposition Budgétaire = SUMX(commandes, commandes[prix_unitaire] * commandes[quantite])
 
-Coût Évité Cumulé =
+Cost Saving Cumulé =
 SUMX(
     commandes,
     MAX(0, RELATED(articles[prix_moyen_marche]) - commandes[prix_unitaire]) * commandes[quantite]

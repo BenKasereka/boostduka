@@ -30,7 +30,7 @@ function roleClass(role) {
 const DAX_APERCU = [
   { nom: 'Lead Time Moyen', formule: 'AVERAGEX(FILTER(commandes, NOT ISBLANK(commandes[date_livraison_reelle])), DATEDIFF(commandes[date_pr], commandes[date_livraison_reelle], DAY))' },
   { nom: 'Taux Livraison à Temps', formule: 'DIVIDE(CALCULATE(COUNTROWS(commandes), commandes[statut]="livree_a_temps"), CALCULATE(COUNTROWS(commandes), commandes[statut] IN {"livree_a_temps","livree_en_retard"}))' },
-  { nom: 'Coût Évité Cumulé', formule: 'SUMX(commandes, MAX(0, RELATED(articles[prix_moyen_marche]) - commandes[prix_unitaire]) * commandes[quantite])' },
+  { nom: 'Cost Saving Cumulé', formule: 'SUMX(commandes, MAX(0, RELATED(articles[prix_moyen_marche]) - commandes[prix_unitaire]) * commandes[quantite])' },
   { nom: 'Taux Utilisation Contrats-Cadres', formule: 'AVERAGE(contrats_cadres[taux_utilisation_pct])' },
 ];
 

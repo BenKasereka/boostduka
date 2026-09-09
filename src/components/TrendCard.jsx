@@ -35,9 +35,10 @@ export default function TrendCard({ label, value, suffix, deltaPct, sparkline, s
   if (size === 'lg') {
     return (
       <div
-        className="dash-card p-5"
-        style={{ background: `radial-gradient(220px circle at 100% -15%, ${tint}1A, transparent 65%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)` }}
+        className="dash-card p-5 pt-[22px]"
+        style={{ background: `radial-gradient(260px circle at 100% -20%, ${tint}26, transparent 60%), linear-gradient(165deg, #FFFFFF 0%, #F1F5F9 100%)` }}
       >
+        <div className="absolute inset-x-0 top-0 h-[3px]" style={{ background: `linear-gradient(90deg, ${tint} 0%, ${tint}99 100%)` }} />
         <div className="flex items-start justify-between gap-3 mb-1">
           <div className="text-[13px] font-semibold text-slate-600 tracking-wide">{label}</div>
           {DeltaBadge || (
@@ -78,9 +79,10 @@ export default function TrendCard({ label, value, suffix, deltaPct, sparkline, s
 
   return (
     <div
-      className="dash-card flex items-center justify-between gap-3 p-4"
-      style={{ background: `radial-gradient(160px circle at 100% -20%, ${tint}1A, transparent 65%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)` }}
+      className="dash-card flex items-center justify-between gap-3 p-4 pt-[18px]"
+      style={{ background: `radial-gradient(180px circle at 100% -25%, ${tint}26, transparent 60%), linear-gradient(165deg, #FFFFFF 0%, #F1F5F9 100%)` }}
     >
+      <div className="absolute inset-x-0 top-0 h-[3px]" style={{ background: tint }} />
       <div className="min-w-0">
         <div className="text-[12px] font-medium text-slate-500 mb-1">{label}</div>
         <div className="text-xl font-bold text-slate-800 tabular-nums tracking-tight">
