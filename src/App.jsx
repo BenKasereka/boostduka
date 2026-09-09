@@ -12,7 +12,7 @@ const SyntheseComparative = lazy(() => import('./pages/SyntheseComparative'));
 const CBA = lazy(() => import('./pages/CBA'));
 const BonDeCommande = lazy(() => import('./pages/BonDeCommande'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
-const ExportPowerBI = lazy(() => import('./pages/ExportPowerBI'));
+const Reception = lazy(() => import('./pages/Reception'));
 const Configuration = lazy(() => import('./pages/Configuration'));
 
 export default function App() {
@@ -31,8 +31,8 @@ export default function App() {
             {activePage === 'synthese' && <SyntheseComparative />}
             {activePage === 'cba' && <CBA />}
             {activePage === 'po' && <BonDeCommande />}
+            {activePage === 'reception' && <Reception />}
             {activePage === 'dashboard' && <Dashboard />}
-            {activePage === 'export-pbi' && <ExportPowerBI />}
             {activePage === 'configuration' && <Configuration />}
           </Suspense>
         </AppShell>

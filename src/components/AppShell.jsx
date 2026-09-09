@@ -10,7 +10,7 @@ const NAV_ITEMS = [
   { key: 'synthese', label: 'Synthèse comparative', etape: 3, ready: true },
   { key: 'cba', label: 'CBA (Bid Analysis)', etape: 4, ready: true },
   { key: 'po', label: 'Bon de Commande (PO)', etape: 4, ready: true },
-  { key: 'export-pbi', label: 'Export Power BI', etape: 6, ready: true },
+  { key: 'reception', label: 'Réception', etape: 5, ready: true },
   { key: 'configuration', label: '⚙ Configuration', etape: 8, ready: true },
 ];
 

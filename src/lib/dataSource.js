@@ -28,7 +28,7 @@ import {
   markArticleDeleted,
 } from './articleStore';
 import { listEvaluations } from './localStore';
-import { getNewCommandes, addCommandesBulk } from './commandeStore';
+import { getNewCommandes, addCommandesBulk, getCommandePatches, patchCommande } from './commandeStore';
 
 // =====================================================================
 // Couche d'acces aux donnees.
@@ -111,7 +111,9 @@ export async function loadTable(table) {
       return rows.concat(getNewArticles()).filter((a) => !deleted.has(a.id)).map(applyPatch);
     }
     if (table === 'commandes' && !isSupabaseConfigured()) {
-      return rows.concat(getNewCommandes());
+      const patches = getCommandePatches();
+      const applyPatch = (c) => (patches[c.id] ? { ...c, ...patches[c.id] } : c);
+      return rows.concat(getNewCommandes()).map(applyPatch);
     }
     return rows;
   })();
@@ -615,6 +617,60 @@ export async function commitCreerCommandes(rows) {
     if (error) throw new Error(`Supabase[commandes insert]: ${error.message}`);
   } else {
     addCommandesBulk(rows);
+  }
+  cache.delete('commandes');
+}
+
+// ---------------------------------------------------------------------
+// Module Réception — dernière étape du cycle (PR -> RFQ -> ... -> PO ->
+// Réception) : confirme la livraison réelle d'une commande, ce qui met
+// à jour en direct les KPIs Livraison du Dashboard (lead time, taux à
+// temps, annulations).
+// ---------------------------------------------------------------------
+async function enrichCommandes(commandes) {
+  const [fournisseurs, articles, sections] = await Promise.all([
+    loadTable('fournisseurs'),
+    loadTable('articles'),
+    loadTable('sections'),
+  ]);
+  const fournisseursById = byId(fournisseurs);
+  const articlesById = byId(articles);
+  const sectionsById = byId(sections);
+  return commandes.map((c) => ({
+    ...c,
+    fournisseur_nom: fournisseursById[c.fournisseur_id]?.nom ?? 'Fournisseur inconnu',
+    article_nom: articlesById[c.article_id]?.nom_article ?? 'Article inconnu',
+    section_nom: sectionsById[c.section_id]?.nom_base ?? '—',
+  }));
+}
+
+// Commandes en attente de réception (statut toujours 'en_cours'), triées
+// par date de livraison prévue — les plus urgentes/en retard en premier.
+export async function listCommandesEnAttente() {
+  const commandes = await loadTable('commandes');
+  const enrichies = await enrichCommandes(commandes.filter((c) => c.statut === 'en_cours'));
+  return enrichies.sort((a, b) => new Date(a.date_livraison_prevue || a.date_po) - new Date(b.date_livraison_prevue || b.date_po));
+}
+
+// Historique complet des réceptions déjà traitées (les plus récentes en
+// premier) — pas de troncature ici : c'est à l'appelant de limiter l'affichage
+// s'il le souhaite, pour ne pas fausser un compteur sur le total réel.
+export async function listCommandesRecues() {
+  const commandes = await loadTable('commandes');
+  const enrichies = await enrichCommandes(commandes.filter((c) => c.statut !== 'en_cours'));
+  return enrichies.sort((a, b) => new Date(b.date_livraison_reelle || b.date_po) - new Date(a.date_livraison_reelle || a.date_po));
+}
+
+// Confirme la réception d'une commande : enregistre la date réelle de
+// livraison et deduit le statut (à temps / en retard) a partir de l'écart
+// avec la date prévue — ou marque la commande comme annulée si elle ne
+// sera finalement jamais livrée.
+export async function commitReceptionCommande(commandeId, patch) {
+  if (isSupabaseConfigured()) {
+    const { error } = await supabase.from('commandes').update(patch).eq('id', commandeId);
+    if (error) throw new Error(`Supabase[commandes update]: ${error.message}`);
+  } else {
+    patchCommande(commandeId, patch);
   }
   cache.delete('commandes');
 }
