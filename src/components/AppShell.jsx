@@ -44,11 +44,19 @@ export default function AppShell({ activePage, onNavigate, children }) {
         </div>
       </aside>
       <main className="flex-1 min-w-0 flex flex-col">
-        <header className="no-print h-14 border-b border-slate-200 bg-white flex items-center px-6 justify-between">
-          <div className="text-sm text-slate-500">
+        <header
+          className={`no-print h-14 flex items-center px-6 justify-between ${
+            activePage === 'dashboard' ? 'dashboard-header' : 'border-b border-slate-200 bg-white'
+          }`}
+        >
+          <div className={`text-sm ${activePage === 'dashboard' ? 'text-white font-medium' : 'text-slate-500'}`}>
             Intersection Procurement — 6 bases opérationnelles RDC
           </div>
-          <div className="text-xs text-emeraude-700 bg-emeraude-50 px-2.5 py-1 rounded-full font-medium">
+          <div
+            className={`text-xs px-2.5 py-1 rounded-full font-medium ${
+              activePage === 'dashboard' ? 'text-emeraude-700 bg-white' : 'text-emeraude-700 bg-emeraude-50'
+            }`}
+          >
             Portfolio Demo
           </div>
         </header>
