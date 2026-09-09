@@ -186,11 +186,11 @@ export default function Dashboard() {
       {!loading && kpis && (
         <>
           {/* Rangée héro — cartes KPI a badges icones */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3.5 mb-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3.5 mb-6">
             <KpiCard icon={IconClock} color="marine" label="Lead time moyen" value={kpis.livraison.leadTimeMoyen.toFixed(1)} suffix="j" />
             <KpiCard icon={IconCheckCircle} color="emeraude" label="Livraison à temps" value={fmtPct(kpis.livraison.tauxLivraisonATemps)} />
             <KpiCard icon={IconTag} color="or" label="Écart prix vs marché" value={fmtPct(kpis.award.ecartPrixMoyen)} hint="Positif = sous le prix moyen" />
-            <KpiCard icon={IconWallet} color="noir" label="Coût évité cumulé" value={fmtUsd(kpis.financier.coutEvite)} />
+            <KpiCard icon={IconWallet} color="noir" label="Coût évité cumulé" value={fmtUsdShort(kpis.financier.coutEvite)} />
             <KpiCard icon={IconFileCheck} color="rouge" label="Utilisation contrats-cadres" value={fmtPct(kpis.contratsCadres.tauxUtilisationMoyen)} />
             <KpiCard icon={IconUsers} color="marine" label="Mise en concurrence" value={fmtPct(kpis.sourcing.tauxMiseEnConcurrence)} hint="Articles avec ≥3 devis" />
           </div>
