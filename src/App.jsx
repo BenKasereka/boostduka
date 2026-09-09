@@ -5,6 +5,7 @@ import { PowerBiLinkProvider } from './lib/PowerBiLinkContext';
 
 const ListePrix = lazy(() => import('./pages/ListePrix'));
 const BaseFournisseurs = lazy(() => import('./pages/BaseFournisseurs'));
+const DemandeInterne = lazy(() => import('./pages/DemandeInterne'));
 const DemandeDevis = lazy(() => import('./pages/DemandeDevis'));
 const ImportDevis = lazy(() => import('./pages/ImportDevis'));
 const SyntheseComparative = lazy(() => import('./pages/SyntheseComparative'));
@@ -24,6 +25,7 @@ export default function App() {
           <Suspense fallback={<div className="text-sm text-slate-400 py-10 text-center">Chargement…</div>}>
             {activePage === 'liste-prix' && <ListePrix />}
             {activePage === 'fournisseurs' && <BaseFournisseurs />}
+            {activePage === 'demande-interne' && <DemandeInterne onNavigate={setActivePage} />}
             {activePage === 'demande-devis' && <DemandeDevis />}
             {activePage === 'import' && <ImportDevis />}
             {activePage === 'synthese' && <SyntheseComparative />}

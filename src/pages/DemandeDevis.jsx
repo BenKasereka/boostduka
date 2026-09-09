@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { listCategories, listArticlesByCategorie, listSections, listFournisseurRows } from '../lib/dataSource';
 import { listRFQs, saveRFQ, deleteRFQ, refFromRFQId } from '../lib/rfqStore';
+import { consumePRPourRFQ, getPR } from '../lib/prStore';
 import { exportToExcel } from '../lib/exportExcel';
 
 function slug(s) {
@@ -212,6 +213,25 @@ export default function DemandeDevis() {
     listSections().then(setSections);
     listFournisseurRows({ statut: 'actif' }).then(setFournisseurs);
     setSavedRFQs(listRFQs());
+
+    // Arrivee depuis une demande interne (PR) finalisee : pre-remplit la
+    // liste d'articles et la section a partir de son contenu.
+    const prId = consumePRPourRFQ();
+    if (prId) {
+      const pr = getPR(prId);
+      if (pr) {
+        setSectionId(pr.section_id || '');
+        setLignes((pr.lignes || []).map((l) => ({
+          article_id: l.article_id,
+          article_nom: l.article_nom,
+          categorie_id: l.categorie_id,
+          categorie_nom: l.categorie_nom,
+          unite_mesure: l.unite_mesure,
+          description_specification: l.description_specification,
+          quantite_souhaitee: l.quantite_demandee || 1,
+        })));
+      }
+    }
   }, []);
 
   const categorieIdsDansDemande = useMemo(() => new Set(lignes.map((l) => l.categorie_id)), [lignes]);

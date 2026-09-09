@@ -4,6 +4,7 @@ const NAV_ITEMS = [
   { key: 'dashboard', label: 'Dashboard KPI', etape: 5, ready: true },
   { key: 'liste-prix', label: 'Liste de Prix', etape: 2, ready: true },
   { key: 'fournisseurs', label: 'Base Fournisseurs', etape: 2, ready: true },
+  { key: 'demande-interne', label: 'Demande Interne (PR)', etape: 1, ready: true },
   { key: 'demande-devis', label: 'Demande de devis (RFQ)', etape: 7, ready: true },
   { key: 'import', label: 'Import de devis', etape: 7, ready: true },
   { key: 'synthese', label: 'Synthèse comparative', etape: 3, ready: true },
