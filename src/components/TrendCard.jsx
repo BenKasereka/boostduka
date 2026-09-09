@@ -1,12 +1,23 @@
-import { AreaChart, Area, ResponsiveContainer, Tooltip } from 'recharts';
+import { AreaChart, Area, ResponsiveContainer, Tooltip, XAxis } from 'recharts';
+
+function formatMois(mois) {
+  if (!mois) return '';
+  const [y, m] = mois.split('-').map(Number);
+  return new Date(y, m - 1, 1).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+}
 
 // size="sm" (defaut) : mini-sparkline compacte, chiffre + courbe cote a cote.
 // size="lg" : carte "hero" — chiffre en avant, courbe pleine largeur en dessous,
 // pensee pour etre la premiere chose vue sur le dashboard (impact visuel fort).
-export default function TrendCard({ label, value, suffix, deltaPct, sparkline, size = 'sm' }) {
+//
+// sparkline attend [{ mois: 'YYYY-MM', value: number }] — le mois voyage avec
+// la valeur pour pouvoir etre affiche au survol (sinon le tooltip n'a que
+// l'index du point, pas une date lisible).
+export default function TrendCard({ label, value, suffix, deltaPct, sparkline, size = 'sm', formatValue }) {
   const positive = deltaPct >= 0;
   const tint = positive ? '#047857' : '#DC2626';
-  const data = (sparkline || []).map((v, i) => ({ i, v }));
+  const data = (sparkline || []).map((d, i) => ({ i, v: d.value, mois: d.mois }));
+  const fmt = formatValue || ((v) => `${v}${suffix ? ` ${suffix}` : ''}`);
   // Un id de gradient SVG avec espaces/accents casse silencieusement la
   // reference fill="url(#...)" (fragment invalide) — d'ou le slug.
   const gradientId = `spark-${size}-${label.normalize('NFD').replace(/[^a-zA-Z0-9]+/g, '-')}`;
@@ -23,7 +34,10 @@ export default function TrendCard({ label, value, suffix, deltaPct, sparkline, s
 
   if (size === 'lg') {
     return (
-      <div className="bg-white rounded-2xl border border-slate-100 p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
+      <div
+        className="dash-card p-5"
+        style={{ background: `radial-gradient(220px circle at 100% -15%, ${tint}1A, transparent 65%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)` }}
+      >
         <div className="flex items-start justify-between gap-3 mb-1">
           <div className="text-[13px] font-semibold text-slate-600 tracking-wide">{label}</div>
           {DeltaBadge || (
@@ -46,11 +60,12 @@ export default function TrendCard({ label, value, suffix, deltaPct, sparkline, s
                     <stop offset="100%" stopColor={tint} stopOpacity={0} />
                   </linearGradient>
                 </defs>
+                <XAxis dataKey="mois" hide />
                 <Tooltip
                   cursor={{ stroke: tint, strokeWidth: 1, strokeDasharray: '3 3' }}
                   contentStyle={{ fontSize: 11, borderRadius: 8, border: '1px solid #E2E8F0' }}
-                  labelFormatter={() => ''}
-                  formatter={(v) => [v, label]}
+                  labelFormatter={(mois) => formatMois(mois)}
+                  formatter={(v) => [fmt(v), label]}
                 />
                 <Area type="monotone" dataKey="v" stroke={tint} strokeWidth={2.5} fill={`url(#${gradientId})`} />
               </AreaChart>
@@ -62,7 +77,10 @@ export default function TrendCard({ label, value, suffix, deltaPct, sparkline, s
   }
 
   return (
-    <div className="flex items-center justify-between gap-3 bg-white rounded-2xl border border-slate-100 p-4 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
+    <div
+      className="dash-card flex items-center justify-between gap-3 p-4"
+      style={{ background: `radial-gradient(160px circle at 100% -20%, ${tint}1A, transparent 65%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)` }}
+    >
       <div className="min-w-0">
         <div className="text-[12px] font-medium text-slate-500 mb-1">{label}</div>
         <div className="text-xl font-bold text-slate-800 tabular-nums tracking-tight">

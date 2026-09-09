@@ -37,6 +37,16 @@
   /* Fond du Dashboard KPI : degrade sombre melangeant les 3 couleurs de
      marque (marine/emeraude/or) pour un rendu "BI premium" — les cartes
      restent blanches et inchangees, seul le fond derriere elles change. */
+  /* Carte Dashboard (KPI/Panel/TrendCard) : degrade tres doux + ombre portee
+     ample teintee marine, pour que la carte se detache franchement du fond
+     sombre au lieu du plat "shadow-sm" qui s'y noyait presque. Le fond exact
+     (degrade neutre +/- glow colore) est complete en inline style par chaque
+     composant, car la teinte du glow varie selon la carte (voir KpiCard). */
+  .dash-card {
+    @apply rounded-2xl border border-white/80;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 24px 44px -22px rgba(15, 28, 66, 0.55);
+  }
+
   .dashboard-backdrop {
     background:
       radial-gradient(1100px circle at 12% -10%, rgba(4, 120, 87, 0.30), transparent 55%),

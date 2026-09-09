@@ -28,7 +28,10 @@ function fmtUsdShort(v) {
 
 function Panel({ title, subtitle, action, children, className = '' }) {
   return (
-    <div className={`bg-white rounded-2xl border border-slate-100 p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ${className}`}>
+    <div
+      className={`dash-card p-5 ${className}`}
+      style={{ background: `radial-gradient(220px circle at 100% -20%, rgba(30,58,138,0.05), transparent 65%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)` }}
+    >
       <div className="flex items-start justify-between mb-4 gap-3">
         <div>
           <h3 className="text-[13px] font-semibold text-slate-800 tracking-wide">{title}</h3>
@@ -195,38 +198,10 @@ export default function Dashboard() {
 
       {!loading && kpis && (
         <>
-          {/* Rangée héro — les tendances (courbes) en tout premier, pour que la
-              dynamique du dashboard se voie avant les chiffres bruts. */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
-            <TrendCard
-              size="lg"
-              label="Lead time moyen"
-              value={kpis.livraison.leadTimeMoyen.toFixed(1)}
-              suffix="j"
-              deltaPct={improvementPct(kpis.livraison.leadTimeMoyen, prevKpis?.livraison.leadTimeMoyen, false, { curSample: kpis.needsAssessment.nbPR, prevSample: prevKpis?.needsAssessment.nbPR })}
-              sparkline={kpis.livraison.leadTimeParMois.map((m) => m.leadTime)}
-            />
-            <TrendCard
-              size="lg"
-              label="Coût évité cumulé"
-              value={fmtUsdShort(kpis.financier.coutEvite)}
-              deltaPct={improvementPct(kpis.financier.coutEvite, prevKpis?.financier.coutEvite, true, { curSample: kpis.needsAssessment.nbPR, prevSample: prevKpis?.needsAssessment.nbPR })}
-              sparkline={kpis.financier.coutEviteParMois.map((m) => m.montant)}
-            />
-          </div>
-
-          {/* Cartes KPI a badges icones — support des courbes ci-dessus */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3.5 mb-6">
-            <KpiCard icon={IconClock} color="marine" label="Lead time moyen" value={kpis.livraison.leadTimeMoyen.toFixed(1)} suffix="j" />
-            <KpiCard icon={IconCheckCircle} color="emeraude" label="Livraison à temps" value={fmtPct(kpis.livraison.tauxLivraisonATemps)} />
-            <KpiCard icon={IconTag} color="or" label="Écart prix vs marché" value={fmtPct(kpis.award.ecartPrixMoyen)} hint="Positif = sous le prix moyen" />
-            <KpiCard icon={IconWallet} color="noir" label="Coût évité cumulé" value={fmtUsdShort(kpis.financier.coutEvite)} />
-            <KpiCard icon={IconFileCheck} color="rouge" label="Utilisation contrats-cadres" value={fmtPct(kpis.contratsCadres.tauxUtilisationMoyen)} />
-            <KpiCard icon={IconUsers} color="marine" label="Mise en concurrence" value={fmtPct(kpis.sourcing.tauxMiseEnConcurrence)} hint="Articles avec ≥3 devis" />
-          </div>
-
-          {/* Deux grands donuts */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-6">
+          {/* Rangée héro — la visibilité sur le volume d'achats (exposition
+              budgétaire + performance livraison) passe avant tout le reste :
+              c'est la première chose qui doit se voir. */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-5">
             <Panel title="Répartition budgétaire par catégorie" subtitle="Top 4 catégories + reste, sur la période filtrée">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
                 {(() => {
@@ -277,7 +252,38 @@ export default function Dashboard() {
             </Panel>
           </div>
 
-          <Panel title="Échéances contrats-cadres" subtitle="90 prochains jours" className="mb-6">
+          {/* Tendances (courbes) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+            <TrendCard
+              size="lg"
+              label="Lead time moyen"
+              value={kpis.livraison.leadTimeMoyen.toFixed(1)}
+              suffix="j"
+              deltaPct={improvementPct(kpis.livraison.leadTimeMoyen, prevKpis?.livraison.leadTimeMoyen, false, { curSample: kpis.needsAssessment.nbPR, prevSample: prevKpis?.needsAssessment.nbPR })}
+              sparkline={kpis.livraison.leadTimeParMois.map((m) => ({ mois: m.mois, value: m.leadTime }))}
+              formatValue={(v) => `${v.toFixed(1)} j`}
+            />
+            <TrendCard
+              size="lg"
+              label="Coût évité cumulé"
+              value={fmtUsdShort(kpis.financier.coutEvite)}
+              deltaPct={improvementPct(kpis.financier.coutEvite, prevKpis?.financier.coutEvite, true, { curSample: kpis.needsAssessment.nbPR, prevSample: prevKpis?.needsAssessment.nbPR })}
+              sparkline={kpis.financier.coutEviteParMois.map((m) => ({ mois: m.mois, value: m.montant }))}
+              formatValue={fmtUsdShort}
+            />
+          </div>
+
+          {/* Cartes KPI a badges icones */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
+            <KpiCard icon={IconClock} color="marine" label="Lead time moyen" value={kpis.livraison.leadTimeMoyen.toFixed(1)} suffix="j" />
+            <KpiCard icon={IconCheckCircle} color="emeraude" label="Livraison à temps" value={fmtPct(kpis.livraison.tauxLivraisonATemps)} />
+            <KpiCard icon={IconTag} color="or" label="Écart prix vs marché" value={fmtPct(kpis.award.ecartPrixMoyen)} hint="Positif = sous le prix moyen" />
+            <KpiCard icon={IconWallet} color="noir" label="Coût évité cumulé" value={fmtUsdShort(kpis.financier.coutEvite)} />
+            <KpiCard icon={IconFileCheck} color="rouge" label="Utilisation contrats-cadres" value={fmtPct(kpis.contratsCadres.tauxUtilisationMoyen)} />
+            <KpiCard icon={IconUsers} color="marine" label="Mise en concurrence" value={fmtPct(kpis.sourcing.tauxMiseEnConcurrence)} hint="Articles avec ≥3 devis" />
+          </div>
+
+          <Panel title="Échéances contrats-cadres" subtitle="90 prochains jours" className="mb-5">
             {kpis.contratsCadres.echeancesProches.length === 0 ? (
               <p className="text-xs text-slate-400 py-2">Aucune échéance dans les 90 prochains jours.</p>
             ) : (
@@ -303,7 +309,7 @@ export default function Dashboard() {
           </Panel>
 
           {/* Rangée basse : sourcing / top fournisseurs / gauge contrats */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <Panel title="Sourcing par catégorie" subtitle="Fournisseurs consultés, top 6">
               {kpis.sourcing.parCategorieChart.slice(0, 6).map((c) => (
                 <ProgressRow key={c.categorie} label={c.categorie} value={c.fournisseurs} max={kpis.sourcing.parCategorieChart[0]?.fournisseurs || 1} />
@@ -348,7 +354,7 @@ export default function Dashboard() {
           </div>
 
           {/* Performance fournisseur */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
             <Panel title="Performance fournisseur — Top 5" subtitle="Fournisseurs avec ≥3 commandes sur la période">
               {kpis.performanceFournisseur.top5.map((f) => (
                 <div key={f.fournisseur_id} className="flex items-center justify-between gap-3 py-2 border-b border-slate-50 last:border-0">
