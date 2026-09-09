@@ -15,7 +15,7 @@ const ExportPowerBI = lazy(() => import('./pages/ExportPowerBI'));
 const Configuration = lazy(() => import('./pages/Configuration'));
 
 export default function App() {
-  const [activePage, setActivePage] = useState('liste-prix');
+  const [activePage, setActivePage] = useState('dashboard');
 
   return (
     <DevisePreferenceProvider>
