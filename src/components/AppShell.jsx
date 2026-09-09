@@ -16,8 +16,28 @@ const NAV_ITEMS = [
 export default function AppShell({ activePage, onNavigate, children }) {
   return (
     <div className="app-shell-root h-screen flex overflow-hidden">
-      <aside className="no-print w-64 shrink-0 bg-marine-700 text-white flex flex-col h-full overflow-y-auto">
-        <div className="px-5 py-6 border-b border-white/10">
+      <aside className="no-print relative w-64 shrink-0 bg-marine-700 text-white flex flex-col h-full overflow-y-auto">
+        {/* Bordure "bleu verdâtre" — meme degrade emeraude -> marine que la
+            barre d'en-tete du Dashboard, pour que le fil conducteur de la
+            charte graphique se voie sur toute l'application, pas seulement
+            sur une page. Plus large + lueur plus marquee pour rester lisible
+            a cote du vert vif de l'en-tete Dashboard (sinon la jonction des
+            deux blocs de couleur choque au lieu de s'enchainer). */}
+        <div
+          className="absolute inset-y-0 right-0 w-1 pointer-events-none z-10"
+          style={{
+            background: 'linear-gradient(180deg, #059669 0%, #0E7C86 45%, #1E3A8A 100%)',
+            boxShadow: '0 0 18px 2px rgba(14, 124, 134, 0.65)',
+          }}
+        />
+        {/* Sur le Dashboard, une lueur emeraude en haut du sidebar fait
+            l'appoint entre le bloc logo (marine plein) et le vert vif de
+            l'en-tete juste a cote — sans ca, la jonction des deux blocs de
+            couleur est un choc plutot qu'une transition. */}
+        <div
+          className="px-5 py-6 border-b border-white/10 relative"
+          style={activePage === 'dashboard' ? { background: 'linear-gradient(135deg, rgba(5,150,105,0.35) 0%, transparent 70%)' } : undefined}
+        >
           <div className="text-xs uppercase tracking-widest text-marine-100/70">VISIBA Logistics Group</div>
           <div className="text-lg font-semibold leading-tight mt-1">BoostDuka</div>
         </div>
